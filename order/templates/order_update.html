@@ -1,0 +1,1077 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">{{ instance.date }} - {{ instance }}</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ instance }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-3">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="card-title">Transition / Transformation</h5>
+
+                        </div>
+                        <div class="card-body" >
+                                      <div class="row">
+                                          <div class="col-md-7" style="font-size:17px; color:#007bff">Desc.</div>
+                                          <div class="col-md-5" style="font-size:17px; color:#007bff">Hrs</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-7" style="font-size:12px">1st-Ln Mgr.</div>
+                                          <div class="col-md-5" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-7" style="font-size:12px">2nd-Ln Mgr.</div>
+                                          <div class="col-md-5" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-7" style="font-size:12px"># Weeks</div>
+                                          <div class="col-md-5" style="font-size:12px">12</div>
+                                      </div>
+                                    <span class="info-box-number">
+                                          <div class="row">
+                                          <div class="col-md-7" style="font-size:10px">Total Hours</div>
+                                          <div class="col-md-5" style="font-size:10px; color:#ffd800"><span class="info-box-number">4,410</span></div>
+                                      </div>
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="card-title">Services & Components:</h5>
+
+                        </div>
+                        <div class="card-body" >
+                                   <div class="row">
+                                          <div class="col-md-6" style="font-size:17px; color:#007bff">Desc.</div>
+                                          <div class="col-md-3" style="font-size:17px; color:#ffd800">Hrs</div>
+                                          <div class="col-md-3" style="font-size:17px; color:#007bff">FTE</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Combined Svcs</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Components</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Custom Optns</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                   <span class="info-box-number">
+                                          <div class="row">
+                                          <div class="col-md-6" style="font-size:10px">Total Hours</div>
+                                          <div class="col-md-3" style="font-size:10px; color:#ffd800"><span class="info-box-number">3,410</span></div>
+                                          <div class="col-md-3" style="font-size:10px"><span class="info-box-number">410</span></div>
+                                      </div>
+                                    </span>
+
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="card-title">Add'l Svc & Mgmnt:</h5>
+
+                        </div>
+                        <div class="card-body" >
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:16px; color:#007bff">Desc.</div>
+                                          <div class="col-md-3" style="font-size:16px; color:#ffd800">Hrs</div>
+                                          <div class="col-md-3" style="font-size:16px; color:#007bff">FTE</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Add'l Services</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">1st-Ln Mgr.</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">2nd-Ln Mgr</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                   <span class="info-box-number">
+                                          <div class="row">
+                                          <div class="col-md-6" style="font-size:10px">Total Hours</div>
+                                          <div class="col-md-3" style="font-size:10px; color:#ffd800"><span class="info-box-number">4,410</span></div>
+                                          <div class="col-md-3" style="font-size:10px"><span class="info-box-number">1.5</span></div>
+
+                                      </div>
+                                    </span>
+
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="card-title">Product & Delivery:</h5>
+
+                        </div>
+                        <div class="card-body" >
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:16px; color:#007bff">Desc.</div>
+                                          <div class="col-md-3" style="font-size:16px; color:#ffd800">Hrs</div>
+                                          <div class="col-md-3" style="font-size:16px; color:#007bff">FTE</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Products</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">Labor</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6" style="font-size:12px">2nd-Ln Mgr</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                          <div class="col-md-3" style="font-size:12px">0</div>
+                                      </div>
+                                   <span class="info-box-number">
+                                          <div class="row">
+                                          <div class="col-md-6" style="font-size:10px">Total Hours</div>
+                                          <div class="col-md-3" style="font-size:10px; color:#ffd800"><span class="info-box-number">4,410</span></div>
+                                          <div class="col-md-3" style="font-size:10px"><span class="info-box-number">2.5</span></div>
+                                      </div>
+                                    </span>
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+
+
+
+
+                                  <hr />
+            <div class="row">
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+             <div class="card">
+                        <div class="header">
+                            <h5 class="card-title">Products</h5>
+                            <input data-href='{% url "ajax-search" instance.id %}' type="text" class="form-control search_button" placeholder="Search">
+                        </div>
+                        <div class="card-body" id="product_container">
+
+                            {% include 'include/product_container.html' %}
+                        </div>
+                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+            </div>
+            <div class="row">
+<!--                <div class="col-md-4">-->
+<!--                    <div class="card">-->
+<!--                        <div class="header">-->
+<!--                            <h5 class="card-title">Products</h5>-->
+<!--                            <input data-href='{% url "ajax-search" instance.id %}' type="text" class="form-control search_button" placeholder="Search">-->
+<!--                        </div>-->
+<!--                        <div class="card-body" id="product_container2">-->
+
+<!--                            {% include 'include/product_container.html' %}-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="col-md-1">
+
+                    <div class="row">
+                        <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          Add Product
+                        </button>
+                    </div>
+                    <div class="row">.</div>
+                    <div class="row">
+                         <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          Add'l  Costs
+                        </button>
+                    </div>
+                    <div class="row">.</div>
+                    <div class="row">
+                          <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          T&T Wrksht
+                        </button>
+                    </div>
+                    <div class="row">.</div>
+                    <div class="row" content="align-center">
+                           <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          Acct/RFS
+                        </button>
+                    </div>
+                    <div class="row">.</div>
+                    <div class="row">
+                                                   <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          Overview
+                        </button>
+                    </div>
+                    <div class="row">.</div>
+                    <div class="row">
+                        <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          Modifications
+                        </button></div>
+                    <div class="row">.</div>
+                    <div class="row">
+                           <!-- Button trigger modal -->
+                       <button type="<button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                          GBO View
+                        </button>
+                    </div>
+                    <div class="row"></div>
+
+
+
+
+                </div>
+                <div class="col-md-10">
+                    <div class="card">
+                        <div id='order_item_container' class="card-body">
+                            {% include 'include/order_container.html' %}
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="header">Edit</div>
+                        <div class="card-body">
+                            <form method="post" class="form">{% csrf_token %}
+                                {{ form }}
+                                <br>
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+                <div class="col-md-1"></div>
+
+
+        </div>
+        </div>
+
+
+
+    </div>
+        <div  class="modal fade" id="AddOrderitem" role="dialog" aria-hidden="true">
+    <!-- Button trigger modal -->
+
+    <form method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add/Update Sizing Detail</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                  <div class="modal-body">
+                    {% csrf_token %}
+                    <input type="hidden" name="orderitemid" id="orderitemid" /><!--i use this for edit and delete-->
+
+                    <a>Edit Sizing Detail</a>
+
+          <fieldset>
+        <legend></legend>
+
+        <div id="div_id_orderitem.numserver" class="ctrlHolder">
+            <label for="id_orderitem.numserver" class="requiredField">Enter/Adjust the # of Servers?<span class="asteriskField">*</span></label>
+            <input id="id_orderitem.numserver" class="textinput textInput" type="text" name="numserver" maxlength="80" required="required" />
+        </div>
+        <div id="div_id_numworkstation" class="ctrlHolder">
+            <label for="id_numworkstation" class="requiredField">Enter/Adjust the # of Workstations?<span class="asteriskField">*</span></label>
+            <input id="id_numworkstation" class="textinput textInput" type="text" name="numworkstation" maxlength="80" required="required" />
+        </div>
+        <div id="div_id_numipaddress" class="ctrlHolder">
+            <label for="id_numipaddress">Enter/Adjust the # of Ip Addresses/EndPoints?</label>
+            <input id="id_numipaddress" type="text" name="numipaddress" class="textinput textInput" />
+        </div>
+
+    </fieldset>
+                  </div>
+                  <div class="form-group">
+                    <div class="alert alert-success" id="ins_success" style="display:none">
+
+                    </div>
+                     <div class="alert alert-danger" id="ins_error" style="display:none">
+
+                    </div>
+                </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" id="btn-insert-data" class="btn btn-success">Save</button>
+                       <div id="msg" class="alert alert-danger" style="display:none"></div>
+                     </div>
+
+              </div>
+        </div>
+    </form>
+
+</div>
+
+<!--<pre> <div class="modal fade" id="modal-Edit">-->
+<!--                    <div class="modal-dialog">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
+<!--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                    <span aria-hidden="true">×</span>-->
+<!--                                </button>-->
+<!--                                <h4 class="modal-title">Edit Appointments</h4>-->
+<!--                            </div>-->
+<!--                            @using (Html.BeginForm())-->
+<!--                            {-->
+<!--                                <div class="modal-body">-->
+
+<!--                                    <div class="form-horizontal">-->
+<!--                                        <div class="form-group" style="display:none;">-->
+<!--                                            <label id="lblAppointmentIdEdit" class="control-label col-md-2">AppointmentId:</label>-->
+<!--                                            <div class="col-md-10">-->
+<!--                                                <input type="text" value="" id="AppointmentIdEdit" name="AppointmentIdEdit" class="form-control appointmentIdEdit" />-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="form-group">-->
+<!--                                            <label id="lblPatientRegNoEdit" class="control-label col-md-2">RegNo:</label>-->
+<!--                                            <div class="col-md-10">-->
+<!--                                                <input type="text" value="" id="patientRegNoEdit" name="patientRegNoEdit" class="form-control patientRegNoEdit" />-->
+
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="form-group">-->
+<!--                                            <label id="appointmentDateEdit" class="control-label col-md-2">Date:</label>-->
+<!--                                            <div class="col-md-10">-->
+<!--                                                <div class='input-group date' id='datetimepickerEdit'>-->
+<!--                                                    <input type='text' class="form-control datetimepickerEdit" id="appointmentDateEdit" name="appointmentDateEdit" value="" />-->
+<!--                                                    <span class="input-group-addon datetimepicker-addonEdit">-->
+<!--                                                        <span class="glyphicon glyphicon-calendar"></span>-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="form-group">-->
+<!--                                            <label id="lblReasonsEdit" class="control-label col-md-2">Reason(s):</label>-->
+<!--                                            <div class="col-md-10">-->
+<!--                                                <textarea rows="4" cols="50" id="reasonsEdit" name="reasonsEdit" class="form-control reasonsEdit"></textarea>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+
+<!--                                </div>-->
+<!--                            }-->
+<!--                            <div class="modal-footer">-->
+<!--                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
+<!--                                <button type="submit" id="UpdateButton" name="UpdateButton" class="btn btn-primary update">Update</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--<form method="POST">-->
+
+<!--        <div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <div class="col-md-10">-->
+<!--                &lt;!&ndash; id="orderitem-table" is for ajax crud&ndash;&gt;-->
+<!--                <table id="orderitem-table"-->
+<!--                    class="table table-sm table-responsive-sm table-hover table-striped text-nowrap table-bordered"-->
+<!--                    width="100%" style="margin-left:12%;">-->
+<!--                    <thead class="thead-dark">-->
+<!--                        <tr>-->
+
+<!--                            <th>Id</th>-->
+<!--                            <th># Wkstns</th>-->
+
+<!--                            <th>Wkstn Hrs.</th>-->
+
+<!--                            <th># Srvrs</th>-->
+<!--                            <th>Srvr Hrs.</th>-->
+<!--                            <th># IP/EP</th>-->
+<!--                            <th>IP/EP Hrs</th>-->
+
+<!--                            <th>Ttl/Hrs</th>-->
+<!--                            <th># Endpoint</th>-->
+<!--                            <th># Consoles</th>-->
+<!--                            <th>Base</th>-->
+<!--                            <th>Hrs.</th>-->
+
+<!--                        </tr>-->
+<!--                    </thead>-->
+
+<!--                    <tbody id="get_table_body">-->
+<!--                        &lt;!&ndash;get_table_body is for ajax search&ndash;&gt;-->
+
+
+<!--                        {% for orderitem in orderitems %}-->
+
+<!--                        <tr>-->
+
+<!--                            &lt;!&ndash; <td>{{order.orderitem.name}}</td> &ndash;&gt;-->
+
+<!--                            <td>{{orderitem.id}}</td>-->
+<!--&lt;!&ndash;                            <td class="editable" data-id="{{ student.id }}" data-type="name">{{ student.name }}</td>&ndash;&gt;-->
+<!--                            <td class="editable" data-id="{{ orderitem.id }}" data-type="numworkstation">{{orderitem.numworkstation}}</td>-->
+<!--                            <td>{{orderitem.wkstnshourscalc}}</th>-->
+<!--                            <td class="editable" data-id="{{ orderitem.id }}" data-type="numserver">{{orderitem.numserver}}</td>-->
+<!--&lt;!&ndash;                            <td>{{orderitem.numserver}}</td>&ndash;&gt;-->
+<!--                            <td>{{orderitem.srvshourscalc}} {{orderitem.unit}}</td>-->
+<!--                            <td class="editable" data-id="{{ orderitem.id }}" data-type="numipaddress">{{orderitem.numipaddress}}</td>-->
+<!--&lt;!&ndash;                            <td>{{orderitem.numipaddress}}</td>&ndash;&gt;-->
+<!--                            <td>{{orderitem.ipshourscalc}}</td>-->
+<!--                            <td>{{orderitem.tag_final_totalhourscalc}}</td>-->
+<!--                            <td>{{orderitem.total_endpoints}}</td>-->
+<!--                            <td>{{orderitem.qty}}</td>-->
+<!--                            <td>{{orderitem.price}}</td>-->
+<!--                            <td>{{orderitem.tag_line_base_hours}}</td>-->
+
+
+
+<!--                            <td>-->
+<!--                                <button type="button"  data-pid="{{orderitem.id}}" data-target="#AddOrderitem"-->
+<!--                                    data-toggle="modal" class="btn btn-success btn-sm btn-edit ">-->
+<!--                                    <i class="fas fa-edit"></i></button>-->
+
+
+<!--                                    <button type="button" data-pid="{{orderitem.id}}"-->
+<!--                                        class="ml-1 btn btn-danger btn-sm btn-del"><i-->
+<!--                                            class="fas fa-trash-alt"></i></button>-->
+<!--&lt;!&ndash;                                    <input type="button" value="+Add New" class="btn btn-danger" data-toggle="modal" data-target="#modal-default" style="float:right; margin:10px 10px 10px 0;" />&ndash;&gt;-->
+<!--                                    <span class="btn btn-info btn-sm edit" style="cursor:pointer;" data-toggle="modal" data-target="#modal-Edit"></span>-->
+
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        {% empty %}-->
+<!--                        <tr>-->
+<!--                            <td colspan="7" class=" text-center alert alert-danger">No Orderitem Found</td>-->
+<!--                        </tr>-->
+
+<!--                        {% endfor %}-->
+
+
+
+<!--                    </tbody>-->
+<!--                </table>-->
+
+
+
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--</form>-->
+
+<hr>
+<!--	<style type="text/css">-->
+<!--&lt;!&ndash;		body {&ndash;&gt;-->
+<!--&lt;!&ndash;			background: rgb(54,217,182);&ndash;&gt;-->
+<!--&lt;!&ndash;			background: linear-gradient(90deg, rgba(54,217,182,1) 0%, rgba(32,152,126,1) 43%, rgba(0,212,255,1) 100%);&ndash;&gt;-->
+<!--&lt;!&ndash;		}&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;		h1, h2, h3, h4, h5, p, span, strike {&ndash;&gt;-->
+<!--&lt;!&ndash;			font-family: 'Montserrat', sans-serif;&ndash;&gt;-->
+<!--&lt;!&ndash;		}&ndash;&gt;-->
+
+
+<!--		#task-container {-->
+<!--			max-width: 900px;-->
+<!--			margin: 0 auto;-->
+<!--			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);-->
+<!--			background-color: #fff;-->
+<!--			margin-top: 100px;-->
+<!--			margin-bottom: 100px;-->
+<!--			justify-content: space-around;-->
+<!--			align-items: flex-start;-->
+<!--		}-->
+
+<!--		#form-wrapper {-->
+<!--			position: -webkit-sticky;-->
+<!--			position: sticky;-->
+<!--			top: 0rem;-->
+<!--			border-bottom: 1px solid #e9e9e9;-->
+<!--			background-color: #fff;-->
+<!--			box-shadow: 0 3px 8px rgba(0,0,0,0.25);-->
+<!--			padding: 40px;-->
+<!--		}-->
+
+<!--		#submit {-->
+<!--			background-color: #36d9b6;-->
+<!--			border-radius: 0;-->
+<!--			border: 0;-->
+<!--			color: #fff;-->
+<!--		}-->
+
+<!--		.flex-wrapper {-->
+<!--			display: flex;-->
+<!--		}-->
+
+<!--		.task-wrapper {-->
+<!--			margin: 5px;-->
+<!--			padding: 5px;-->
+<!--			padding: 20px;-->
+<!--			cursor: pointer;-->
+<!--			border-bottom: 1px solid #e9e9e9;-->
+<!--			color: #686868;-->
+<!--		}-->
+<!--	</style>-->
+<!--	<div class="container">-->
+<!--&lt;!&ndash;		<div class="jumbotron">&ndash;&gt;-->
+<!--&lt;!&ndash;		<h1>ESS Sizing Tool</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;		</div>&ndash;&gt;-->
+<!--		<div id="task-container">-->
+<!--			<div id="form-wrapper">-->
+<!--				<form id="form">-->
+<!--					<div class="flex-wrapper">-->
+<!--						<div style="flex: 3">-->
+<!--							<input id="title" class="form-control" type="text" name="title" placeholder="Add task">-->
+<!--						</div>-->
+<!--						<div style="flex: 2">-->
+<!--							<input id="addlconsole" class="form-control" type="text" name="addlconsole" placeholder="Add">-->
+<!--						</div>-->
+<!--						<div style="flex: 1">-->
+<!--							<input id="numserver" class="form-control" type="text" name="numserver" placeholder="Add task">-->
+<!--						</div>-->
+<!--						<div style="flex: 1">-->
+<!--							<input id="numworkstation" class="form-control" type="text" name="numworkstation" placeholder="Add task">-->
+<!--						</div>-->
+<!--						<div style="flex: 1">-->
+<!--							<input id="productcomplexitybase" class="form-control" type="text" name="productcomplexitybase" placeholder="Add task">-->
+<!--						</div>-->
+<!--						<div style="flex: 1">-->
+<!--							<input id="productcomplexityfac" class="form-control" type="text" name="productcomplexityfac" placeholder="Add task">-->
+<!--						</div>-->
+<!--						<div style="flex: 2">-->
+<!--							<input id="submit" class="btn" type="submit">-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</form>-->
+<!--			</div>-->
+
+<!--			<div id="list-wrapper">-->
+
+<!--			</div>-->
+<!--		</div>-->
+
+<!--	</div>-->
+
+{% endblock %}
+
+{% block extra_js %}
+    {% include 'include/ajax_calls.html' %}
+
+{% endblock extra_js %}
+
+
+<script>
+$('#exampleModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
+
+<script>
+    $(document).ready(function () {
+
+      /* Functions */
+
+      var loadForm = function () {
+
+        var btn = $(this);
+        $.ajax({
+          url: btn.attr("data-url"),
+
+          type: 'get',
+          dataType: 'json',
+          beforeSend: function () {
+
+            $("#modal-orderitem .modal-content").html("");//optional--html() return innerHtml of selected elements
+            $("#modal-orderitem").modal("show");
+          },
+          success: function (data) {
+
+            $("#modal-orderitem .modal-content").html(data.html_form);//model-orderitem and model content is in index.html below tabel which will show form pop up
+
+          }
+        });
+      };
+
+      var saveForm = function () {
+        var form = $(this);
+        console.log(form.serialize())
+        $.ajax({
+          headers: {'X-CSRFToken': csrftoken},
+          url: form.attr("action"),//sending request to this url by passing form input data
+          data: form.serialize(),
+          type: form.attr("method"),
+          dataType: 'json',
+          // async : 'false',
+          // dataType: "script",
+
+
+
+          success : function (data) {//this is the response after data is save to database
+
+            if (data.form_is_valid) {//means if data['form_is_valid'] = True in views.py
+
+            alert("successful")
+            // console.log(data.html_orderitem_list)
+
+             $("#modal-orderitem .close").click();// Close the modal form
+
+
+
+             $("#orderitem-table tbody").html('').append(jQuery.parseHTML(data.html_orderitem_list));
+
+            // html('').append(jQuery.parseHTML(data, document, true));
+            // <-- Replace the table body
+              //Goto id="orderitem-table"  tbody and then pass data in tbody contain in data.html_orderitem_list
+
+            //  $("#modal-orderitem").modal('hide');//--similar but differ in some version
+            }
+
+            else {// data['form_is_valid'] = False
+            //if false then show the same form with respective warning
+
+              $("#modal-orderitem .modal-content").html(data.html_form);//$("#server-results").html(response);
+            }
+
+          }
+        });
+        return false;
+      };
+
+
+      $(".js-orderitem-create").click(loadForm);
+      $("#modal-orderitem").on("submit", ".js-orderitem-create-form", saveForm);
+
+
+      $("#orderitem-table").on("click", ".js-orderitem-update", loadForm);
+      $("#modal-orderitem").on("submit", ".js-orderitem-update-form", saveForm);
+
+
+      $("#orderitem-table").on("click", ".js-orderitem-delete", loadForm);
+      $("#modal-orderitem").on("submit", ".js-orderitem-delete-form", saveForm);
+
+    });
+
+    getCookie = (name) => {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+
+
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+    $("#prod_vendor").change(function () {
+        const prodvendor_id = $(this).val();  // get the selected subject ID from the HTML dropdown list
+        $.ajax({                       // initialize an AJAX request
+            type: "POST",
+            url: '{% url "ajax_get_products" %}',
+            data: {
+                'prodvendor_id': id,       // add the country id to the POST parameters
+                'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success: function (data) {   // `data` is from `ajax_get_products` view function
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (data) {
+                    html_data += `<option value="${data.id}">${data.vendorname}</option>`
+                });
+                $("#avproduct").html(html_data); // replace the contents of the topic input with the data that came from the server
+            }
+        });
+    });
+</script>
+
+<!--Editable Rows JS-->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $(document).on("dblclick",".editable",function(){-->
+<!--                var value=$(this).text();-->
+<!--                var data_type=$(this).data("type");-->
+<!--                var input_type="text";-->
+<!--&lt;!&ndash;                if(data_type=="created_at")&ndash;&gt;-->
+<!--&lt;!&ndash;                {&ndash;&gt;-->
+<!--&lt;!&ndash;                    input_type="datetime-local";&ndash;&gt;-->
+<!--&lt;!&ndash;                }&ndash;&gt;-->
+<!--                var input="<input type='"+input_type+"' class='input-data' value='"+value+"' class='form-control'>";-->
+<!--                $(this).html(input);-->
+<!--                $(this).removeClass("editable")-->
+<!--            });-->
+
+<!--            $(document).on("blur",".input-data",function(){-->
+<!--                var value=$(this).val();-->
+<!--                var td=$(this).parent("td");-->
+<!--                $(this).remove();-->
+<!--                td.html(value);-->
+<!--                td.addClass("editable");-->
+<!--                var type=td.data("type");-->
+<!--                sendToServer(td.data("id"),value,type);-->
+<!--            });-->
+<!--            $(document).on("keypress",".input-data",function(e){-->
+<!--                var key=e.which;-->
+<!--                if(key==13){-->
+<!--                    var value=$(this).val();-->
+<!--                    var td=$(this).parent("td");-->
+<!--                    $(this).remove();-->
+<!--                    td.html(value);-->
+<!--                    td.addClass("editable");-->
+<!--                   var type=td.data("type");-->
+<!--                   sendToServer(td.data("id"),value,type);-->
+<!--                }-->
+<!--            });-->
+
+<!--            function sendToServer(id,value,type){-->
+<!--                console.log(id);-->
+<!--                console.log(value);-->
+<!--                console.log(type);-->
+<!--                $.ajax({-->
+<!--                    url:"http://127.0.0.1:8080/saveorderitem",-->
+<!--                    type:"POST",-->
+<!--                    data:{id:id,type:type,value:value},-->
+<!--                })-->
+<!--                .done(function(response){-->
+<!--                    console.log(response);-->
+<!--                })-->
+<!--                .fail(function(){-->
+<!--                   console.log("Error Occured");-->
+<!--                });-->
+
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+
+<!--    ****  To-Do type Popup to Update Security Products Fields ****-->
+<!--	<script type="text/javascript">-->
+<!--		/*-->
+<!--			KEY COMPONENTS:-->
+<!--			"activeItem" = null until an edit button is clicked. Will contain object of item we are editing-->
+<!--			"list_snapshot" = Will contain previous state of list. Used for removing extra rows on list update-->
+
+<!--			PROCESS:-->
+<!--			1 - Fetch Data and build rows "buildList()"-->
+<!--			2 - Create Item on form submit-->
+<!--			3 - Edit Item click - Prefill form and change submit URL-->
+<!--			4 - Delete Item - Send item id to delete URL-->
+<!--			5 - Cross out completed task - Event handle updated item-->
+<!--			NOTES:-->
+<!--			&#45;&#45; Add event handlers to "edit", "delete", "title"-->
+<!--			&#45;&#45; Render with strike through items completed-->
+<!--			&#45;&#45; Remove extra data on re-render-->
+<!--			&#45;&#45; CSRF Token-->
+<!--		*/-->
+
+<!--		function getCookie(name) {-->
+<!--			var cookieValue = null;-->
+<!--			if (document.cookie && document.cookie !== '') {-->
+<!--				var cookies = document.cookie.split(';');-->
+<!--				for (var i = 0; i < cookies.length; i++) {-->
+<!--					var cookie = cookies[i].trim();-->
+<!--					// Does this cookie string begin with the name we want?-->
+<!--					if (cookie.substring(0, name.length + 1) === (name + '=')) {-->
+<!--						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));-->
+<!--						break;-->
+<!--					}-->
+<!--				}-->
+<!--			}-->
+<!--			return cookieValue;-->
+<!--		}-->
+<!--		var csrftoken = getCookie('csrftoken');-->
+
+<!--		var activeItem = null-->
+<!--		var list_snapshot = []-->
+
+<!--		buildList()-->
+
+<!--		function buildList() {-->
+<!--			var wrapper = document.getElementById('list-wrapper')-->
+<!--			//wrapper.innerHTML = ''-->
+
+
+
+<!--&lt;!&ndash;			var url = 'http://127.0.0.1:8000/api/task-list/'&ndash;&gt;-->
+<!--			var url = 'http://127.0.0.1:8000/order/order_items/'-->
+
+
+<!--			fetch(url)-->
+<!--				.then((resp) => resp.json())-->
+<!--				.then(function (data) {-->
+<!--					console.log('Data:', data)-->
+
+<!--					var list = data-->
+<!--					for (var i in list) {-->
+
+
+<!--						try {-->
+<!--							document.getElementById(`data-row-${i}`).remove()-->
+<!--						} catch (err) {-->
+
+<!--						}-->
+
+
+
+<!--						var title = `<span class="title">${list[i].title}</span>`-->
+<!--						var addlconsole = `<span class="addlconsole">${list[i].addlconsole}</span>`-->
+<!--						var numserver = `<span class="numserver">${list[i].numserver}</span>`-->
+<!--                        var numworkstation = `<span class="numworkstation">${list[i].numworkstation}</span>`-->
+<!--                        var productcomplexitybase = `<span class="productcomplexitybase">${list[i].productcomplexitybase}</span>`-->
+<!--                        var productcomplexityfac = `<span class="productcomplexityfac">${list[i].productcomplexityfac}</span>`-->
+<!--						if (list[i].completed == true) {-->
+<!--							title = `<strike class="title">${list[i].title}</strike>`-->
+<!--                            addlconsole = `<strike class="addlconsole">${list[i].addlconsole}</strike>`-->
+<!--                            numserver = `<strike class="numserver">${list[i].numserver}</strike>`-->
+<!--                            numworkstation = `<<strike class="numworkstation">${list[i].numworkstation}</strike>`-->
+<!--                            productcomplexitybase = `<strike class="productcomplexitybase">${list[i].productcomplexitybase}</strike>`-->
+<!--                            productcomplexityfac = `<strike class="productcomplexityfac">${list[i].productcomplexityfac}</strike>`-->
+<!--						}-->
+
+<!--						var item = `-->
+<!--							<div id="data-row-${i}" class="task-wrapper flex-wrapper">-->
+<!--								<div style="flex:4">-->
+<!--									${title}-->
+<!--								</div>-->
+<!--								<div style="flex:2">-->
+<!--									${addlconsole}-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									${numserver}-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									${numworkstation}-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									${productcomplexitybase}-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									${productcomplexityfac}-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									<button class="btn btn-sm btn-outline-info edit">Edit </button>-->
+<!--								</div>-->
+<!--								<div style="flex:1">-->
+<!--									<button class="btn btn-sm btn-outline-dark delete">-</button>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						`-->
+<!--						wrapper.innerHTML += item-->
+
+<!--					}-->
+
+<!--					if (list_snapshot.length > list.length) {-->
+<!--						for (var i = list.length; i < list_snapshot.length; i++) {-->
+<!--							document.getElementById(`data-row-${i}`).remove()-->
+<!--						}-->
+<!--					}-->
+
+<!--					list_snapshot = list-->
+
+
+<!--					for (var i in list) {-->
+<!--						var editBtn = document.getElementsByClassName('edit')[i]-->
+<!--						var deleteBtn = document.getElementsByClassName('delete')[i]-->
+<!--						var title = document.getElementsByClassName('title')[i]-->
+<!--                       /* var addlconsole = document.getElementsByClassName('addlconsole')[i]*/-->
+
+
+<!--						editBtn.addEventListener('click', (function (item) {-->
+<!--							return function () {-->
+<!--								editItem(item)-->
+<!--							}-->
+<!--						})(list[i]))-->
+
+
+<!--						deleteBtn.addEventListener('click', (function (item) {-->
+<!--							return function () {-->
+<!--								deleteItem(item)-->
+<!--							}-->
+<!--						})(list[i]))-->
+
+
+
+
+<!--						title.addEventListener('click', (function (item) {-->
+<!--							return function () {-->
+<!--								strikeUnstrike(item)-->
+<!--							}-->
+<!--						})(list[i]))-->
+
+
+<!--					}-->
+
+
+<!--				})-->
+<!--		}-->
+
+
+<!--		var form = document.getElementById('form-wrapper')-->
+<!--		form.addEventListener('submit', function (e) {-->
+<!--			e.preventDefault()-->
+<!--			console.log('Form submitted')-->
+<!--			var url = 'http://127.0.0.1:8000/api/task-create/'-->
+<!--			if (activeItem != null) {-->
+<!--				var url = `http://127.0.0.1:8000/api/task-update/${activeItem.id}/`-->
+<!--				activeItem = null-->
+<!--			}-->
+
+
+
+<!--			var title = document.getElementById('title').value-->
+<!--			var addlconsole = document.getElementById('addlconsole').value-->
+<!--			var numserver = document.getElementById('numserver').value-->
+<!--            var numworkstation = document.getElementById('numworkstation').value-->
+<!--            var productcomplexitybase = document.getElementById('productcomplexitybase').value-->
+<!--            var productcomplexityfac = document.getElementById('productcomplexityfac').value-->
+<!--			fetch(url, {-->
+<!--				method: 'POST',-->
+<!--				headers: {-->
+<!--					'Content-type': 'application/json',-->
+<!--					'X-CSRFToken': csrftoken,-->
+<!--				},-->
+<!--				body: JSON.stringify({-->
+<!--					'title': title,-->
+<!--					'addlconsole': addlconsole,-->
+<!--					'numserver': numserver,-->
+<!--                    'numworkstation': numworkstation,-->
+<!--					'productcomplexitybase': productcomplexitybase,-->
+<!--                    'productcomplexityfac': productcomplexityfac,})-->
+
+<!--			}-->
+<!--			).then(function (response) {-->
+<!--				buildList()-->
+<!--				document.getElementById('form').reset()-->
+<!--			})-->
+<!--		})-->
+
+
+
+
+<!--		function editItem(item) {-->
+<!--			console.log('Item clicked:', item)-->
+<!--			activeItem = item-->
+<!--            document.getElementById('title').value = activeItem.title-->
+<!--			document.getElementById('addlconsole').value = activeItem.addlconsole-->
+<!--			document.getElementById('numserver').value = activeItem.numserver-->
+<!--			document.getElementById('numworkstation').value = activeItem.numworkstation-->
+<!--			document.getElementById('productcomplexitybase').value = activeItem.productcomplexitybase-->
+<!--            document.getElementById('productcomplexityfac').value = activeItem.productcomplexityfac-->
+<!--		}-->
+
+
+<!--		function deleteItem(item) {-->
+<!--			console.log('Delete clicked')-->
+<!--			fetch(`http://127.0.0.1:8000/api/task-delete/${item.id}/`, {-->
+<!--				method: 'DELETE',-->
+<!--				headers: {-->
+<!--					'Content-type': 'application/json',-->
+<!--					'X-CSRFToken': csrftoken,-->
+<!--				}-->
+<!--			}).then((response) => {-->
+<!--				buildList()-->
+<!--			})-->
+<!--		}-->
+
+<!--		function strikeUnstrike(item) {-->
+<!--			console.log('Strike clicked')-->
+
+<!--			item.completed = !item.completed-->
+<!--			fetch(`http://127.0.0.1:8000/api/task-update/${item.id}/`, {-->
+<!--				method: 'POST',-->
+<!--				headers: {-->
+<!--					'Content-type': 'application/json',-->
+<!--					'X-CSRFToken': csrftoken,-->
+<!--				},-->
+<!--				body: JSON.stringify({ 'title': item.title, 'completed': item.completed })-->
+<!--			}).then((response) => {-->
+<!--				buildList()-->
+<!--			})-->
+<!--		}-->
+
+
+<!--	</script>-->
+
+{% block javascript %}
+
+{% endblock javascript %}
+

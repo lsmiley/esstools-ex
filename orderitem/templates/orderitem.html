@@ -1,0 +1,137 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+ <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+
+    <div class="row" style="color: #ea2088; font-style: bold; font-size: 3rem; ">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">Security Product OrderItem List</div>
+        <div class="col-md-3">
+            <div style="float:right;"> <a class="btn ghost-blue" href="{% url 'new-orderitem' %}">Add New OrderItem</a> </div>
+        </div>
+    </div>
+
+    <div style="border-bottom: 1px solid white;"></div>
+
+    <br>
+
+    <table class="table table-css">
+
+        <form method="get">
+            <div class="input-group search">
+
+                <div class="input-group-append">
+                   <button type="submit" class="btn btn-pink"> Search </button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <thead class="thead-inverse align-middle">
+            <tr>
+                <th width="35%">Product Name</th>
+                <th width="55%">Sizing ID</th>
+
+                <th width="10%">Qty</th>
+                <th width="10%"># Wkstn</th>
+                <th width="10%"># Srvr</th>
+                <th width="10%"># IP/EP</th>
+
+            </tr>
+        </thead>
+
+{% if object_list %}
+
+        <tbody>
+            {% for orderitem in object_list %}
+                <tr>
+                    <td>
+                        <h4>{{ orderitem.product }}</h4>
+                    </td>
+                    <td class="align-middle">{{ orderitem.order }}</td>
+                    <td class="align-middle">{{ orderitem.qty }}</td>
+
+                    <td class="align-middle">{{ orderitem.numworkstation }}</td>
+                    <td class="align-middle">{{ orderitem.numserver }}</td>
+                    <td class="align-middle">{{ orderitem.numipaddress }}</td>
+
+                    <td class="align-middle">
+<!--                        <a href="{% url 'edit-orderitem' orderitem.pk %}" class="btn btn-block btn-outline-success btn-xs">Edit Details</a>-->
+<!--                        <a href="{% url 'delete-orderitem' orderitem.pk %}" class="btn btn-block btn-outline-danger btn-xs">Delete</a>-->
+                        <a href="{% url 'edit-orderitem' orderitem.pk %}" class="btn btn-app"> <i class="fas fa-edit"></i> Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    <div class="align-middle">
+        {% if is_paginated %}
+
+            {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+
+        {% endif %}
+    </div>
+
+{% else %}
+
+        <tbody></tbody>
+    </table>
+
+    <br><br><br><br><br><br><br><br>
+    <div style="color: #ea2088; font-style: bold; font-size: 1.5rem; text-align: center;">WOW, SUCH EMPTY</div>
+  </div>
+
+
+ <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="orderitemtbl" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="/api/albums/?format=datatables">
+          <thead>
+            <tr>
+              <th data-data="rank">ID</th>
+              <th data-data="name">OrderItem Name</th>
+              <th data-data="year">Note</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endif %}
+
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#orderitemtbl').DataTable();
+      });
+  </script>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+
+    
+    <br>
+
+<div class="row">
+ <div class="col-md-1">.</div>
+<div class="col-md-1">.</div>
+<div class="col-md-8">
+        <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">{{title}}</div>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="form-group">
+            {{ form.statusstatename.errors }}
+            <label for="{{ form.statusstatename.id_for_label }}">Name:</label>
+            {{ form.statusstatename }}
+        </div>
+
+        <div class="form-group">
+            {{ form.statusstatedesc.errors }}
+            <label for="{{ form.statusstatedesc.id_for_label }}">Description:</label>
+            {{ form.statusstatedesc }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.statusstatetype.errors }}
+            <label for="{{ form.statusstatetype.id_for_label }}">Type:</label>
+            {{ form.statusstatetype  }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.memo.errors }}
+            <label for="{{ form.memo.id_for_label }}"># Products:</label>
+            {{ form.memo }}
+        </div>
+
+
+
+
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Statusstate" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-statusstate' object.pk %}" class="btn ghost-red"> Delete Vendor </a>
+            {% endif %}
+            <a href="{% url 'statusstate' %}" class="btn ghost-button">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+<div class="col-md-1">.</div>
+<div class="col-md-1">.</div>
+
+</div>
+
+
+
+
+{% endblock content %}

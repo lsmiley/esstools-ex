@@ -1,0 +1,147 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block title %} Labor / Delivery List {% endblock title %}
+
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">LaborDelivery</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    
+    <div class="row" style="color: #ea2088; font-style: bold; font-size: 3rem; ">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">Labor / Delivery List</div>
+        <div class="col-md-3">
+            <div style="float:right;"> <a class="btn ghost-blue" href="{% url 'new-labordelivery' %}">Add New Labor</a> </div>
+        </div>
+    </div>
+    
+    <div style="border-bottom: 1px solid white;"></div>
+    
+    <br>
+
+<div class="row">
+    <div class="col-md-2">.</div>
+    <div class="col-md-8">
+
+    <table class="table table-css">
+
+        <form method="get">
+            <div class="input-group search">
+
+                <div class="input-group-append">
+                   <button type="submit" class="btn btn-pink"> Search </button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <thead class="thead-inverse align-middle">
+            <tr>
+                <th width="5%">Region ID</th>
+                <th width="15%">Delivery</th>
+                <th width="5%">Currency</th>
+                <th width="5%">FTE/Year</th>
+                <th width="5%">Work/Week</th>
+                <th width="5%">Band2</th>
+                <th width="5%">Band3</th>
+                <th width="5%">Band4</th>
+                <th width="5%">Band5</th>
+                <th width="5%">Band6</th>
+                <th width="5%">Band7</th>
+                <th width="5%">Band8</th>
+                <th width="5%">Band9</th>
+                <th width="5%">Band10</th>
+                <th width="20%">Options</th>
+            </tr>
+        </thead>
+
+{% if object_list %}
+
+        <tbody>
+            {% for labordelivery in object_list %}
+                <tr>
+                    <td>{{ labordelivery.regionnumber }}</td>
+                    <td class="align-middle">{{ labordelivery.regions }}</td>
+                    <td class="align-middle">{{ labordelivery.currencytype }}</td>
+                    <td class="align-middle">{{ labordelivery.defaultfte_year }}</td>
+                    <td class="align-middle">{{ labordelivery.workweek }}</td>
+                    <td class="align-middle">{{ labordelivery.band2 }}</td>
+                    <td class="align-middle">{{ labordelivery.band3 }}</td>
+                    <td class="align-middle">{{ labordelivery.band4 }}</td>
+                    <td class="align-middle">{{ labordelivery.band5 }}</td>
+                    <td class="align-middle">{{ labordelivery.band6 }}</td>
+                    <td class="align-middle">{{ labordelivery.band7 }}</td>
+                    <td class="align-middle">{{ labordelivery.band8 }}</td>
+                    <td class="align-middle">{{ labordelivery.band9 }}</td>
+                    <td class="align-middle">{{ labordelivery.band10 }}</td>
+                    <td class="align-middle">
+                        <a href="{% url 'edit-labordelivery' labordelivery.pk %}" class="btn ghost-button">Edit Details</a>
+                        <a href="{% url 'delete-labordelivery' labordelivery.pk %}" class="btn ghost-red"> Delete Labor </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    <div class="align-middle">
+        {% if is_paginated %}
+
+            {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+
+        {% endif %}
+    </div>
+
+
+
+    </div>
+    <div class="col-md-2">.</div>
+
+</div>
+
+
+{% else %}
+
+        <tbody></tbody>   
+    </table>
+
+    <br><br><br><br><br><br><br><br>
+    <div style="color: #ea2088; font-style: bold; font-size: 1.5rem; text-align: center;">WOW, SUCH EMPTY</div>
+  </div>
+{% endif %}
+
+{% endblock content %}

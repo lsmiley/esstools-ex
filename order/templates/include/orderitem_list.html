@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="col-md-10">
+                <!-- id="orderitem-table" is for ajax crud-->
+                <table id="orderitem-table"
+                    class="table table-sm table-responsive-sm table-hover table-striped text-nowrap table-bordered"
+                    width="100%" style="margin-left:12%;">
+                    <thead class="thead-dark">
+                        <tr>
+
+                            <th>Id</th>
+                            <th># Wkstns</th>
+
+                            <th>Wkstn Hrs.</th>
+
+                            <th># Srvrs</th>
+                            <th>Srvr Hrs.</th>
+                            <th># IP/EP</th>
+                            <th>IP/EP Hrs</th>
+
+                            <th>Ttl/Hrs</th>
+                            <th># Endpoint</th>
+                            <th># Consoles</th>
+                            <th>Base</th>
+                            <th>Hrs.</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="get_table_body">
+                        <!--get_table_body is for ajax search-->
+
+
+                        {% for orderitem in orderitem %}
+
+                        <tr>
+
+                            <!-- <td>{{order.orderitem.name}}</td> -->
+
+                            <td>{{orderitem.id}}</td>
+                            <td>{{orderitem.numworkstation}}</td>
+                            <td>{{orderitem.wkstnshourscalc}}</th>
+                            <td>{{orderitem.numserver}}</td>
+                            <td>{{orderitem.srvshourscalc}} {{orderitem.unit}}</td>
+                            <td>{{orderitem.numipaddress}}</td>
+                            <td>{{orderitem.ipshourscalc}}</td>
+                            <td>{{orderitem.tag_final_totalhourscalc}}</td>
+                            <td>{{orderitem.total_endpoints}}</td>
+                            <td>{{orderitem.qty}}</td>
+                            <td>{{orderitem.price}}</td>
+                            <td>{{orderitem.tag_line_base_hours}}</td>
+
+
+
+                            <td>
+                                <button type="button"  data-pid="{{orderitem.id}}" data-target="#AddOrderitem"
+                                    data-toggle="modal" class="btn btn-success btn-sm btn-edit ">
+                                    <i class="fas fa-edit"></i>
+
+                               
+                                    <button type="button" data-pid="{{orderitem.id}}"
+                                        class="ml-1 btn btn-danger btn-sm btn-del"><i
+                                            class="fas fa-trash-alt"></i></button>
+                               
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class=" text-center alert alert-danger">No Orderitem Found</td>
+                        </tr>
+
+                        {% endfor %}
+
+
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

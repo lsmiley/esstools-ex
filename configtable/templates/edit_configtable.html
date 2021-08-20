@@ -1,0 +1,358 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Configtable</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Configtable</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+
+
+
+    <form method="post">
+    
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="form-group">
+            {{ form.configmaster.errors }}
+            <label for="{{ form.configmaster.id_for_label }}">Name:</label>
+            {{ form.configmaster }}
+        </div>
+        <div class="form-group ">
+            {{ form.configcreatedate.errors }}
+            <label for="{{ form.configcreatedate.id_for_label }}">Created:</label>
+            {{ form.configcreatedate }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.configmodifydate.errors }}
+            <label for="{{ form.configmodifydate.id_for_label }}">Created:</label>
+            {{ form.configmodifydate }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.configname.errors }}
+            <label for="{{ form.configname.id_for_label }}">Name:</label>
+            {{ form.configname }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.configdesc.errors }}
+            <label for="{{ form.configdesc.id_for_label }}">Desc:</label>
+            {{ form.configdesc }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.configtype.errors }}
+            <label for="{{ form.configtype.id_for_label }}">Type:</label>
+            {{ form.configtype }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.confignotes.errors }}
+            <label for="{{ form.confignotes.id_for_label }}">Notes:</label>
+            {{ form.confignotes }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.confignummber.errors }}
+            <label for="{{ form.confignummber.id_for_label }}">Config#:</label>
+            {{ form.confignummber }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.configtext.errors }}
+            <label for="{{ form.configtext.id_for_label }}">Text:</label>
+            {{ form.configtext }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.configlink.errors }}
+            <label for="{{ form.configlink.id_for_label }}">Link:</label>
+            {{ form.configlink }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.sizemodifier.errors }}
+            <label for="{{ form.sizemodifier.id_for_label }}">Size Modifier:</label>
+            {{ form.sizemodifier }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.vendormodifier.errors }}
+            <label for="{{ form.vendormodifier.id_for_label }}">Vendor Modifier:</label>
+            {{ form.vendormodifier }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.hoursmodifier.errors }}
+            <label for="{{ form.hoursmodifier.id_for_label }}">Hours Modifier:</label>
+            {{ form.hoursmodifier }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.managementmodifier1stline.errors }}
+            <label for="{{ form.managementmodifier1stline.id_for_label }}">1st Ln Manger:</label>
+            {{ form.managementmodifier1stline }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.managementmodifier2ndline.errors }}
+            <label for="{{ form.managementmodifier2ndline.id_for_label }}">2nd Ln Manager:</label>
+            {{ form.managementmodifier2ndline }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.riskfactor_low.errors }}
+            <label for="{{ form.riskfactor_low.id_for_label }}">Risk Factor:</label>
+            {{ form.riskfactor_low }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.riskfactor_med.errors }}
+            <label for="{{ form.riskfactor_med.id_for_label }}">Risk Fac Med.</label>
+            {{ form.riskfactor_med }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.riskfactor_high.errors }}
+            <label for="{{ form.riskfactor_high.id_for_label }}">Risk Fac High</label>
+            {{ form.riskfactor_high }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.othercost_education.errors }}
+            <label for="{{ form.othercost_education.id_for_label }}">Other Cost Education:</label>
+            {{ form.othercost_education }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.othercost_travel.errors }}
+            <label for="{{ form.othercost_travel.id_for_label }}">Other Cost Travel:</label>
+            {{ form.othercost_travel }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.othercost_equipment.errors }}
+            <label for="{{ form.othercost_equipment.id_for_label }}">Other Cost Equipment:</label>
+            {{ form.othercost_equipment }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier1.errors }}
+            <label for="{{ form.endpointrangemodifier1.id_for_label }}">Endpoint Modifier 1:</label>
+            {{ form.endpointrangemodifier1 }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier2.errors }}
+            <label for="{{ form.endpointrangemodifier2.id_for_label }}">Endpoint Modifier 2:</label>
+            {{ form.endpointrangemodifier2 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier3.errors }}
+            <label for="{{ form.endpointrangemodifier3.id_for_label }}">Endpoint Modifier 3:</label>
+            {{ form.endpointrangemodifier3 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier4.errors }}
+            <label for="{{ form.endpointrangemodifier4.id_for_label }}">NEndpoint Modifier 4:</label>
+            {{ form.endpointrangemodifier4 }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier5.errors }}
+            <label for="{{ form.endpointrangemodifier5.id_for_label }}">Endpoint Modifier 5:</label>
+            {{ form.endpointrangemodifier5 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.endpointrangemodifier6.errors }}
+            <label for="{{ form.endpointrangemodifier6.id_for_label }}">Endpoint Modifier 6:</label>
+            {{ form.endpointrangemodifier6 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.rpt_biweeklymodifier.errors }}
+            <label for="{{ form.rpt_biweeklymodifier.id_for_label }}">BiWeekly Rpt Modifier:</label>
+            {{ form.rpt_biweeklymodifier }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.rpt_weeklymodifier.errors }}
+            <label for="{{ form.rpt_weeklymodifier.id_for_label }}">Weekly Rpt Modifier::</label>
+            {{ form.rpt_weeklymodifier }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.rpt_dailymodifier.errors }}
+            <label for="{{ form.rpt_dailymodifier.id_for_label }}">Daily Rpt Modifier::</label>
+            {{ form.rpt_dailymodifier }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.rpt_custommodifier.errors }}
+            <label for="{{ form.rpt_custommodifier.id_for_label }}">Custom Modifier:</label>
+            {{ form.rpt_custommodifier }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.defaultendpointfac.errors }}
+            <label for="{{ form.defaultendpointfac.id_for_label }}">Default Endpoint Fac:</label>
+            {{ form.defaultendpointfac }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.fac_frachrs.errors }}
+            <label for="{{ form.fac_frachrs.id_for_label }}">Fac Hours:</label>
+            {{ form.fac_frachrs }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.fac_adjwkstn.errors }}
+            <label for="{{ form.fac_adjwkstn.id_for_label }}">Fac Adj Wkstns:</label>
+            {{ form.fac_adjwkstn }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.fac_adjsvrs.errors }}
+            <label for="{{ form.fac_adjsvrs.id_for_label }}">Fac Adj Servers:</label>
+            {{ form.fac_adjsvrs }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.fac_adjips.errors }}
+            <label for="{{ form.fac_adjips.id_for_label }}">Fac Adj IP/Endpoints:</label>
+            {{ form.fac_adjips }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.fac_svrcalc.errors }}
+            <label for="{{ form.fac_svrcalc.id_for_label }}">Fac Server Calc:</label>
+            {{ form.fac_svrcalc }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.frm_componentfac1.errors }}
+            <label for="{{ form.frm_componentfac1.id_for_label }}">Fac Component 1:</label>
+            {{ form.frm_componentfac1 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac2.errors }}
+            <label for="{{ form.frm_componentfac2.id_for_label }}">Fac Component 2:</label>
+            {{ form.frm_componentfac2 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac3.errors }}
+            <label for="{{ form.frm_componentfac3.id_for_label }}">Fac Component 3:</label>
+            {{ form.frm_componentfac3 }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.frm_componentfac4.errors }}
+            <label for="{{ form.frm_componentfac4.id_for_label }}">Fac Component 4:</label>
+            {{ form.frm_componentfac4 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac5.errors }}
+            <label for="{{ form.frm_componentfac5.id_for_label }}">Fac Component 5:</label>
+            {{ form.frm_componentfac5 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac6.errors }}
+            <label for="{{ form.frm_componentfac6.id_for_label }}">Fac Component 6:</label>
+            {{ form.frm_componentfac6 }}
+        </div>
+
+
+        <div class="form-group ">
+            {{ form.frm_componentfac7.errors }}
+            <label for="{{ form.frm_componentfac7.id_for_label }}">Fac Component 7:</label>
+            {{ form.frm_componentfac7 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac8.errors }}
+            <label for="{{ form.frm_componentfac8.id_for_label }}">Fac Component 8:</label>
+            {{ form.frm_componentfac8 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac9.errors }}
+            <label for="{{ form.frm_componentfac9.id_for_label }}">Fac Component 9:</label>
+            {{ form.frm_componentfac9 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac10.errors }}
+            <label for="{{ form.frm_componentfac10.id_for_label }}">Fac Component 10:</label>
+            {{ form.frm_componentfac10 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac11.errors }}
+            <label for="{{ form.frm_componentfac11.id_for_label }}">Fac Component 11:</label>
+            {{ form.frm_componentfac11 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.frm_componentfac12.errors }}
+            <label for="{{ form.frm_componentfac12.id_for_label }}">Fac Component 12:</label>
+            {{ form.frm_componentfac12 }}
+        </div>
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Configtable" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-configtable' object.pk %}" class="btn ghost-red"> Delete Configtable </a>
+            {% endif %}
+            <a href="{% url 'configtable' %}" class="btn ghost-button">Cancel</a>
+        </div>
+        
+    </form>
+</div>
+
+{% endblock content %}

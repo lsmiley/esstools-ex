@@ -1,4 +1,12 @@
 import os
+
+from django.contrib import messages
+from django.contrib.auth import views as auth_views
+# from django.shortcuts import render
+from django.views.decorators.csrf import requires_csrf_token
+from django.urls.base import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
 from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
@@ -6,7 +14,9 @@ from django.http import HttpResponse
 from . import database
 from .models import PageView
 
+
 # Create your views here.
+
 
 def index(request):
     """Takes an request object as a parameter and creates an pageview object then responds by rendering the index view."""
@@ -18,6 +28,7 @@ def index(request):
         'database': database.info(),
         'count': PageView.objects.count()
     })
+
 
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""

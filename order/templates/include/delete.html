@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<div  class="modal fade" id="DeleteOrderitem" role="dialog" aria-hidden="true">
+  <!-- Button trigger modal -->
+  
+  <form method="POST">
+      {% csrf_token %}
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add orderitem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              
+                <div class="modal-body">
+                  <p>Are you sure you want to delete the orderitem <strong>{{orderitem.title }}</strong>?</p>
+                </div>
+                <div class="form-group">
+                  <div class="alert alert-success" id="ins_success" style="display:none">
+    
+                  </div>
+                   <div class="alert alert-danger" id="ins_error" style="display:none">
+                     
+                  </div>
+              </div>
+    
+               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="submit" data-pid = {{orderitem.id}}  class="btn btn-success " id="btn-del-modal">Delete Orderitem</button>
+               </div>
+              
+  
+            </div>
+      </div>
+  </form>
+  
+</div>
+
+
+{% endblock %}

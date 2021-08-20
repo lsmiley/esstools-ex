@@ -1,0 +1,823 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+
+{% block title %} {sizing.sizingname}} {% endblock title %}
+
+
+{% block content %}
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+<table class="table table-bordered table-hover table-responsive">
+
+	<thead class="thead-dark text-center">
+		<tr>
+			<th colspan="12">
+				<h3><br>{{ sizing.get_displayname }}</h3>
+				<h5>Sr.no.51, Pune, Warje-Malwadi</h5>
+			</th>
+		</tr>
+	</thead>
+	<tbody style="background-color: white;">
+		<tr>
+			<td colspan="6">
+				<div class="input-group text-center">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">To, M/S</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="company-name" autocomplete="on" id="company-name" class="form-control" value="VANAZ ENGINEERS LTD, 85/1, PAUD ROAD, PUNE-38">
+				</div>
+				<br><b>RFS#:</b> : 27AAACV6873B1ZA
+				<div class="input-group" style="margin-top: 2%">
+					<b>HSN Code:</b>
+					<select id="get_hsc_value" class="form-control" style="margin-left: 2%">
+						<option value="%">Select Code</option>
+						{% for work in hsc %}
+						<option value="{{ work.hsc_number }}">{{ work.hsc_number }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</td>
+			<td colspan="4">
+				<b>RFS#:</b> : 27APGPM6700G1ZZ <br> <b>Sales Connect#</b> : APGPM6700G
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon2">Prepared By:</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="your-challan" class="form-control">
+				</div>
+				<div class="input-group" style="margin-top: 2%">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Dated</span>
+					</div>
+					<INPUT TYPE="date" NAME="dated" class="form-control">
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="6" style="vertical-align: middle">
+				<div class="input-group">
+					<b>Challan No : </b> <span style="color: red; margin-left: 2%"><b>{{ challan_number }}</b></span>
+					<div class="input-group-prepend" style="margin-left: 2%">
+						<span class="input-group-text" id="basic-addon4">Date</span>
+					</div>
+					<INPUT TYPE="date" NAME="date" id="date" class="form-control">
+					<b style="margin-left: 2%">Vendor No</b> : V0113<br>
+				</div>
+			</td>
+			<td colspan="4">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon5">PO No</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="po-no" class="form-control" value="SC-GST/PO/00/18-19">
+
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon6">JC No</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="jc-no" class="form-control" value="PPCQA/SC/00/18-19">
+				</div>
+			</td>
+		</tr>
+		<tr class="thead-dark text-center">
+			<th style="width: 7%">Sizing ID#</th>
+			<th style="width: 7%">Request Date</th>
+			<th style="width: 7%">RFS #:</th>
+			<th style="width: 7%">Sales Connect #:</th>
+			<th style="width: 7%"># Contract Months:</th>
+			<th style="width: 7%">OTC Transition::</th>
+			<th style="width: 7%">OTC Transformation:</th>
+			<th style="width: 10%">Steady-State Hours:</th>
+			<th style="width: 15%">MRC - Mnthly Rpting Chrg:</th>
+		</tr>
+		<tr class="thead-dark text-center">
+			<th style="width: 7%">-</th>
+			<th style="width: 7%">  /_ _ / </th>
+			<th style="width: 7%">-</th>
+			<th style="width: 7%">-</th>
+			<th style="width: 7%">0</th>
+			<th style="width: 7%">0</th>
+			<th style="width: 7%">0</th>
+			<th style="width: 10%">0</th>
+			<th style="width: 15%">0</th>
+		</tr>
+<!--		<tr class="thead-dark text-center">-->
+<!--			<th style="width: 30%">Particular</th>-->
+<!--			<th>Weight(kg)</th>-->
+<!--			<th>Qty</th>-->
+<!--			<th>Rate</th>-->
+<!--			<th>Amount</th>-->
+<!--		</tr>-->
+
+	</tbody>
+</table>
+<div class="row">
+			<div id="Product-1">
+
+
+
+				<div class="box box-default" style="width: 1600px; padding: 10px; margin: 10px">
+					<div class="row" style="height:35px">
+						<div class="col-3" style="background-color:#4a5564; text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Product #1</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Delivered From:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite"># Contract Months:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+
+
+						</div>
+					</div>
+					<div class="row" style="height:30px">
+						<div class="col-3" style="text-align:center; color:blue">
+
+							<span class="field-validation-valid text-danger" data-valmsg-for="AvProduct.ProductDesc" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center; color:blue">
+							INDIA (Global)
+							<span class="field-validation-valid text-danger" data-valmsg-for="LaborDelivery.Regions" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+							12
+							<span class="field-validation-valid text-danger" data-valmsg-for="NumMonths_1" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+
+						</div>
+					</div>
+
+
+
+					<div class="box-body">
+						<div class="row" hidden>
+							<div class="col-md-2" style="font-size:10px">
+								<select Style="height: 25px" class="form-control" id="ProductId" name="ProductId"><option value="1">SEP</option>
+
+
+							</div>
+
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">Contract Months --></div>
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">
+								<input Style="height:25px; background-color:#f2fcfc;" class="form-control text-box single-line" data-val="true" data-val-number="The field NumMonths_1 must be a number." data-val-required="The NumMonths_1 field is required." id="NumMonths_1" name="NumMonths_1" type="text" value="12" />
+
+							</div>
+
+
+
+						</div>
+
+						<div class="form-group-sm">
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Total Hours</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #3</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #4</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #5</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #6</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #7</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #8</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #9</div>
+								<div class="col-md-1"></div>
+
+							</div>
+
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1" style="font-size:small;">
+
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									525.00
+								</div>
+
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									365.63
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									159.38
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-2" style="font-size:small;">
+									Monthly MRC Hours-->
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									43.75
+								</div>
+
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									30.47
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									13.28
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+
+
+
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-3" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1"></div>
+							</div>
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-3"></div>
+								<div class="col-md-1">
+
+								</div>
+								<div class="col-md-7"></div>
+								<div class="col-md-1">
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+            <div id="ProductsPane1">
+
+
+
+        </div>
+
+
+
+                                    </div>
+
+
+</div>
+<div class="row">
+			<div id="Product-2">
+
+
+
+				<div class="box box-default" style="width: 1600px; padding: 10px; margin: 10px">
+					<div class="row" style="height:35px">
+						<div class="col-3" style="background-color:#4a5564; text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Product #1</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Delivered From:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite"># Contract Months:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+
+
+						</div>
+					</div>
+					<div class="row" style="height:30px">
+						<div class="col-3" style="text-align:center; color:blue">
+
+							<span class="field-validation-valid text-danger" data-valmsg-for="AvProduct.ProductDesc" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center; color:blue">
+							INDIA (Global)
+							<span class="field-validation-valid text-danger" data-valmsg-for="LaborDelivery.Regions" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+							12
+							<span class="field-validation-valid text-danger" data-valmsg-for="NumMonths_1" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+
+						</div>
+					</div>
+
+
+
+					<div class="box-body">
+						<div class="row" hidden>
+							<div class="col-md-2" style="font-size:10px">
+								<select Style="height: 25px" class="form-control" id="Product1" name="Product"><option value="1">SEP</option>
+
+
+							</div>
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">Contract Months --></div>
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">
+								<input Style="height:25px; background-color:#f2fcfc;" class="form-control text-box single-line" data-val="true" data-val-number="The field NumMonths_1 must be a number." data-val-required="The NumMonths_1 field is required." id="NumMonths_2" name="NumMonths_2" type="text" value="12" />
+
+							</div>
+
+
+
+						</div>
+
+						<div class="form-group-sm">
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Total Hours</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #3</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #4</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #5</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #6</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #7</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #8</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #9</div>
+								<div class="col-md-1"></div>
+
+							</div>
+
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1" style="font-size:small;">
+
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									525.00
+								</div>
+
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									365.63
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									159.38
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-2" style="font-size:small;">
+									Monthly MRC Hours-->
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									43.75
+								</div>
+
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									30.47
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									13.28
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+
+
+
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-3" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1"></div>
+							</div>
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-3"></div>
+								<div class="col-md-1">
+
+								</div>
+								<div class="col-md-7"></div>
+								<div class="col-md-1">
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+            <div id="ProductsPane2">
+
+
+
+        </div>
+
+
+
+                                    </div>
+
+
+</div>
+<div class="row">
+			<div id="Product-3">
+
+
+
+				<div class="box box-default" style="width: 1600px; padding: 10px; margin: 10px">
+					<div class="row" style="height:35px">
+						<div class="col-3" style="background-color:#4a5564; text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Product #1</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite">Delivered From:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+							<b style="color:antiquewhite"># Contract Months:</b>
+
+						</div>
+						<div class="col-3" style="background-color:#4a5564;  text-align:center; border:solid; border-color:antiquewhite">
+
+
+						</div>
+					</div>
+					<div class="row" style="height:30px">
+						<div class="col-3" style="text-align:center; color:blue">
+
+							<span class="field-validation-valid text-danger" data-valmsg-for="AvProduct.ProductDesc" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center; color:blue">
+							INDIA (Global)
+							<span class="field-validation-valid text-danger" data-valmsg-for="LaborDelivery.Regions" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+							12
+							<span class="field-validation-valid text-danger" data-valmsg-for="NumMonths_1" data-valmsg-replace="true"></span>
+						</div>
+						<div class="col-3" style="text-align:center">
+
+						</div>
+					</div>
+
+
+
+					<div class="box-body">
+						<div class="row" hidden>
+							<div class="col-md-2" style="font-size:10px">
+								<select Style="height: 25px" class="form-control" id="Product2" name="Product2"><option value="1">SEP</option>
+
+
+							</div>
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">Contract Months --></div>
+							<div class="col-md-1" style="background-color:#ffffff; font-size:10px;">
+								<input Style="height:25px; background-color:#f2fcfc;" class="form-control text-box single-line" data-val="true" data-val-number="The field NumMonths_1 must be a number." data-val-required="The NumMonths_1 field is required." id="NumMonths_3" name="NumMonths_1" type="text" value="12" />
+
+							</div>
+
+
+
+						</div>
+
+						<div class="form-group-sm">
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Total Hours</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #3</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #4</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #5</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #6</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #7</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #8</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">Band #9</div>
+								<div class="col-md-1"></div>
+
+							</div>
+
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-2"></div>
+								<div class="col-md-1" style="font-size:small;">
+
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									525.00
+								</div>
+
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									365.63
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									159.38
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#F0F0F0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-2" style="font-size:small;">
+									Monthly MRC Hours-->
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									43.75
+								</div>
+
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									30.47
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									13.28
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+								<div class="col-md-1" style="background-color:#e0e0e0; font-size:12px">
+									0.00
+								</div>
+
+								<div class="col-md-1" style="font-weight:bold; font-family:Arial;">
+
+								</div>
+							</div>
+
+
+
+							<div class="row" style="font-weight:bold; font-family:Arial; font-size:10px">
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								<div class="col-md-3" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+								<div class="col-md-1"></div>
+							</div>
+
+							<div class="row" style="font-weight:normal; font-family:Arial; font-size:10px">
+								<div class="col-md-3"></div>
+								<div class="col-md-1">
+
+								</div>
+								<div class="col-md-7"></div>
+								<div class="col-md-1">
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+            <div id="ProductsPane3">
+
+
+
+        </div>
+
+
+
+                                    </div>
+
+
+</div>
+
+            <div id="ProductsPane4">
+
+
+
+        </div>
+
+
+
+
+<table class="table table-bordered table-hover table-responsive">
+
+	<thead class="thead-dark text-center">
+		<tbody style="background-color: white;">
+		<tr>
+			<th colspan="12">
+				<h3><br>Running Totals</h3>
+				<h5>Product #1, Product #2, Product #3</h5>
+			</th>
+		</tr>
+	</thead>
+
+
+
+		<tr>
+			<td colspan="2" rowspan="2">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon8">DRG No</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="drg-no" placeholder="DRG No." class="form-control">
+				</div>
+
+				<div class="input-group" style="margin-top: 2%">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon9">Melt No</span>
+					</div>
+					<INPUT TYPE="TEXT" NAME="melt-no" placeholder="Melt No." class="form-control">
+				</div>
+			</td>
+			<td colspan="2"><b class="float-right">Total: </b></td>
+			<td><INPUT TYPE="number" NAME="total" placeholder="total" class="form-control"></td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon10">CGST</span>
+					</div>
+					<INPUT class="form-control" TYPE="number" NAME="cgst" placeholder="CGST">
+					<div class="input-group-append">
+						<span class="input-group-text" id="basic-addon11">%</span>
+					</div>
+				</div>
+				<div class="input-group" style="margin-top: 2%">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon12">SGST</span>
+					</div>
+					<INPUT class="form-control" TYPE="number" NAME="sgst" placeholder="SGST">
+					<div class="input-group-append">
+						<span class="input-group-text" id="basic-addon13">%</span>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div>
+					<INPUT class="form-control" TYPE="number" NAME="cgst-amount" placeholder="CGST Amount">
+				</div>
+				<div style="margin-top: 2%">
+					<INPUT class="form-control" TYPE="number" NAME="sgst-amount" placeholder="SGST Amount">
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<div class="input-group">
+					<b>Total Weight</b> :<INPUT style="margin-left: 2%" TYPE="number" NAME="total-weight" class="form-control" placeholder="Total Weight">
+				</div>
+			</td>
+			<td colspan="3">
+				<div class="input-group">
+					<b>Grand Total</b> :<INPUT style="margin-left: 2%" class="form-control" TYPE="number" NAME="grand-total" placeholder="Grand Total">
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<div style="text-align: center">
+					Receives the above mentioned goods in good working condition
+				</div>
+				<br>
+				<br>
+				<div style="display: inline">
+					<span style="float: left">Send Through</span>
+					<span style="float: right; ">Received By</span>
+				</div>
+			</td>
+			<td colspan="3">
+				<br>
+				<br>
+				<div style="vertical-align: bottom !important; text-align: center">
+					For Vaibhav Engineering Works
+				</div>
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+
+
+
+<div class="container" style="margin-bottom: 3%">
+	<div class="row text-center">
+		<div class="col">
+			<div class="btn btn-group">
+				<div class="btn btn-success" id="download">Download</div>
+				<div class="btn btn-warning" id="clear" onclick="return confirm('Are you sure?');">Clear</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+{% block extra_js %}
+
+
+
+
+
+
+{% endblock %}

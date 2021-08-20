@@ -1,0 +1,49 @@
+
+<div class="row">
+
+    <div class="col mt-2" style="margin-left:19%;position:fixed;">
+
+
+        <Strong> Showing {{start}} to {{end}} of {{orderitem_count}} orderitem</Strong>
+
+
+    </div>
+
+    <div class="col" >
+
+
+        <div style="float:right;margin-right: 20%;">
+
+            {% if orderitem.has_other_pages %}
+            <ul class="pagination">
+                {% if orderitem.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ orderitem.previous_page_number }}">Previous</a>
+                {% else %}
+
+                {% endif %}
+
+                {% for i in orderitem.paginator.page_range %}
+                {% if orderitem.number == i %}
+                <!--recent page ma dark dekhauxa-->
+                <li class="btn btn-info mb-4"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+
+                <li><a class="btn btn-outline-info mb-4" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+                {% if orderitem.has_next %}
+
+                <a class="btn btn-outline-info mb-4" href="?page={{ orderitem.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ orderitem.paginator.num_pages }}">Last</a>
+                {% else %}
+                <!-- <li class="btn btn-outline-info mb-4"><span>&raquo;</span></li> -->
+                {% endif %}
+                <hr>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

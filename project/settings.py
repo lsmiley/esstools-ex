@@ -36,6 +36,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'adminlte_full',
+    'admin_sso',
+    'rest_framework',
+    'django_ajax',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +49,24 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'welcome',
+
+    'api.apps.ApiConfig',
+    'ckeditor',
+    'ckeditor_uploader',
+    'category',
+    'product',
+    'order',
+    'orderitem',
+    'acctcust.apps.AcctcustConfig',
+    'django_tables2',
+    'prodvendor.apps.ProdvendorConfig',
+    'avproduct',
+    'configmaster.apps.ConfigmasterConfig',
+    'configtable.apps.ConfigtableConfig',
+    'labordeliverytype.apps.LabordeliverytypeConfig',
+    'labordelivery.apps.LabordeliveryConfig',
+    'statusstate',
+    'tntworksheet',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +83,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -71,6 +106,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'adminlte_full.context_processors.adminlte',
             ],
         },
     },
@@ -88,6 +124,54 @@ DATABASES = {
     'default': database.config()
 }
 
+
+
+# # **** Local Database Settings ****
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'esstools-04-db',
+#         'USER': 'sizingadmin',
+#         'PASSWORD': 'Malware12345',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
+# **** Local Port-Forward from Cloud Database Settings ****
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'esstools-04-db',
+        'USER': 'sizingadmin',
+        'PASSWORD': 'Malware12345',
+        'HOST': 'localhost',
+        'PORT': '1066',
+    }
+}
+
+
+# **** Cloud Database Settings ****
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'esstools-04-db',
+#         'USER': 'sizingadmin',
+#         'PASSWORD': 'Malware12345',
+#         'HOST': '10.128.4.173',
+#         'PORT': '3306',
+#     }
+# }
+
+
+AUTHENTICATION_BACKENDS = (
+    'admin_sso.auth.DjangoSSOAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+DJANGO_ADMIN_SSO_OAUTH_CLIENT_ID = 'your client id here'
+DJANGO_ADMIN_SSO_OAUTH_CLIENT_SECRET = 'your client secret here'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -126,8 +210,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+DIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
+
+CURRENCY = 'Hrs'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Basic',
+    },
+}
 
 INTERNAL_IPS = ['127.0.0.1']

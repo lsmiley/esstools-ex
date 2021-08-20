@@ -1,0 +1,137 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Labor Delivery Type</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">LaborDelivery Type</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+          <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Default Card Example</h3>
+                <div class="card-tools">
+                  <!-- Buttons, labels, and many other things can be placed here! -->
+                  <!-- Here is a label for example -->
+                  <span class="badge badge-primary">Label</span>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+
+                <form method="post">
+
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="form-group">
+            {{ form.deliverytypename.errors }}
+            <label for="{{ form.deliverytypename.id_for_label }}">Name:</label>
+            {{ form.deliverytypename }}
+        </div>
+        <div class="form-group ">
+            {{ form.deliveryusedescription.errors }}
+            <label for="{{ form.deliveryusedescription.id_for_label }}">Description:</label>
+            {{ form.deliveryusedescription }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.memodeliverynote1.errors }}
+            <label for="{{ form.memodeliverynote1.id_for_label }}">Memo/Note #1:</label>
+            {{ form.memodeliverynote1 }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.deliveryownerfirstname.errors }}
+            <label for="{{ form.deliveryownerfirstname.id_for_label }}">Delivery Owner 1st Name:</label>
+            {{ form.deliveryownerfirstname }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.deliveryownerlastname.errors }}
+            <label for="{{ form.deliveryownerlastname.id_for_label }}">Delivery Owner 2nd Name:</label>
+            {{ form.deliveryownerlastname }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.deliveryownerfullname.errors }}
+            <label for="{{ form.deliveryownerfullname.id_for_label }}">Delivery Owner Full Name:</label>
+            {{ form.deliveryownerfullname }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.deliveryowneremail.errors }}
+            <label for="{{ form.deliveryowneremail.id_for_label }}">Delivery Owner Email:</label>
+            {{ form.deliveryowneremail }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.createby.errors }}
+            <label for="{{ form.createby.id_for_label }}">Create by:</label>
+            {{ form.createby }}
+        </div>
+
+
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Labordelivery Type" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-labordeliverytype' object.pk %}" class="btn ghost-red"> Delete LaborDelivery Type </a>
+            {% endif %}
+            <a href="{% url 'labordeliverytype' %}" class="btn ghost-button">Cancel</a>
+        </div>
+
+    </form>
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                Use: To Store/Create Definitions of Types of Labor/Delivery in order to create Customized Delivery.
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <div class="col-3"></div>
+      </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+{% endblock content %}

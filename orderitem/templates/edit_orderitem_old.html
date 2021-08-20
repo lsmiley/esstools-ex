@@ -1,0 +1,790 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+<div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Sizing Items</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container-fluid" align="center">
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+                <div class="card">
+          <div class="card-body">
+
+
+
+
+          </div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Endpoints & Delivery
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+<div class="form-horizontal" align="right">
+                        <div class="form-group">
+                            {{ form.labordelivery.errors }}
+                            <label for="{{ form.labordelivery.id_for_label }}">labordelivery:</label>
+                            {{ form.labordelivery }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.product.errors }}
+                            <label for="{{ form.product.id_for_label }}">Product:</label>
+                            {{ form.product }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.order.errors }}
+                            <label for="{{ form.order.id_for_label }}">Order:</label>
+                            {{ form.order }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.qty.errors }}
+                            <label for="{{ form.qty.id_for_label }}">Console(s):</label>
+                            {{ form.qty }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.numworkstation.errors }}
+                            <label for="{{ form.numworkstation.id_for_label }}"># Wkstn:</label>
+                            {{ form.numworkstation }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.numserver.errors }}
+                            <label for="{{ form.numserver.id_for_label }}"># Svrs:</label>
+                            {{ form.numserver }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.numipaddress.errors }}
+                            <label for="{{ form.numipaddress.id_for_label }}"># IP/EP:</label>
+                            {{ form.numipaddress }}
+                        </div>
+                         <div class="form-group ">
+                            {{ form.total_endpoints.errors }}
+                            <label for="{{ form.total_endpoints.id_for_label }}">Total Endpoints:</label>
+                            {{ form.total_endpoints }}
+                        </div>
+
+                </div>
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                    <div class="form-horizontal" align="right">
+                       <div class="form-group ">
+    {{ form.price.errors }}
+    <label for="{{ form.price.id_for_label }}">Price:</label>
+    {{ form.price }}
+</div>
+                    <div class="form-group ">
+    {{ form.discount_price.errors }}
+    <label for="{{ form.discount_price.id_for_label }}">discount_price:</label>
+    {{ form.discount_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.final_price.errors }}
+    <label for="{{ form.final_price.id_for_label }}">final_price:</label>
+    {{ form.final_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.total_price.errors }}
+    <label for="{{ form.total_price.id_for_label }}">total_price:</label>
+    {{ form.total_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.base.errors }}
+    <label for="{{ form.base.id_for_label }}">base:</label>
+    {{ form.base }}
+</div>
+                    <div class="form-group ">
+    {{ form.discount_base.errors }}
+    <label for="{{ form.discount_base.id_for_label }}">discount_base:</label>
+    {{ form.discount_base }}
+</div>
+                    <div class="form-group ">
+                            {{ form.final_base.errors }}
+                            <label for="{{ form.final_base.id_for_label }}">final_base:</label>
+                            {{ form.final_base }}
+                        </div>
+                    <div class="form-group ">
+                            {{ form.total_base.errors }}
+                            <label for="{{ form.total_base.id_for_label }}">total_base:</label>
+                            {{ form.total_base }}
+                        </div>
+
+                </div>
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					FTE
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+<div class="form-horizontal" align="right">
+                    	               <div class="form-group ">
+                            {{ form.fte.errors }}
+                            <label for="{{ form.fte.id_for_label }}">fte:</label>
+                            {{ form.fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.discount_fte.errors }}
+                            <label for="{{ form.discount_fte.id_for_label }}">discount_fte:</label>
+                            {{ form.discount_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.final_fte.errors }}
+                            <label for="{{ form.final_fte.id_for_label }}">final_fte:</label>
+                            {{ form.final_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.total_fte.errors }}
+                            <label for="{{ form.total_fte.id_for_label }}">total_fte:</label>
+                            {{ form.total_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.productcomplexityfac.errors }}
+                            <label for="{{ form.productcomplexityfac.id_for_label }}">Complexity-fac:</label>
+                            {{ form.productcomplexityfac }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.serverfte.errors }}
+                            <label for="{{ form.serverfte.id_for_label }}">serverfte:</label>
+                            {{ form.serverfte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.workstationfte.errors }}
+                            <label for="{{ form.workstationfte.id_for_label }}">workstationfte:</label>
+                            {{ form.workstationfte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.ipendpointfte.errors }}
+                            <label for="{{ form.ipendpointfte.id_for_label }}">ipendpointfte:</label>
+                            {{ form.ipendpointfte }}
+                    </div>
+                                   <div class="form-group ">
+                            {{ form.addlconfte.errors }}
+                            <label for="{{ form.addlconfte.id_for_label }}">addlconfte:</label>
+                            {{ form.addlconfte }}
+                    </div>
+
+                </div>
+
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="container-fluid">
+
+    	<div class="row">
+		<div class="col-md-6">
+            			<div class="card">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-1">.</div>
+                    <div class="col-md-4">Count</div>
+                    <div class="col-md-4">Hours</div>
+                    <div class="col-md-2">FTE</div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-1">Consoles</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.qty.errors }}
+<!--                            <label for="{{ form.qty.id_for_label }}">Console(s):</label>-->
+                            {{ form.qty }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+				</div>
+
+
+                <div class="row">
+                    <div class="col-md-1">Wkstns</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numworkstation.errors }}
+<!--                            <label for="{{ form.numworkstation.id_for_label }}">numworkstation(s):</label>-->
+                            {{ form.numworkstation }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.wkstnshourscalc.errors }}
+<!--                            <label for="{{ form.wkstnshourscalc.id_for_label }}">wkstnshourscalc:</label>-->
+                            {{ form.wkstnshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+
+
+				</div>
+                <div class="row">
+                    <div class="col-md-1">Servers</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numserver.errors }}
+<!--                            <label for="{{ form.numserver.id_for_label }}">numserver(s):</label>-->
+                            {{ form.numserver }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.srvshourscalc.errors }}
+<!--                            <label for="{{ form.srvshourscalc.id_for_label }}">srvshourscalc:</label>-->
+                            {{ form.srvshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+				</div>
+
+
+                <div class="row">
+                    <div class="col-md-1">IP/EPs</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numipaddress.errors }}
+                    <!--       <label for="{{ form.numipaddress.id_for_label }}">numipaddress(s):</label> -->
+                            {{ form.numipaddress }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.ipshourscalc.errors }}
+                    <!--        <label for="{{ form.ipshourscalc.id_for_label }}">ipshourscalc:</label>-->
+                            {{ form.ipshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+
+                </div>
+                 <div class="row">
+                        <div class="col-md-1">Totals</div>
+                        <div class="col-md-4">
+                            <div class="form-horizontal" align="right">
+                              <div class="form-group ">
+                                {{ form.total_endpoints.errors }}
+                        <!--        <label for="{{ form.total_endpoints.id_for_label }}">total_endpoints(s):</label>-->
+                                {{ form.total_endpoints }}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-horizontal" align="right">
+                            <div class="form-group ">
+                                {{ form.totalhourscalc.errors }}
+                        <!--        <label for="{{ form.totalhourscalc.id_for_label }}">totalhourscalc:</label>-->
+                                {{ form.totalhourscalc }}
+                        </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                        </div>
+                 </div>
+
+            </div>
+</p>
+
+
+<!--                <div class="row">-->
+<!--                    -->
+
+<!--</p>-->
+<!--</div>-->
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
+	    <div class="row">
+
+<!--			<div class="card">-->
+<!--				<h5 class="card-header">-->
+<!--					Card title-->
+<!--				</h5>-->
+<!--				<div class="card-body">-->
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-2">.</div>-->
+<!--                    <div class="col-md-4">Count</div>-->
+<!--                    <div class="col-md-4">Hours</div>-->
+<!--                    <div class="col-md-2">FTE</div>-->
+<!--                </div>-->
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-2">Consoles</div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                          <div class="form-group ">-->
+<!--                            {{ form.qty.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.qty.id_for_label }}">Console(s):</label>&ndash;&gt;-->
+<!--                            {{ form.qty }}-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                        <div class="form-group ">-->
+<!--                            {{ form.addlconhourscalc.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>&ndash;&gt;-->
+<!--                            {{ form.addlconhourscalc }}-->
+<!--                    </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">FTE</div>-->
+<!--				</div>-->
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-2">Wkstns</div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                          <div class="form-group ">-->
+<!--                            {{ form.numworkstation.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.numworkstation.id_for_label }}">numworkstation(s):</label>&ndash;&gt;-->
+<!--                            {{ form.numworkstation }}-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                        <div class="form-group ">-->
+<!--                            {{ form.wkstnshourscalc.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.wkstnshourscalc.id_for_label }}">wkstnshourscalc:</label>&ndash;&gt;-->
+<!--                            {{ form.wkstnshourscalc }}-->
+<!--                    </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">FTE</div>-->
+
+
+<!--				</div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-2">Servers</div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                          <div class="form-group ">-->
+<!--                            {{ form.numserver.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.numserver.id_for_label }}">numserver(s):</label>&ndash;&gt;-->
+<!--                            {{ form.numserver }}-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                        <div class="form-group ">-->
+<!--                            {{ form.srvshourscalc.errors }}-->
+<!--&lt;!&ndash;                            <label for="{{ form.srvshourscalc.id_for_label }}">srvshourscalc:</label>&ndash;&gt;-->
+<!--                            {{ form.srvshourscalc }}-->
+<!--                    </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">FTE</div>-->
+<!--				</div>-->
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-2">IP/EPs</div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                          <div class="form-group ">-->
+<!--                            {{ form.numipaddress.errors }}-->
+<!--                    &lt;!&ndash;       <label for="{{ form.numipaddress.id_for_label }}">numipaddress(s):</label> &ndash;&gt;-->
+<!--                            {{ form.numipaddress }}-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="form-horizontal" align="right">-->
+<!--                        <div class="form-group ">-->
+<!--                            {{ form.ipshourscalc.errors }}-->
+<!--                    &lt;!&ndash;        <label for="{{ form.ipshourscalc.id_for_label }}">ipshourscalc:</label>&ndash;&gt;-->
+<!--                            {{ form.ipshourscalc }}-->
+<!--                    </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">FTE</div>-->
+
+<!--                </div>-->
+<!--                 <div class="row">-->
+<!--                        <div class="col-md-3">Totals</div>-->
+<!--                        <div class="col-md-3">-->
+<!--                            <div class="form-horizontal" align="right">-->
+<!--                              <div class="form-group ">-->
+<!--                                {{ form.total_endpoints.errors }}-->
+<!--                        &lt;!&ndash;        <label for="{{ form.total_endpoints.id_for_label }}">total_endpoints(s):</label>&ndash;&gt;-->
+<!--                                {{ form.total_endpoints }}-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-3">-->
+<!--                            <div class="form-horizontal" align="right">-->
+<!--                            <div class="form-group ">-->
+<!--                                {{ form.totalhourscalc.errors }}-->
+<!--                        &lt;!&ndash;        <label for="{{ form.totalhourscalc.id_for_label }}">totalhourscalc:</label>&ndash;&gt;-->
+<!--                                {{ form.totalhourscalc }}-->
+<!--                        </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-3">FTE</div>-->
+<!--                 </div>-->
+
+<!--            </div>-->
+<!--</p>-->
+
+
+<!--&lt;!&ndash;                <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                    &ndash;&gt;-->
+
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--				<div class="card-footer">-->
+<!--					Card footer-->
+<!--				</div>-->
+<!--			</div>-->
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours Calc
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                                        <div class="form-group ">
+                            {{ form.appchangehourscalc.errors }}
+                            <label for="{{ form.appchangehourscalc.id_for_label }}">appchangehourscalc:</label>
+                            {{ form.appchangehourscalc }}
+                    </div>
+
+                                        <div class="form-group ">
+                            {{ form.appchangefac.errors }}
+                            <label for="{{ form.appchangefac.id_for_label }}">appchangefac:</label>
+                            {{ form.appchangefac }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Delivery Info:
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                    <div class="form-horizontal" align="right">
+                    <div class="form-group ">
+                            {{ form.deliveryoption.errors }}
+                            <label for="{{ form.deliveryoption.id_for_label }}">deliveryoption:</label>
+                            {{ form.deliveryoption }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.regions.errors }}
+                            <label for="{{ form.regions.id_for_label }}">regions:</label>
+                            {{ form.regions }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.currencytype.errors }}
+                            <label for="{{ form.currencytype.id_for_label }}">currencytype:</label>
+                            {{ form.currencytype }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.defaultfte_year.errors }}
+                            <label for="{{ form.defaultfte_year.id_for_label }}">defaultfte_year:</label>
+                            {{ form.defaultfte_year }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.workweek.errors }}
+                            <label for="{{ form.workweek.id_for_label }}">workweek:</label>
+                            {{ form.workweek }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.deliveryctrcostfactor.errors }}
+                            <label for="{{ form.deliveryctrcostfactor.id_for_label }}">deliveryctrcostfactor:</label>
+                            {{ form.deliveryctrcostfactor }}
+                    </div>
+
+                </div>
+
+
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+
+</div>
+
+
+                <div class="align-middle">
+                    <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+                    {% if title == "New Product OrderItem" %}
+                        <button type="reset" class="btn ghost-blue" >Reset</button>
+                    {% endif %}
+                    {% if delbtn %}
+                        <a href="{% url 'delete-orderitem' object.pk %}" class="btn ghost-red"> Delete OrderItem </a>
+                    {% endif %}
+                    <a href="{% url 'orderitem' %}" class="btn ghost-button">Cancel Me</a>
+                    <a href="{% url 'order' order.id % %}" class="btn ghost-button">Order</a>
+                </div>
+
+          </div>
+
+
+
+<div class="container-fluid" align="center">
+
+    <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                <div class="card text-dark bg-light">
+          <div class="card-header">Components/Feature</div>
+          <div class="card-body">
+            <h5 class="card-title">Light card title</h5>
+            <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Name</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Hrs</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Wkstn:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Srvr:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">IP/EP:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Qty:</div>
+
+            </div>
+                          <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">Name</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">Hrs</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">Wkstn:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">Srvr:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">IP/EP:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:black">Qty:</div>
+
+            </div>
+                          <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                    <div class="form-group">
+                        {{ form.component1desc.errors }}
+                        {{ form.component1desc }}
+                    </div>
+                </div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                        {{ form.ComponentHours1.errors }}
+                        {{ form.ComponentHours1 }}
+                </div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                    Wkstn:
+                        {{ form.Component1_Wkstn.errors }}
+                        {{ form.Component2_Wkstn }}
+                </div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                    Srvr:
+                        {{ form.Component1_Svr.errors }}
+                        {{ form.Component1_Svr }}
+                </div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                    IP/EP:
+                        {{ form.Component1_IP.errors }}
+                        {{ form.Component1_IP }}
+                </div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">
+                    Qty:
+                        {{ form.Component1_Qty.errors }}
+                        {{ form.Component1_Qty }}
+                </div>
+
+            </div>
+                          <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Name</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Hrs</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Wkstn:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Srvr:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">IP/EP:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Qty:</div>
+
+            </div>
+                          <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Name</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Hrs</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Wkstn:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Srvr:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">IP/EP:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Qty:</div>
+
+            </div>
+                          <div class="row">
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Name</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Hrs</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Wkstn:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Srvr:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">IP/EP:</div>
+                <div class="col-md-2" style="font-weight:bold; font-family:Arial; font-size:11px; color:darkblue">Qty:</div>
+
+            </div>
+          </div>
+        </div>
+
+            </div>
+                <div class="col-md-3">
+
+                <div class="card text-dark bg-light">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Components</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+            </div>
+                <div class="col-md-3">
+
+
+                <div class="card text-dark bg-light">
+          <div class="card-header">Components</div>
+          <div class="card-body">
+            <h5 class="card-title">Light card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+            </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+    </form>
+
+
+</div>
+
+
+</div>
+
+
+{% endblock content %}

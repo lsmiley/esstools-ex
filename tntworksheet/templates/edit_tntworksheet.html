@@ -1,0 +1,1110 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+
+    
+    <br>
+
+<div class="row">
+ <div class="col-md-1">.</div>
+<div class="col-md-1">.</div>
+<div class="col-md-8">
+        <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">{{title}}</div>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="form-group">
+            {{ form.tntid.errors }}
+            <label for="{{ form.tntid.id_for_label }}">tntid:</label>
+            {{ form.tntid }}
+        </div>
+
+        <div class="form-group">
+            {{ form.tntdescription.errors }}
+            <label for="{{ form.tntdescription.id_for_label }}">Description:</label>
+            {{ form.tntdescription }}
+        </div>
+
+        <div class="form-group">
+            {{ form.managementmod1stline.errors }}
+            <label for="{{ form.managementmod1stline.id_for_label }}">managementmod1stline:</label>
+            {{ form.managementmod1stline }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.managementmod2ndline.errors }}
+            <label for="{{ form.managementmod2ndline.id_for_label }}">managementmod2ndline:</label>
+            {{ form.managementmod2ndline  }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.totaltransitiontotalfte.errors }}
+            <label for="{{ form.totaltransitiontotalfte.id_for_label }}">Produtotaltransitiontotalftects:</label>
+            {{ form.totaltransitiontotalfte }}
+        </div>
+                <div class="form-group ">
+            {{ form.totaltransitiontotalhours.errors }}
+            <label for="{{ form.totaltransitiontotalhours.id_for_label }}">totaltransitiontotalhours:</label>
+            {{ form.totaltransitiontotalhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransitiontotalband8.errors }}
+            <label for="{{ form.totaltransitiontotalband8.id_for_label }}">totaltransitiontotalband8:</label>
+            {{ form.totaltransitiontotalband8 }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransitiontotal1stlinemgr.errors }}
+            <label for="{{ form.totaltransitiontotal1stlinemgr.id_for_label }}">totaltransitiontotal1stlinemgr:</label>
+            {{ form.totaltransitiontotal1stlinemgr }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransitiontotal2ndlinemgr.errors }}
+            <label for="{{ form.totaltransitiontotal2ndlinemgr.id_for_label }}">totaltransitiontotal2ndlinemgr:</label>
+            {{ form.totaltransitiontotal2ndlinemgr }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransitiontotals.errors }}
+            <label for="{{ form.totaltransitiontotals.id_for_label }}">totaltransitiontotals:</label>
+            {{ form.totaltransitiontotals }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.totaltransformationtotalfte.errors }}
+            <label for="{{ form.totaltransformationtotalfte.id_for_label }}">totaltransformationtotalfte:</label>
+            {{ form.totaltransformationtotalfte }}
+        </div>
+        <div class="form-group ">
+            {{ form.totaltransformationtotalhours.errors }}
+            <label for="{{ form.totaltransformationtotalhours.id_for_label }}">totaltransformationtotalhours:</label>
+            {{ form.totaltransformationtotalhours }}
+        </div>
+                <div class="form-group ">
+            {{ form.totaltransformationtotalband8.errors }}
+            <label for="{{ form.totaltransformationtotalband8.id_for_label }}">totaltransformationtotalband8:</label>
+            {{ form.totaltransformationtotalband8 }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransformationtotal1stlinemgr.errors }}
+            <label for="{{ form.totaltransformationtotal1stlinemgr.id_for_label }}">TNT:</label>
+            {{ form.totaltransformationtotal1stlinemgr }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransformationtotal2ndlinemgr.errors }}
+            <label for="{{ form.totaltransformationtotal2ndlinemgr.id_for_label }}">totaltransformationtotal2ndlinemgr:</label>
+            {{ form.totaltransformationtotal2ndlinemgr }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.totaltransformationtotals.errors }}
+            <label for="{{ form.totaltransformationtotals.id_for_label }}">totaltransformationtotals:</label>
+            {{ form.totaltransformationtotals }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionhoursfte.errors }}
+            <label for="{{ form.transitionhoursfte.id_for_label }}">transitionhoursfte:</label>
+            {{ form.transitionhoursfte }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionfirstlinemanagementband8.errors }}
+            <label for="{{ form.transitionfirstlinemanagementband8.id_for_label }}">transitionfirstlinemanagementband8:</label>
+            {{ form.transitionfirstlinemanagementband8 }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.transitionsecondlinemanagementband8.errors }}
+            <label for="{{ form.transitionsecondlinemanagementband8.id_for_label }}">transitionsecondlinemanagementband8:</label>
+            {{ form.transitionsecondlinemanagementband8 }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionfirstlinemanagementband8weeks.errors }}
+            <label for="{{ form.transitionfirstlinemanagementband8weeks.id_for_label }}">transitionfirstlinemanagementband8weeks:</label>
+            {{ form.transitionfirstlinemanagementband8weeks }}
+        </div>
+                <div class="form-group ">
+            {{ form.transitionsecondlinemanagementband8weeks.errors }}
+            <label for="{{ form.transitionsecondlinemanagementband8weeks.id_for_label }}">transitionsecondlinemanagementband8weeks:</label>
+            {{ form.transitionsecondlinemanagementband8weeks }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionsubtotalshours.errors }}
+            <label for="{{ form.transitionsubtotalshours.id_for_label }}">transitionsubtotalshours:</label>
+            {{ form.transitionsubtotalshours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionfirstlinemanagementband8hours.errors }}
+            <label for="{{ form.transitionfirstlinemanagementband8hours.id_for_label }}">transitionfirstlinemanagementband8hours:</label>
+            {{ form.transitionfirstlinemanagementband8hours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transfortionhoursfte.errors }}
+            <label for="{{ form.transfortionhoursfte.id_for_label }}">transfortionhoursfte:</label>
+            {{ form.transfortionhoursfte }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transformationfirstlinemanagementband8.errors }}
+            <label for="{{ form.transformationfirstlinemanagementband8.id_for_label }}">transformationfirstlinemanagementband8:</label>
+            {{ form.transformationfirstlinemanagementband8 }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transformationsecondlinemanagementband8.errors }}
+            <label for="{{ form.transformationsecondlinemanagementband8.id_for_label }}">transformationsecondlinemanagementband8:</label>
+            {{ form.transformationsecondlinemanagementband8 }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.transformationfirstlinemanagementband8weeks.errors }}
+            <label for="{{ form.transformationfirstlinemanagementband8weeks.id_for_label }}">transformationfirstlinemanagementband8weeks:</label>
+            {{ form.transformationfirstlinemanagementband8weeks }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transformationsecondlinemanagementband8weeks.errors }}
+            <label for="{{ form.transformationsecondlinemanagementband8weeks.id_for_label }}">transformationsecondlinemanagementband8weeks:</label>
+            {{ form.transformationsecondlinemanagementband8weeks }}
+        </div>
+                <div class="form-group ">
+            {{ form.tranformationsubtotalshours.errors }}
+            <label for="{{ form.tranformationsubtotalshours.id_for_label }}">tranformationsubtotalshours:</label>
+            {{ form.tranformationsubtotalshours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transformationfirstlinemanagementband8hours.errors }}
+            <label for="{{ form.transformationfirstlinemanagementband8hours.id_for_label }}">transformationfirstlinemanagementband8hours:</label>
+            {{ form.transformationfirstlinemanagementband8hours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transitionsubtotalshoursitems.errors }}
+            <label for="{{ form.transitionsubtotalshoursitems.id_for_label }}">transitionsubtotalshoursitems:</label>
+            {{ form.transitionsubtotalshoursitems }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.transformationsubtotalshoursitems.errors }}
+            <label for="{{ form.transformationsubtotalshoursitems.id_for_label }}">transformationsubtotalshoursitems:</label>
+            {{ form.transformationsubtotalshoursitems }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.executetransitionplan_count.errors }}
+            <label for="{{ form.executetransitionplan_count.id_for_label }}">executetransitionplan_count:</label>
+            {{ form.executetransitionplan_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.executetransitionplan_transitionhoursitem.errors }}
+            <label for="{{ form.executetransitionplan_transitionhoursitem.id_for_label }}">executetransitionplan_transitionhoursitem:</label>
+            {{ form.executetransitionplan_transitionhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.executetransitionplan_transitionhours.errors }}
+            <label for="{{ form.executetransitionplan_transitionhours.id_for_label }}">executetransitionplan_transitionhours:</label>
+            {{ form.executetransitionplan_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.executetransitionplan_transformationhoursitem.errors }}
+            <label for="{{ form.executetransitionplan_transformationhoursitem.id_for_label }}">executetransitionplan_transformationhoursitem:</label>
+            {{ form.executetransitionplan_transformationhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.executetransitionplan_transformationhours.errors }}
+            <label for="{{ form.executetransitionplan_transformationhours.id_for_label }}">executetransitionplan_transformationhours:</label>
+            {{ form.executetransitionplan_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.createbestpracticecustom_count.errors }}
+            <label for="{{ form.createbestpracticecustom_count.id_for_label }}">createbestpracticecustom_count:</label>
+            {{ form.createbestpracticecustom_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.createbestpracticecustom_transitionhoursitem.errors }}
+            <label for="{{ form.createbestpracticecustom_transitionhoursitem.id_for_label }}">createbestpracticecustom_transitionhoursitem:</label>
+            {{ form.createbestpracticecustom_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.createbestpracticecustom_transitionhours.errors }}
+            <label for="{{ form.createbestpracticecustom_transitionhours.id_for_label }}">createbestpracticecustom_transitionhours:</label>
+            {{ form.createbestpracticecustom_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.createbestpracticecustom_transformationhoursitem.errors }}
+            <label for="{{ form.createbestpracticecustom_transformationhoursitem.id_for_label }}">createbestpracticecustom_transformationhoursitem:</label>
+            {{ form.createbestpracticecustom_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.createbestpracticecustom_transformationhours.errors }}
+            <label for="{{ form.createbestpracticecustom_transformationhours.id_for_label }}">createbestpracticecustom_transformationhours:</label>
+            {{ form.createbestpracticecustom_transformationhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.testinfrastructurepoc_count.errors }}
+            <label for="{{ form.testinfrastructurepoc_count.id_for_label }}">testinfrastructurepoc_count:</label>
+            {{ form.testinfrastructurepoc_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.testinfrastructurepoc_transitionhoursitem.errors }}
+            <label for="{{ form.testinfrastructurepoc_transitionhoursitem.id_for_label }}">testinfrastructurepoc_transitionhoursitem:</label>
+            {{ form.testinfrastructurepoc_transitionhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.testinfrastructurepoc_transitionhours.errors }}
+            <label for="{{ form.testinfrastructurepoc_transitionhours.id_for_label }}">testinfrastructurepoc_transitionhours:</label>
+            {{ form.testinfrastructurepoc_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.testinfrastructurepoc_transformationhoursitem.errors }}
+            <label for="{{ form.testinfrastructurepoc_transformationhoursitem.id_for_label }}">testinfrastructurepoc_transformationhoursitem:</label>
+            {{ form.testinfrastructurepoc_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.testinfrastructurepoc_transformationhours.errors }}
+            <label for="{{ form.testinfrastructurepoc_transformationhours.id_for_label }}">testinfrastructurepoc_transformationhours:</label>
+            {{ form.testinfrastructurepoc_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.troubleshoottune_count.errors }}
+            <label for="{{ form.troubleshoottune_count.id_for_label }}">troubleshoottune_count:</label>
+            {{ form.troubleshoottune_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.troubleshoottune_transitionhoursitem.errors }}
+            <label for="{{ form.troubleshoottune_transitionhoursitem.id_for_label }}">troubleshoottune_transitionhoursitem:</label>
+            {{ form.troubleshoottune_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.troubleshoottune_transitionhours.errors }}
+            <label for="{{ form.troubleshoottune_transitionhours.id_for_label }}">troubleshoottune_transitionhours:</label>
+            {{ form.troubleshoottune_transitionhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.troubleshoottune_transformationhoursitem.errors }}
+            <label for="{{ form.troubleshoottune_transformationhoursitem.id_for_label }}">troubleshoottune_transformationhoursitem:</label>
+            {{ form.troubleshoottune_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.troubleshoottune_transformationhours.errors }}
+            <label for="{{ form.troubleshoottune_transformationhours.id_for_label }}">troubleshoottune_transformationhours:</label>
+            {{ form.troubleshoottune_transformationhours }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.installconfigure_count.errors }}
+            <label for="{{ form.installconfigure_count.id_for_label }}">installconfigure_count:</label>
+            {{ form.installconfigure_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigure_transitionhoursitem.errors }}
+            <label for="{{ form.installconfigure_transitionhoursitem.id_for_label }}">installconfigure_transitionhoursitem:</label>
+            {{ form.installconfigure_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigure_transitionhours.errors }}
+            <label for="{{ form.installconfigure_transitionhours.id_for_label }}">installconfigure_transitionhours:</label>
+            {{ form.installconfigure_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigure_transformationhoursitem.errors }}
+            <label for="{{ form.installconfigure_transformationhoursitem.id_for_label }}">installconfigure_transformationhoursitem:</label>
+            {{ form.installconfigure_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigure_transformationhours.errors }}
+            <label for="{{ form.installconfigure_transformationhours.id_for_label }}">installconfigure_transformationhours:</label>
+            {{ form.installconfigure_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.administratortraining_count.errors }}
+            <label for="{{ form.administratortraining_count.id_for_label }}">administratortraining_count:</label>
+            {{ form.administratortraining_count }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.administratortraining_transitionhoursitem.errors }}
+            <label for="{{ form.administratortraining_transitionhoursitem.id_for_label }}">administratortraining_transitionhoursitem:</label>
+            {{ form.administratortraining_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.administratortraining_transitionhours.errors }}
+            <label for="{{ form.administratortraining_transitionhours.id_for_label }}">administratortraining_transitionhours:</label>
+            {{ form.administratortraining_transitionhours }}
+        </div>
+                <div class="form-group ">
+            {{ form.administratortraining_transformationhoursitem.errors }}
+            <label for="{{ form.administratortraining_transformationhoursitem.id_for_label }}">administratortraining_transformationhoursitem:</label>
+            {{ form.administratortraining_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.administratortraining_transformationhours.errors }}
+            <label for="{{ form.administratortraining_transformationhours.id_for_label }}">administratortraining_transformationhours:</label>
+            {{ form.administratortraining_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developserviceresponsibilitymatrix_count.errors }}
+            <label for="{{ form.developserviceresponsibilitymatrix_count.id_for_label }}">developserviceresponsibilitymatrix_count:</label>
+            {{ form.developserviceresponsibilitymatrix_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developserviceresponsibilitymatrix_transitionhoursitem.errors }}
+            <label for="{{ form.developserviceresponsibilitymatrix_transitionhoursitem.id_for_label }}">developserviceresponsibilitymatrix_transitionhoursitem:</label>
+            {{ form.developserviceresponsibilitymatrix_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developserviceresponsibilitymatrix_transitionhours.errors }}
+            <label for="{{ form.developserviceresponsibilitymatrix_transitionhours.id_for_label }}">developserviceresponsibilitymatrix_transitionhours:</label>
+            {{ form.developserviceresponsibilitymatrix_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developserviceresponsibilitymatrix_transformationhoursitem.errors }}
+            <label for="{{ form.developserviceresponsibilitymatrix_transformationhoursitem.id_for_label }}">developserviceresponsibilitymatrix_transformationhoursitem:</label>
+            {{ form.developserviceresponsibilitymatrix_transformationhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.developserviceresponsibilitymatrix_transformationhours.errors }}
+            <label for="{{ form.developserviceresponsibilitymatrix_transformationhours.id_for_label }}">developserviceresponsibilitymatrix_transformationhours:</label>
+            {{ form.developserviceresponsibilitymatrix_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishanyneededserviceaccounts_count.errors }}
+            <label for="{{ form.establishanyneededserviceaccounts_count.id_for_label }}">establishanyneededserviceaccounts_count:</label>
+            {{ form.establishanyneededserviceaccounts_count }}
+        </div>
+                <div class="form-group ">
+            {{ form.establishanyneededserviceaccounts_transitionhoursitem.errors }}
+            <label for="{{ form.establishanyneededserviceaccounts_transitionhoursitem.id_for_label }}">establishanyneededserviceaccounts_transitionhoursitem:</label>
+            {{ form.establishanyneededserviceaccounts_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishanyneededserviceaccounts_transitionhours.errors }}
+            <label for="{{ form.establishanyneededserviceaccounts_transitionhours.id_for_label }}">establishanyneededserviceaccounts_transitionhours</label>
+            {{ form.establishanyneededserviceaccounts_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishanyneededserviceaccounts_transformationhoursitem.errors }}
+            <label for="{{ form.establishanyneededserviceaccounts_transformationhoursitem.id_for_label }}">establishanyneededserviceaccounts_transformationhoursitem:</label>
+            {{ form.establishanyneededserviceaccounts_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishanyneededserviceaccounts_transformationhours.errors }}
+            <label for="{{ form.establishanyneededserviceaccounts_transformationhours.id_for_label }}">establishanyneededserviceaccounts_transformationhours:</label>
+            {{ form.establishanyneededserviceaccounts_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.researchandsetupemailautomation_count.errors }}
+            <label for="{{ form.researchandsetupemailautomation_count.id_for_label }}">researchandsetupemailautomation_count:</label>
+            {{ form.researchandsetupemailautomation_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.researchandsetupemailautomation_transitionhoursitem.errors }}
+            <label for="{{ form.researchandsetupemailautomation_transitionhoursitem.id_for_label }}">researchandsetupemailautomation_transitionhoursitem:</label>
+            {{ form.researchandsetupemailautomation_transitionhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.researchandsetupemailautomation_transitionhours.errors }}
+            <label for="{{ form.memo.id_for_label }}">researchandsetupemailautomation_transitionhours:</label>
+            {{ form.researchandsetupemailautomation_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.researchandsetupemailautomation_transformationhoursitem.errors }}
+            <label for="{{ form.researchandsetupemailautomation_transformationhoursitem.id_for_label }}">researchandsetupemailautomation_transformationhoursitem:</label>
+            {{ form.researchandsetupemailautomation_transformationhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.researchandsetupemailautomation_transformationhours.errors }}
+            <label for="{{ form.researchandsetupemailautomation_transformationhours.id_for_label }}">researchandsetupemailautomation_transformationhours:</label>
+            {{ form.researchandsetupemailautomation_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureremoteconsoles_count.errors }}
+            <label for="{{ form.installconfigureremoteconsoles_count.id_for_label }}">installconfigureremoteconsoles_count:</label>
+            {{ form.installconfigureremoteconsoles_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureremoteconsoles_transitionhoursitem.errors }}
+            <label for="{{ form.installconfigureremoteconsoles_transitionhoursitem.id_for_label }}">installconfigureremoteconsoles_transitionhoursitem:</label>
+            {{ form.installconfigureremoteconsoles_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureremoteconsoles_transitionhours.errors }}
+            <label for="{{ form.installconfigureremoteconsoles_transitionhours.id_for_label }}">installconfigureremoteconsoles_transitionhours:</label>
+            {{ form.installconfigureremoteconsoles_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureremoteconsoles_transformationhoursitem.errors }}
+            <label for="{{ form.installconfigureremoteconsoles_transformationhoursitem.id_for_label }}">installconfigureremoteconsoles_transformationhoursitem:</label>
+            {{ form.installconfigureremoteconsoles_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureremoteconsoles_transformationhours.errors }}
+            <label for="{{ form.installconfigureremoteconsoles_transformationhours.id_for_label }}">installconfigureremoteconsoles_transformationhours:</label>
+            {{ form.installconfigureremoteconsoles_transformationhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.workwithsecops_count.errors }}
+            <label for="{{ form.workwithsecops_count.id_for_label }}">workwithsecops_count:</label>
+            {{ form.workwithsecops_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.workwithsecops_transitionhoursitem.errors }}
+            <label for="{{ form.workwithsecops_transitionhoursitem.id_for_label }}">workwithsecops_transitionhoursitem:</label>
+            {{ form.workwithsecops_transitionhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.workwithsecops_transitionhours.errors }}
+            <label for="{{ form.workwithsecops_transitionhours.id_for_label }}">workwithsecops_transitionhours:</label>
+            {{ form.workwithsecops_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.workwithsecops_transformationhoursitem.errors }}
+            <label for="{{ form.workwithsecops_transformationhoursitem.id_for_label }}">workwithsecops_transformationhoursitem:</label>
+            {{ form.workwithsecops_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.workwithsecops_transformationhours.errors }}
+            <label for="{{ form.workwithsecops_transformationhours.id_for_label }}">workwithsecops_transformationhours:</label>
+            {{ form.workwithsecops_transformationhours }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.staffingccoordinating_count.errors }}
+            <label for="{{ form.staffingccoordinating_count.id_for_label }}">staffingccoordinating_count:</label>
+            {{ form.staffingccoordinating_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.staffingccoordinating_transitionhoursitem.errors }}
+            <label for="{{ form.memo.id_for_label }}">staffingccoordinating_transitionhoursitem:</label>
+            {{ form.staffingccoordinating_transitionhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.staffingccoordinating_transitionhours.errors }}
+            <label for="{{ form.staffingccoordinating_transitionhours.id_for_label }}">staffingccoordinating_transitionhours:</label>
+            {{ form.staffingccoordinating_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.staffingccoordinating_transformationhoursitem.errors }}
+            <label for="{{ form.staffingccoordinating_transformationhoursitem.id_for_label }}">staffingccoordinating_transformationhoursitem:</label>
+            {{ form.staffingccoordinating_transformationhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.staffingccoordinating_transformationhours.errors }}
+            <label for="{{ form.staffingccoordinating_transformationhours.id_for_label }}">staffingccoordinating_transformationhours:</label>
+            {{ form.staffingccoordinating_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.identifytestdocument_count.errors }}
+            <label for="{{ form.identifytestdocument_count.id_for_label }}">identifytestdocument_count:</label>
+            {{ form.identifytestdocument_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.identifytestdocument_transitionhoursitem.errors }}
+            <label for="{{ form.identifytestdocument_transitionhoursitem.id_for_label }}">TNT:</label>
+            {{ form.identifytestdocument_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.identifytestdocument_transitionhours.errors }}
+            <label for="{{ form.identifytestdocument_transitionhours.id_for_label }}">identifytestdocument_transitionhours:</label>
+            {{ form.identifytestdocument_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.identifytestdocument_transformationhoursitem.errors }}
+            <label for="{{ form.identifytestdocument_transformationhoursitem.id_for_label }}">identifytestdocument_transformationhoursitem:</label>
+            {{ form.identifytestdocument_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.identifytestdocument_transformationhours.errors }}
+            <label for="{{ form.identifytestdocument_transformationhours.id_for_label }}">identifytestdocument_transformationhours:</label>
+            {{ form.identifytestdocument_transformationhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave1_count.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave1_count.id_for_label }}">obtainnetworkandosaccesswave1_count:</label>
+            {{ form.obtainnetworkandosaccesswave1_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave1_transitionhoursitem.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave1_transitionhoursitem.id_for_label }}">obtainnetworkandosaccesswave1_transitionhoursitem:</label>
+            {{ form.obtainnetworkandosaccesswave1_transitionhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave1_transitionhours.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave1_transitionhours.id_for_label }}">obtainnetworkandosaccesswave1_transitionhours:</label>
+            {{ form.obtainnetworkandosaccesswave1_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave1_transformationhoursitem.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave1_transformationhoursitem.id_for_label }}">obtainnetworkandosaccesswave1_transformationhoursitem:</label>
+            {{ form.obtainnetworkandosaccesswave1_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave1_transformationhours.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave1_transformationhours.id_for_label }}">obtainnetworkandosaccesswave1_transformationhours:</label>
+            {{ form.obtainnetworkandosaccesswave1_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave2_count.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave2_count.id_for_label }}">obtainnetworkandosaccesswave2_count:</label>
+            {{ form.obtainnetworkandosaccesswave2_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave2_transitionhoursitem.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave2_transitionhoursitem.id_for_label }}">obtainnetworkandosaccesswave2_transitionhoursitem:</label>
+            {{ form.obtainnetworkandosaccesswave2_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave2_transitionhours.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave2_transitionhours.id_for_label }}">obtainnetworkandosaccesswave2_transitionhours:</label>
+            {{ form.obtainnetworkandosaccesswave2_transitionhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave2_transformationhoursitem.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave2_transformationhoursitem.id_for_label }}">obtainnetworkandosaccesswave2_transformationhoursitem:</label>
+            {{ form.obtainnetworkandosaccesswave2_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.obtainnetworkandosaccesswave2_transformationhours.errors }}
+            <label for="{{ form.obtainnetworkandosaccesswave2_transformationhours.id_for_label }}">obtainnetworkandosaccesswave2_transformationhours:</label>
+            {{ form.obtainnetworkandosaccesswave2_transformationhours }}
+        </div>
+                <div class="form-group ">
+            {{ form.developprovideagentsoftware_count.errors }}
+            <label for="{{ form.developprovideagentsoftware_count.id_for_label }}">developprovideagentsoftware_count:</label>
+            {{ form.developprovideagentsoftware_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developprovideagentsoftware_transitionhoursitem.errors }}
+            <label for="{{ form.developprovideagentsoftware_transitionhoursitem.id_for_label }}">developprovideagentsoftware_transitionhoursitem:</label>
+            {{ form.developprovideagentsoftware_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developprovideagentsoftware_transitionhours.errors }}
+            <label for="{{ form.developprovideagentsoftware_transitionhours.id_for_label }}">developprovideagentsoftware_transitionhours:</label>
+            {{ form.developprovideagentsoftware_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developprovideagentsoftware_transformationhoursitem.errors }}
+            <label for="{{ form.developprovideagentsoftware_transformationhoursitem.id_for_label }}">developprovideagentsoftware_transformationhoursitem:</label>
+            {{ form.developprovideagentsoftware_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developprovideagentsoftware_transformationhours.errors }}
+            <label for="{{ form.developprovideagentsoftware_transformationhours.id_for_label }}">developprovideagentsoftware_transformationhours:</label>
+            {{ form.developprovideagentsoftware_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureodbc_count.errors }}
+            <label for="{{ form.installconfigureodbc_count.id_for_label }}">installconfigureodbc_count:</label>
+            {{ form.installconfigureodbc_count }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.installconfigureodbc_transitionhoursitem.errors }}
+            <label for="{{ form.installconfigureodbc_transitionhoursitem.id_for_label }}">installconfigureodbc_transitionhoursitem:</label>
+            {{ form.installconfigureodbc_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureodbc_transitionhours.errors }}
+            <label for="{{ form.installconfigureodbc_transitionhours.id_for_label }}">installconfigureodbc_transitionhours:</label>
+            {{ form.installconfigureodbc_transitionhours }}
+        </div>
+                <div class="form-group ">
+            {{ form.installconfigureodbc_transformationhoursitem.errors }}
+            <label for="{{ form.installconfigureodbc_transformationhoursitem.id_for_label }}">installconfigureodbc_transformationhoursitem:</label>
+            {{ form.installconfigureodbc_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.installconfigureodbc_transformationhours.errors }}
+            <label for="{{ form.installconfigureodbc_transformationhours.id_for_label }}">installconfigureodbc_transformationhours:</label>
+            {{ form.installconfigureodbc_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.customerreviewsignoff_count.errors }}
+            <label for="{{ form.customerreviewsignoff_count.id_for_label }}">customerreviewsignoff_count:</label>
+            {{ form.customerreviewsignoff_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.customerreviewsignoff_transitionhoursitem.errors }}
+            <label for="{{ form.customerreviewsignoff_transitionhoursitem.id_for_label }}">customerreviewsignoff_transitionhoursitem:</label>
+            {{ form.customerreviewsignoff_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.customerreviewsignoff_transitionhours.errors }}
+            <label for="{{ form.customerreviewsignoff_transitionhours.id_for_label }}">customerreviewsignoff_transitionhours:</label>
+            {{ form.customerreviewsignoff_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.customerreviewsignoff_transformationhoursitem.errors }}
+            <label for="{{ form.customerreviewsignoff_transformationhoursitem.id_for_label }}">customerreviewsignoff_transformationhoursitem:</label>
+            {{ form.customerreviewsignoff_transformationhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.customerreviewsignoff_transformationhours.errors }}
+            <label for="{{ form.customerreviewsignoff_transformationhours.id_for_label }}">customerreviewsignoff_transformationhours:</label>
+            {{ form.customerreviewsignoff_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishhealthcheck_count.errors }}
+            <label for="{{ form.establishhealthcheck_count.id_for_label }}">establishhealthcheck_count:</label>
+            {{ form.establishhealthcheck_count }}
+        </div>
+                <div class="form-group ">
+            {{ form.establishhealthcheck_transitionhoursitem.errors }}
+            <label for="{{ form.establishhealthcheck_transitionhoursitem.id_for_label }}">establishhealthcheck_transitionhoursitem:</label>
+            {{ form.establishhealthcheck_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishhealthcheck_transitionhours.errors }}
+            <label for="{{ form.establishhealthcheck_transitionhours.id_for_label }}">establishhealthcheck_transitionhours:</label>
+            {{ form.establishhealthcheck_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishhealthcheck_transformationhoursitem.errors }}
+            <label for="{{ form.establishhealthcheck_transformationhoursitem.id_for_label }}">establishhealthcheck_transformationhoursitem:</label>
+            {{ form.establishhealthcheck_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.establishhealthcheck_transformationhours.errors }}
+            <label for="{{ form.establishhealthcheck_transformationhoursid_for_label }}">establishhealthcheck_transformationhours:</label>
+            {{ form.establishhealthcheck_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developworkflows_count.errors }}
+            <label for="{{ form.developworkflows_count.id_for_label }}">developworkflows_count:</label>
+            {{ form.developworkflows_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developworkflows_transitionhoursitem.errors }}
+            <label for="{{ form.developworkflows_transitionhoursitem.id_for_label }}">developworkflows_transitionhoursitem</label>
+            {{ form.developworkflows_transitionhoursitem }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.developworkflows_transitionhours.errors }}
+            <label for="{{ form.developworkflows_transitionhours.id_for_label }}">developworkflows_transitionhours:</label>
+            {{ form.developworkflows_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.developworkflows_transformationhoursitem.errors }}
+            <label for="{{ form.developworkflows_transformationhoursitem.id_for_label }}">developworkflows_transformationhoursitem:</label>
+            {{ form.developworkflows_transformationhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.developworkflows_transformationhours.errors }}
+            <label for="{{ form.developworkflows_transformationhours.id_for_label }}">developworkflows_transformationhours:</label>
+            {{ form.developworkflows_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.operationaldocumentation_count.errors }}
+            <label for="{{ form.operationaldocumentation_count.id_for_label }}">operationaldocumentation_count:</label>
+            {{ form.operationaldocumentation_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.operationaldocumentation_transitionhoursitem.errors }}
+            <label for="{{ form.operationaldocumentation_transitionhoursitem.id_for_label }}">operationaldocumentation_transitionhoursitem:</label>
+            {{ form.operationaldocumentation_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.operationaldocumentation_transitionhours.errors }}
+            <label for="{{ form.operationaldocumentation_transitionhours.id_for_label }}">operationaldocumentation_transitionhours:</label>
+            {{ form.operationaldocumentation_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.operationaldocumentation_transformationhoursitem.errors }}
+            <label for="{{ form.operationaldocumentation_transformationhoursitem.id_for_label }}">operationaldocumentation_transformationhoursitem:</label>
+            {{ form.operationaldocumentation_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.operationaldocumentation_transformationhours.errors }}
+            <label for="{{ form.operationaldocumentation_transformationhours.id_for_label }}">operationaldocumentation_transformationhours:</label>
+            {{ form.operationaldocumentation_transformationhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.shadowestablishreviewallprocedures_count.errors }}
+            <label for="{{ form.shadowestablishreviewallprocedures_count.id_for_label }}">shadowestablishreviewallprocedures_count:</label>
+            {{ form.shadowestablishreviewallprocedures_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.shadowestablishreviewallprocedures_transitionhoursitem.errors }}
+            <label for="{{ form.shadowestablishreviewallprocedures_transitionhoursitem.id_for_label }}">shadowestablishreviewallprocedures_transitionhoursitem:</label>
+            {{ form.shadowestablishreviewallprocedures_transitionhoursitem }}
+        </div>
+                <div class="form-group ">
+            {{ form.shadowestablishreviewallprocedures_transitionhours.errors }}
+            <label for="{{ form.shadowestablishreviewallprocedures_transitionhours.id_for_label }}">shadowestablishreviewallprocedures_transitionhours:</label>
+            {{ form.shadowestablishreviewallprocedures_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.shadowestablishreviewallprocedures_transformationhoursitem.errors }}
+            <label for="{{ form.shadowestablishreviewallprocedures_transformationhoursitem.id_for_label }}">shadowestablishreviewallprocedures_transformationhoursitem:</label>
+            {{ form.shadowestablishreviewallprocedures_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.shadowestablishreviewallprocedures_transformationhours.errors }}
+            <label for="{{ form.shadowestablishreviewallprocedures_transformationhours.id_for_label }}">shadowestablishreviewallprocedures_transformationhours:</label>
+            {{ form.shadowestablishreviewallprocedures_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.otherdetail_count.errors }}
+            <label for="{{ form.otherdetail_count.id_for_label }}">otherdetail_count:</label>
+            {{ form.otherdetail_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.otherdetail_transitionhoursitem.errors }}
+            <label for="{{ form.otherdetail_transitionhoursitem.id_for_label }}">otherdetail_transitionhoursitem:</label>
+            {{ form.memotherdetail_transitionhoursitemo }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.otherdetail_transitionhours.errors }}
+            <label for="{{ form.otherdetail_transitionhours.id_for_label }}">otherdetail_transitionhours</label>
+            {{ form.otherdetail_transitionhours }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.otherdetail_transformationhoursitem.errors }}
+            <label for="{{ form.otherdetail_transformationhoursitem.id_for_label }}">otherdetail_transformationhoursitem:</label>
+            {{ form.otherdetail_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.otherdetail_transformationhours.errors }}
+            <label for="{{ form.otherdetail_transformationhours.id_for_label }}">otherdetail_transformationhours:</label>
+            {{ form.otherdetail_transformationhours }}
+        </div>
+                <div class="form-group ">
+            {{ form.specialitem1_count.errors }}
+            <label for="{{ form.specialitem1_count.id_for_label }}">specialitem1_count:</label>
+            {{ form.specialitem1_count }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.specialitem1_transitionhoursitem.errors }}
+            <label for="{{ form.specialitem1_transitionhoursitem.id_for_label }}">specialitem1_transitionhoursitem:</label>
+            {{ form.specialitem1_transitionhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.specialitem1_transitionhours.errors }}
+            <label for="{{ form.specialitem1_transitionhours.id_for_label }}">specialitem1_transitionhours:</label>
+            {{ form.specialitem1_transitionhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.specialitem1_transformationhoursitem.errors }}
+            <label for="{{ form.specialitem1_transformationhoursitem.id_for_label }}">specialitem1_transformationhoursitem:</label>
+            {{ form.specialitem1_transformationhoursitem }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.specialitem1_transformationhours.errors }}
+            <label for="{{ form.specialitem1_transformationhours.id_for_label }}">specialitem1_transformationhours:</label>
+            {{ form.specialitem1_transformationhours }}
+        </div>
+        
+                <div class="form-group ">
+            {{ form.specialitem2_count.errors }}
+            <label for="{{ form.specialitem2_count.id_for_label }}">specialitem2_count:</label>
+            {{ form.specialitem2_count }}
+        </div>
+        
+        
+                <div class="form-group ">
+            {{ form.specialitem2_transitionhoursitem.errors }}
+            <label for="{{ form.specialitem2_transitionhoursitem.id_for_label }}">specialitem2_transitionhoursitem:</label>
+            {{ form.specialitem2_transitionhoursitem }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem2_transitionhours.errors }}
+            <label for="{{ form.specialitem2_transitionhours.id_for_label }}">specialitem2_transitionhours:</label>
+            {{ form.specialitem2_transitionhours }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem2_transformationhoursitem.errors }}
+            <label for="{{ form.specialitem2_transformationhoursitem.id_for_label }}">specialitem2_transformationhoursitem:</label>
+            {{ form.specialitem2_transformationhoursitem }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem2_transformationhours.errors }}
+            <label for="{{ form.specialitem2_transformationhours.id_for_label }}">specialitem2_transformationhours:</label>
+            {{ form.specialitem2_transformationhours }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem3_count.errors }}
+            <label for="{{ form.specialitem3_count.id_for_label }}">specialitem3_count:</label>
+            {{ form.specialitem3_count }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem3_transitionhoursitem.errors }}
+            <label for="{{ form.specialitem3_transitionhoursitem.id_for_label }}">specialitem3_transitionhoursitem:</label>
+            {{ form.specialitem3_transitionhoursitem }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem3_transitionhours.errors }}
+            <label for="{{ form.specialitem3_transitionhoursid_for_label }}">specialitem3_transitionhours:</label>
+            {{ form.specialitem3_transitionhours }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem3_transformationhoursitem.errors }}
+            <label for="{{ form.specialitem3_transformationhoursitem.id_for_label }}">specialitem3_transformationhoursitem:</label>
+            {{ form.specialitem3_transformationhoursitem }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem3_transformationhours.errors }}
+            <label for="{{ form.specialitem3_transformationhours.id_for_label }}">specialitem3_transformationhours:</label>
+            {{ form.specialitem3_transformationhours }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem4_count.errors }}
+            <label for="{{ form.specialitem4_count.id_for_label }}">specialitem4_count:</label>
+            {{ form.specialitem4_count }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem4_transitionhoursitem.errors }}
+            <label for="{{ form.specialitem4_transitionhoursitem.id_for_label }}">specialitem4_transitionhoursitem:</label>
+            {{ form.specialitem4_transitionhoursitem }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem4_transitionhours.errors }}
+            <label for="{{ form.specialitem4_transitionhours.id_for_label }}">specialitem4_transitionhours:</label>
+            {{ form.specialitem4_transitionhours }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem4_transformationhoursitem.errors }}
+            <label for="{{ form.specialitem4_transformationhoursitem.id_for_label }}">specialitem4_transformationhoursitem:</label>
+            {{ form.specialitem4_transformationhoursitem }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem4_transformationhours.errors }}
+            <label for="{{ form.specialitem4_transformationhours.id_for_label }}">specialitem4_transformationhours:</label>
+            {{ form.specialitem4_transformationhours }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem5_count.errors }}
+            <label for="{{ form.specialitem5_count.id_for_label }}">specialitem5_count:</label>
+            {{ form.specialitem5_count }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem5_transitionhoursitem.errors }}
+            <label for="{{ form.specialitem5_transitionhoursitem.id_for_label }}">specialitem5_transitionhoursitem:</label>
+            {{ form.specialitem5_transitionhoursitem }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.specialitem5_transitionhours.errors }}
+            <label for="{{ form.specialitem5_transitionhours.id_for_label }}">specialitem5_transitionhours:</label>
+            {{ form.specialitem5_transitionhours }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.specialitem5_transformationhoursitem.errors }}
+            <label for="{{ form.specialitem5_transformationhoursitem.id_for_label }}">specialitem5_transformationhoursitem:</label>
+            {{ form.specialitem5_transformationhoursitem }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.specialitem5_transformationhours.errors }}
+            <label for="{{ form.specialitem5_transformationhours.id_for_label }}">specialitem5_transformationhours:</label>
+            {{ form.specialitem5_transformationhours }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.totaltransitionhoursitem.errors }}
+            <label for="{{ form.totaltransitionhoursitem.id_for_label }}">totaltransitionhoursitem:</label>
+            {{ form.totaltransitionhoursitem }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.totaltransformationhoursitem.errors }}
+            <label for="{{ form.totaltransformationhoursitem.id_for_label }}">totaltransformationhoursitem:</label>
+            {{ form.totaltransformationhoursitem }}
+        </div>
+
+                        <div class="form-group ">
+            {{ form.numtransitionweeks.errors }}
+            <label for="{{ form.numtransitionweeks.id_for_label }}">numtransitionweeks:</label>
+            {{ form.numtransitionweeks }}
+        </div>
+
+
+                <div class="form-group ">
+            {{ form.numtransformationweeks.errors }}
+            <label for="{{ form.numtransformationweeks.id_for_label }}">numtransformationweeks:</label>
+            {{ form.numtransformationweeks }}
+        </div>
+\
+
+
+
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Statusstate" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-statusstate' object.pk %}" class="btn ghost-red"> Delete Vendor </a>
+            {% endif %}
+            <a href="{% url 'statusstate' %}" class="btn ghost-button">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+<div class="col-md-1">.</div>
+<div class="col-md-1">.</div>
+
+</div>
+
+
+
+
+{% endblock content %}

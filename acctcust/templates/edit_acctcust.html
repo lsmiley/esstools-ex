@@ -1,0 +1,136 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+    <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">{{title}}</div> 
+    
+    <br>
+    
+    <form method="post">
+    
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="form-group">
+            {{ form.acctname.errors }}
+            <label for="{{ form.acctname.id_for_label }}">Name:</label>
+            {{ form.acctname }}
+        </div>
+        <div class="form-group ">
+            {{ form.businesssec.errors }}
+            <label for="{{ form.businesssec.id_for_label }}">Note:</label>
+            {{ form.businesssec }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.regulatory.errors }}
+            <label for="{{ form.regulatory.id_for_label }}">Note:</label>
+            {{ form.regulatory }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.created.errors }}
+            <label for="{{ form.created.id_for_label }}">Note:</label>
+            {{ form.created }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.address1.errors }}
+            <label for="{{ form.address1.id_for_label }}">Note:</label>
+            {{ form.address1 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.address2.errors }}
+            <label for="{{ form.address2.id_for_label }}">Note:</label>
+            {{ form.address2 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.city.errors }}
+            <label for="{{ form.city.id_for_label }}">Note:</label>
+            {{ form.city }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.state.errors }}
+            <label for="{{ form.state.id_for_label }}">Note:</label>
+            {{ form.state }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.country.errors }}
+            <label for="{{ form.country.id_for_label }}">Note:</label>
+            {{ form.country }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.contact1name.errors }}
+            <label for="{{ form.contact1name.id_for_label }}">Note:</label>
+            {{ form.contact1name }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.contact1phone.errors }}
+            <label for="{{ form.contact1phone.id_for_label }}">Note:</label>
+            {{ form.contact1phone }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.contact1email.errors }}
+            <label for="{{ form.contact1email.id_for_label }}">Note:</label>
+            {{ form.contact1email }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.contact2name.errors }}
+            <label for="{{ form.contact2name.id_for_label }}">Note:</label>
+            {{ form.contact2name }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.contact2phone.errors }}
+            <label for="{{ form.contact2phone.id_for_label }}">Note:</label>
+            {{ form.contact2phone }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.contact2email.errors }}
+            <label for="{{ form.contact2email.id_for_label }}">Note:</label>
+            {{ form.contact2email }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.wbsiteurl.errors }}
+            <label for="{{ form.wbsiteurl.id_for_label }}">Note:</label>
+            {{ form.wbsiteurl }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.createdby.errors }}
+            <label for="{{ form.createdby.id_for_label }}">Note:</label>
+            {{ form.createdby }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.modifydate.errors }}
+            <label for="{{ form.modifydate.id_for_label }}">Note:</label>
+            {{ form.modifydate }}
+        </div>
+
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Account" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-acctcust' object.pk %}" class="btn ghost-red"> Delete Account </a>
+            {% endif %}
+            <a href="{% url 'acctcust' %}" class="btn ghost-button">Cancel</a>
+        </div>
+        
+    </form>
+
+{% endblock content %}

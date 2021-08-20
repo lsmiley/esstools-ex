@@ -1,0 +1,2124 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+<div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Sizing Items</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container-fluid" >
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+<div class="container-fluid">
+    <div class="row">
+                                <div class="form-group">
+                            {{ form.labordelivery.errors }}
+
+                            {{ form.labordelivery }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.product.errors }}
+
+                            {{ form.product }}
+                        </div>
+                        <div class="form-group ">
+                            {{ form.order.errors }}
+
+                            {{ form.order }}
+                        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+    		<div class="col-md-6">
+            <div class="card">
+				<h5 class="card-header">
+					Endpoints / Hours  / FTE
+				</h5>
+				<div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-1">.</div>
+                    <div class="col-md-4">Count</div>
+                    <div class="col-md-4">Hours</div>
+                    <div class="col-md-2">FTE</div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-1">Consoles</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.qty.errors }}
+<!--                            <label for="{{ form.qty.id_for_label }}">Console(s):</label>-->
+                            {{ form.qty }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+				</div>
+
+
+                <div class="row">
+                    <div class="col-md-1">Wkstns</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numworkstation.errors }}
+<!--                            <label for="{{ form.numworkstation.id_for_label }}">numworkstation(s):</label>-->
+                            {{ form.numworkstation }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.wkstnshourscalc.errors }}
+<!--                            <label for="{{ form.wkstnshourscalc.id_for_label }}">wkstnshourscalc:</label>-->
+                            {{ form.wkstnshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+
+
+				</div>
+                <div class="row">
+                    <div class="col-md-1">Servers</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numserver.errors }}
+<!--                            <label for="{{ form.numserver.id_for_label }}">numserver(s):</label>-->
+                            {{ form.numserver }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.srvshourscalc.errors }}
+<!--                            <label for="{{ form.srvshourscalc.id_for_label }}">srvshourscalc:</label>-->
+                            {{ form.srvshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+				</div>
+
+
+                <div class="row">
+                    <div class="col-md-1">IP/EPs</div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                          <div class="form-group ">
+                            {{ form.numipaddress.errors }}
+                    <!--       <label for="{{ form.numipaddress.id_for_label }}">numipaddress(s):</label> -->
+                            {{ form.numipaddress }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-horizontal" align="right">
+                        <div class="form-group ">
+                            {{ form.ipshourscalc.errors }}
+                    <!--        <label for="{{ form.ipshourscalc.id_for_label }}">ipshourscalc:</label>-->
+                            {{ form.ipshourscalc }}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                    </div>
+
+                </div>
+                 <div class="row">
+                        <div class="col-md-1">Totals</div>
+                        <div class="col-md-4">
+                            <div class="form-horizontal" align="right">
+                              <div class="form-group ">
+                                {{ form.total_endpoints.errors }}
+                        <!--        <label for="{{ form.total_endpoints.id_for_label }}">total_endpoints(s):</label>-->
+                                {{ form.total_endpoints }}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-horizontal" align="right">
+                            <div class="form-group ">
+                                {{ form.totalhourscalc.errors }}
+                        <!--        <label for="{{ form.totalhourscalc.id_for_label }}">totalhourscalc:</label>-->
+                                {{ form.totalhourscalc }}
+                        </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                            {{ form.addlconhourscalc.errors }}
+<!--                            <label for="{{ form.addlconhourscalc.id_for_label }}">addlconhourscalc:</label>-->
+                            {{ form.addlconhourscalc }}
+                        </div>
+                        </div>
+                 </div>
+
+            </div>
+</p>
+
+
+<!--                <div class="row">-->
+<!--                    -->
+
+<!--</p>-->
+<!--</div>-->
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		    <div class="col-md-6">
+            <div class="card">
+				<h5 class="card-header">
+					Delivery Info:
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                    <div class="form-horizontal" align="center">
+
+                    <div class="form-group ">
+                            {{ form.regions.errors }}
+                            <label for="{{ form.regions.id_for_label }}">regions:</label>
+                            {{ form.regions }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.currencytype.errors }}
+                            <label for="{{ form.currencytype.id_for_label }}">currencytype:</label>
+                            {{ form.currencytype }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.defaultfte_year.errors }}
+                            <label for="{{ form.defaultfte_year.id_for_label }}">defaultfte_year:</label>
+                            {{ form.defaultfte_year }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.workweek.errors }}
+                            <label for="{{ form.workweek.id_for_label }}">workweek:</label>
+                            {{ form.workweek }}
+                    </div>
+                    <div class="form-group ">
+                            {{ form.deliveryctrcostfactor.errors }}
+                            <label for="{{ form.deliveryctrcostfactor.id_for_label }}">deliveryctrcostfactor:</label>
+                            {{ form.deliveryctrcostfactor }}
+                    </div>
+
+                </div>
+
+
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+
+		</div>
+</div>
+
+</div>
+
+
+                <div class="card">
+          <div class="card-body">
+
+
+
+
+          </div>
+
+<div class="container-fluid">
+
+	<div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Endpoints & Delivery
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+    <div class="form-horizontal" align="right">
+
+                </div>
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                    <div class="form-horizontal" align="right">
+                       <div class="form-group ">
+    {{ form.price.errors }}
+    <label for="{{ form.price.id_for_label }}">Price:</label>
+    {{ form.price }}
+</div>
+                    <div class="form-group ">
+    {{ form.discount_price.errors }}
+    <label for="{{ form.discount_price.id_for_label }}">discount_price:</label>
+    {{ form.discount_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.final_price.errors }}
+    <label for="{{ form.final_price.id_for_label }}">final_price:</label>
+    {{ form.final_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.total_price.errors }}
+    <label for="{{ form.total_price.id_for_label }}">total_price:</label>
+    {{ form.total_price }}
+</div>
+                    <div class="form-group ">
+    {{ form.base.errors }}
+    <label for="{{ form.base.id_for_label }}">base:</label>
+    {{ form.base }}
+</div>
+                    <div class="form-group ">
+    {{ form.discount_base.errors }}
+    <label for="{{ form.discount_base.id_for_label }}">discount_base:</label>
+    {{ form.discount_base }}
+</div>
+                    <div class="form-group ">
+                            {{ form.final_base.errors }}
+                            <label for="{{ form.final_base.id_for_label }}">final_base:</label>
+                            {{ form.final_base }}
+                        </div>
+                    <div class="form-group ">
+                            {{ form.total_base.errors }}
+                            <label for="{{ form.total_base.id_for_label }}">total_base:</label>
+                            {{ form.total_base }}
+                        </div>
+
+                </div>
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					FTE
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+<div class="form-horizontal" align="right">
+                    	               <div class="form-group ">
+                            {{ form.fte.errors }}
+                            <label for="{{ form.fte.id_for_label }}">fte:</label>
+                            {{ form.fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.discount_fte.errors }}
+                            <label for="{{ form.discount_fte.id_for_label }}">discount_fte:</label>
+                            {{ form.discount_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.final_fte.errors }}
+                            <label for="{{ form.final_fte.id_for_label }}">final_fte:</label>
+                            {{ form.final_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.total_fte.errors }}
+                            <label for="{{ form.total_fte.id_for_label }}">total_fte:</label>
+                            {{ form.total_fte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.productcomplexityfac.errors }}
+                            <label for="{{ form.productcomplexityfac.id_for_label }}">Complexity-fac:</label>
+                            {{ form.productcomplexityfac }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.serverfte.errors }}
+                            <label for="{{ form.serverfte.id_for_label }}">serverfte:</label>
+                            {{ form.serverfte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.workstationfte.errors }}
+                            <label for="{{ form.workstationfte.id_for_label }}">workstationfte:</label>
+                            {{ form.workstationfte }}
+                    </div>
+                    	               <div class="form-group ">
+                            {{ form.ipendpointfte.errors }}
+                            <label for="{{ form.ipendpointfte.id_for_label }}">ipendpointfte:</label>
+                            {{ form.ipendpointfte }}
+                    </div>
+                                   <div class="form-group ">
+                            {{ form.addlconfte.errors }}
+                            <label for="{{ form.addlconfte.id_for_label }}">addlconfte:</label>
+                            {{ form.addlconfte }}
+                    </div>
+
+                </div>
+
+
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+    	<div class="row">
+
+	</div>
+	    <div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Features / Components
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                                        <div class="form-group ">
+                            {{ form.appchangehourscalc.errors }}
+                            <label for="{{ form.appchangehourscalc.id_for_label }}">appchangehourscalc:</label>
+                            {{ form.appchangehourscalc }}
+                    </div>
+
+                                        <div class="form-group ">
+                            {{ form.appchangefac.errors }}
+                            <label for="{{ form.appchangefac.id_for_label }}">appchangefac:</label>
+                            {{ form.appchangefac }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours Calc
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                                        <div class="form-group ">
+                            {{ form.appchangehourscalc.errors }}
+                            <label for="{{ form.appchangehourscalc.id_for_label }}">appchangehourscalc:</label>
+                            {{ form.appchangehourscalc }}
+                    </div>
+
+                                        <div class="form-group ">
+                            {{ form.appchangefac.errors }}
+                            <label for="{{ form.appchangefac.id_for_label }}">appchangefac:</label>
+                            {{ form.appchangefac }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+        <div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours Calc
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                                        <div class="form-group ">
+                            {{ form.appchangehourscalc.errors }}
+                            <label for="{{ form.appchangehourscalc.id_for_label }}">appchangehourscalc:</label>
+                            {{ form.appchangehourscalc }}
+                    </div>
+
+                                        <div class="form-group ">
+                            {{ form.appchangefac.errors }}
+                            <label for="{{ form.appchangefac.id_for_label }}">appchangefac:</label>
+                            {{ form.appchangefac }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card">
+						<h5 class="card-header">
+							Standard / Default Components
+						</h5>
+						<div class="card-body">
+
+                <div class="row">
+                        <div class="col-md-1" style="font-size:12px">
+                            Default
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                            Name
+                        </div>
+
+                        <div class="col-md-1" style="font-size:12px">
+                            <p>Hours</p>
+                        </div>
+                        <div class="col-md-2" style="font-size:12px">
+
+                        </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+<!--                            Srvr-->
+<!--                        </div>-->
+                        <div class="col-md-5" style="font-size:12px">
+                            <div class="row">
+                                <div class="col-md-4">Wkstn</div>
+                                <div class="col-md-4">Srvr</div>
+                                <div class="col-md-4">IP/EP</div>
+
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+                <div class="row">
+                        <div class="col-md-1" style="font-size:12px">
+                                <div class="form-group">
+                            #1
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.prodcomponent1_desc.errors }}
+                                    {{ form.prodcomponent1_desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-1" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.prodcomponent1_ttl_hours.errors }}
+
+                                    {{ form.prodcomponent1_ttl_hours }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-2" style="font-size:12px">
+
+                        </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+                        <div class="col-md-5" style="font-size:12px">
+                            <div class="row">
+                                <div class="col-md-4"><div class="form-group">
+                                    {{ form.prodcomponent1_wkstn.errors }}
+
+                                    {{ form.prodcomponent1_wkstn }}
+                                </div></div>
+                                <div class="col-md-4"><div class="form-group">
+                                        {{ form.prodcomponent1_svr.errors }}
+
+                                        {{ form.prodcomponent1_svr }}
+                                    </div></div>
+                                <div class="col-md-4"><div class="form-group">
+                                        {{ form.prodcomponent1_IP.errors }}
+
+                                        {{ form.prodcomponent1_IP }}
+                                    </div></div>
+
+                            </div>
+
+
+                        </div>
+
+
+                </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #2
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent2_desc.errors }}
+                        {{ form.prodcomponent2_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent2_ttl_hours.errors }}
+
+                        {{ form.prodcomponent2_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent2_wkstn.errors }}
+
+                        {{ form.prodcomponent2_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent2_svr.errors }}
+
+                            {{ form.prodcomponent2_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent2_IP.errors }}
+
+                            {{ form.prodcomponent2_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #3
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent3_desc.errors }}
+                        {{ form.prodcomponent3_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent3_ttl_hours.errors }}
+
+                        {{ form.prodcomponent3_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent3_wkstn.errors }}
+
+                        {{ form.prodcomponent3_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent3_svr.errors }}
+
+                            {{ form.prodcomponent3_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent3_IP.errors }}
+
+                            {{ form.prodcomponent3_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #4
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent4_desc.errors }}
+                        {{ form.prodcomponent4_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent4_ttl_hours.errors }}
+
+                        {{ form.prodcomponent4_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent4_wkstn.errors }}
+
+                        {{ form.prodcomponent4_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent4_svr.errors }}
+
+                            {{ form.prodcomponent4_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent4_IP.errors }}
+
+                            {{ form.prodcomponent4_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #5
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent5_desc.errors }}
+                        {{ form.prodcomponent5_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent5_ttl_hours.errors }}
+
+                        {{ form.prodcomponent5_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent5_wkstn.errors }}
+
+                        {{ form.prodcomponent5_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent5_svr.errors }}
+
+                            {{ form.prodcomponent5_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent5_IP.errors }}
+
+                            {{ form.prodcomponent5_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #6
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent6_desc.errors }}
+                        {{ form.prodcomponent6_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent6_ttl_hours.errors }}
+
+                        {{ form.prodcomponent6_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent6_wkstn.errors }}
+
+                        {{ form.prodcomponent6_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent6_svr.errors }}
+
+                            {{ form.prodcomponent6_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent6_IP.errors }}
+
+                            {{ form.prodcomponent6_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #7
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent7_desc.errors }}
+                        {{ form.prodcomponent7_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent7_ttl_hours.errors }}
+
+                        {{ form.prodcomponent7_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent7_wkstn.errors }}
+
+                        {{ form.prodcomponent7_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent7_svr.errors }}
+
+                            {{ form.prodcomponent7_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent7_IP.errors }}
+
+                            {{ form.prodcomponent7_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #8
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent8_desc.errors }}
+                        {{ form.prodcomponent8_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent8_ttl_hours.errors }}
+
+                        {{ form.prodcomponent8_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent8_wkstn.errors }}
+
+                        {{ form.prodcomponent8_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent8_svr.errors }}
+
+                            {{ form.prodcomponent8_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent8_IP.errors }}
+
+                            {{ form.prodcomponent8_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #9
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent9_desc.errors }}
+                        {{ form.prodcomponent9_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent9_ttl_hours.errors }}
+
+                        {{ form.prodcomponent9_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent9_wkstn.errors }}
+
+                        {{ form.prodcomponent9_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent9_svr.errors }}
+
+                            {{ form.prodcomponent9_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent9_IP.errors }}
+
+                            {{ form.prodcomponent9_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+                <div class="row">
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                #10
+                    </div>
+            </div>
+
+            <div class="col-md-3" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent10_desc.errors }}
+                        {{ form.prodcomponent10_desc }}
+                    </div>
+            </div>
+
+            <div class="col-md-1" style="font-size:12px">
+                    <div class="form-group">
+                        {{ form.prodcomponent10_ttl_hours.errors }}
+
+                        {{ form.prodcomponent10_ttl_hours }}
+                    </div>
+            </div>
+
+            <div class="col-md-2" style="font-size:12px">
+
+            </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+            <div class="col-md-5" style="font-size:12px">
+                <div class="row">
+                    <div class="col-md-4"><div class="form-group">
+                        {{ form.prodcomponent10_wkstn.errors }}
+
+                        {{ form.prodcomponent10_wkstn }}
+                    </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent10_svr.errors }}
+
+                            {{ form.prodcomponent10_svr }}
+                        </div></div>
+                    <div class="col-md-4"><div class="form-group">
+                            {{ form.prodcomponent10_IP.errors }}
+
+                            {{ form.prodcomponent10_IP }}
+                        </div></div>
+
+                </div>
+
+
+            </div>
+
+
+    </div>
+
+
+
+
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<h5 class="card-header">
+							Complex Features / Add-Ons / Custom
+						</h5>
+						<div class="card-body">
+					                <div class="row">
+                        <div class="col-md-1" style="font-size:12px">
+                                <div class="form-group">
+                            #11
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.prodcomponent11_desc.errors }}
+                                    {{ form.prodcomponent11_desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-1" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.prodcomponent11_svrHours.errors }}
+
+                                    {{ form.prodcomponent11_svrHours }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-2" style="font-size:12px">
+
+                        </div>
+<!--                        <div class="col-md-2" style="font-size:12px">-->
+
+<!--                        </div>-->
+                        <div class="col-md-5" style="font-size:12px">
+                            <div class="row">
+                                <div class="col-md-4"><div class="form-group">
+                                    {{ form.prodcomponent11_wkstn.errors }}
+
+                                    {{ form.prodcomponent11_wkstn }}
+                                </div></div>
+                                <div class="col-md-4"><div class="form-group">
+                                        {{ form.prodcomponent11_svr.errors }}
+
+                                        {{ form.prodcomponent11_svr }}
+                                    </div></div>
+                                <div class="col-md-4"><div class="form-group">
+                                        {{ form.prodcomponent11_IP.errors }}
+
+                                        {{ form.prodcomponent11_IP }}
+                                    </div></div>
+
+                            </div>
+
+
+                        </div>
+
+
+                </div>
+                                    <div class="row">
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                    #12
+                                        </div>
+                                </div>
+
+                                <div class="col-md-3" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent12_desc.errors }}
+                                            {{ form.prodcomponent12_desc }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent12_svrHours.errors }}
+
+                                            {{ form.prodcomponent12_svrHours }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-2" style="font-size:12px">
+
+                                </div>
+                    <!--                        <div class="col-md-2" style="font-size:12px">-->
+
+                    <!--                        </div>-->
+                                <div class="col-md-5" style="font-size:12px">
+                                    <div class="row">
+                                        <div class="col-md-4"><div class="form-group">
+                                            {{ form.prodcomponent12_wkstn.errors }}
+
+                                            {{ form.prodcomponent12_wkstn }}
+                                        </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent12_svr.errors }}
+
+                                                {{ form.prodcomponent12_svr }}
+                                            </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent12_IP.errors }}
+
+                                                {{ form.prodcomponent12_IP }}
+                                            </div></div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                        </div>
+                                    <div class="row">
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                    #13
+                                        </div>
+                                </div>
+
+                                <div class="col-md-3" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent13_desc.errors }}
+                                            {{ form.prodcomponent13_desc }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent13_svrHours.errors }}
+
+                                            {{ form.prodcomponent13_svrHours }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-2" style="font-size:12px">
+
+                                </div>
+                    <!--                        <div class="col-md-2" style="font-size:12px">-->
+
+                    <!--                        </div>-->
+                                <div class="col-md-5" style="font-size:12px">
+                                    <div class="row">
+                                        <div class="col-md-4"><div class="form-group">
+                                            {{ form.prodcomponent13_wkstn.errors }}
+
+                                            {{ form.prodcomponent13_wkstn }}
+                                        </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent13_svr.errors }}
+
+                                                {{ form.prodcomponent13_svr }}
+                                            </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent13_IP.errors }}
+
+                                                {{ form.prodcomponent13_IP }}
+                                            </div></div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                        </div>
+                                    <div class="row">
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                    #14
+                                        </div>
+                                </div>
+
+                                <div class="col-md-3" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent14_desc.errors }}
+                                            {{ form.prodcomponent14_desc }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent14_svrHours.errors }}
+
+                                            {{ form.prodcomponent14_svrHours }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-2" style="font-size:12px">
+
+                                </div>
+                    <!--                        <div class="col-md-2" style="font-size:12px">-->
+
+                    <!--                        </div>-->
+                                <div class="col-md-5" style="font-size:12px">
+                                    <div class="row">
+                                        <div class="col-md-4"><div class="form-group">
+                                            {{ form.prodcomponent14_wkstn.errors }}
+
+                                            {{ form.prodcomponent14_wkstn }}
+                                        </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent14_svr.errors }}
+
+                                                {{ form.prodcomponent14_svr }}
+                                            </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent14_IP.errors }}
+
+                                                {{ form.prodcomponent14_IP }}
+                                            </div></div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                        </div>
+                                    <div class="row">
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                    #15
+                                        </div>
+                                </div>
+
+                                <div class="col-md-3" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent15_desc.errors }}
+                                            {{ form.prodcomponent15_desc }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-1" style="font-size:12px">
+                                        <div class="form-group">
+                                            {{ form.prodcomponent15_svrHours.errors }}
+
+                                            {{ form.prodcomponent15_svrHours }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-2" style="font-size:12px">
+
+                                </div>
+                    <!--                        <div class="col-md-2" style="font-size:12px">-->
+
+                    <!--                        </div>-->
+                                <div class="col-md-5" style="font-size:12px">
+                                    <div class="row">
+                                        <div class="col-md-4"><div class="form-group">
+                                            {{ form.prodcomponent15_wkstn.errors }}
+
+                                            {{ form.prodcomponent15_wkstn }}
+                                        </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent15_svr.errors }}
+
+                                                {{ form.prodcomponent15_svr }}
+                                            </div></div>
+                                        <div class="col-md-4"><div class="form-group">
+                                                {{ form.prodcomponent15_IP.errors }}
+
+                                                {{ form.prodcomponent15_IP }}
+                                            </div></div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                        </div>
+
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+
+			</div>
+<div class="row">
+            <div class="col-md-4">
+                			<div class="card">
+				<h5 class="card-header">
+					Hours Calculations - Official Use Only
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                        <div class="form-group ">
+                            {{ form.prodcomponent1_ttl_hours.errors }}
+
+                            {{ form.prodcomponent1_ttl_hours }}
+                    </div>
+
+                    <div class="form-group ">
+                             {{ form.prodcomponent2_ttl_hours.errors }}
+
+                             {{ form.prodcomponent2_ttl_hours }}
+                    </div>
+                                        <div class="form-group ">
+                             {{ form.prodcomponent3_ttl_hours.errors }}
+
+                             {{ form.prodcomponent3_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent4_ttl_hours.errors }}
+
+                             {{ form.prodcomponent4_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent5_ttl_hours.errors }}
+
+                             {{ form.prodcomponent5_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent6_ttl_hours.errors }}
+
+                             {{ form.prodcomponent6_ttl_hours }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+            </div>
+    		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Hours Calculations - Official Use Only
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+                        <div class="form-group ">
+                            {{ form.prodcomponent1_ttl_hours.errors }}
+
+                            {{ form.prodcomponent1_ttl_hours }}
+                    </div>
+
+                    <div class="form-group ">
+                             {{ form.prodcomponent2_ttl_hours.errors }}
+
+                             {{ form.prodcomponent2_ttl_hours }}
+                    </div>
+                                        <div class="form-group ">
+                             {{ form.prodcomponent3_ttl_hours.errors }}
+
+                             {{ form.prodcomponent3_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent4_ttl_hours.errors }}
+
+                             {{ form.prodcomponent4_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent5_ttl_hours.errors }}
+
+                             {{ form.prodcomponent5_ttl_hours }}
+                    </div>
+
+                                        <div class="form-group ">
+                             {{ form.prodcomponent6_ttl_hours.errors }}
+
+                             {{ form.prodcomponent6_ttl_hours }}
+                    </div>
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+            <div class="col-md-4">
+                <div class="card">
+				<h5 class="card-header">
+					Factor Calculations - Official Use Only
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+
+                        <div class="form-horizontal" align="right">
+
+
+
+                                            <div class="form-group ">
+                            {{ form.price.errors }}
+                            <label for="{{ form.price.id_for_label }}">Price:</label>
+                            {{ form.price }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.deliveryoption.errors }}
+                            <label for="{{ form.deliveryoption.id_for_label }}">Deliveryoption:</label>
+                            {{ form.deliveryoption }}
+                        </div>
+
+                        <div class="form-group ">
+                            {{ form.band2count.errors }}
+                            <label for="{{ form.band2count.id_for_label }}">band2count:</label>
+                            {{ form.band2count }}
+                        </div>
+
+                        <div class="form-group ">
+                            {{ form.band2percentage.errors }}
+                            <label for="{{ form.band2percentage.id_for_label }}">band2percentage:</label>
+                            {{ form.band2percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band3count.errors }}
+                            <label for="{{ form.band3count.id_for_label }}">band3count:</label>
+                            {{ form.band3count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band3percentage.errors }}
+                            <label for="{{ form.band3percentage.id_for_label }}">band3percentage:</label>
+                            {{ form.band3percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band4count.errors }}
+                            <label for="{{ form.band4count.id_for_label }}">band4count:</label>
+                            {{ form.band4count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band4percentage.errors }}
+                            <label for="{{ form.band4percentage.id_for_label }}">band4percentage:</label>
+                            {{ form.band4percentage }}
+                        </div>
+                                                                <div class="form-group ">
+                            {{ form.band5count.errors }}
+                            <label for="{{ form.band5count.id_for_label }}">band5count:</label>
+                            {{ form.band5count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band5percentage.errors }}
+                            <label for="{{ form.band5percentage.id_for_label }}">band5percentage:</label>
+                            {{ form.band5percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band6count.errors }}
+                            <label for="{{ form.band6count.id_for_label }}">band6count:</label>
+                            {{ form.band6count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band6percentage.errors }}
+                            <label for="{{ form.band6percentage.id_for_label }}">band6percentage:</label>
+                            {{ form.band6percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band7count.errors }}
+                            <label for="{{ form.band7count.id_for_label }}">band7count:</label>
+                            {{ form.band7count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band7percentage.errors }}
+                            <label for="{{ form.band7percentage.id_for_label }}">band7percentage:</label>
+                            {{ form.band7percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band8count.errors }}
+                            <label for="{{ form.band8count.id_for_label }}">band8count:</label>
+                            {{ form.band8count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band8percentage.errors }}
+                            <label for="{{ form.band8percentage.id_for_label }}">band8percentage:</label>
+                            {{ form.band8percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band9count.errors }}
+                            <label for="{{ form.band9count.id_for_label }}">band9count:</label>
+                            {{ form.band9count }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band9percentage.errors }}
+                            <label for="{{ form.band9percentage.id_for_label }}">band9percentage:</label>
+                            {{ form.band9percentage }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.band10count.errors }}
+                            <label for="{{ form.band10count.id_for_label }}">band10count:</label>
+                            {{ form.band10count }}
+                        </div>
+
+                        <div class="form-group ">
+                            {{ form.band10percentage.errors }}
+                            <label for="{{ form.band10percentage.id_for_label }}">band10percentage:</label>
+                            {{ form.band10percentage }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band9percentage.errors }}
+                            <label for="{{ form.band9percentage.id_for_label }}">band9percentage:</label>
+                            {{ form.band9percentage }}
+                        </div>
+
+
+                                            <div class="form-group ">
+                            {{ form.bandstotalcount.errors }}
+                            <label for="{{ form.bandstotalcount.id_for_label }}">Bandstotalcount:</label>
+                            {{ form.bandstotalcount }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band2percentage.errors }}
+                            <label for="{{ form.band2percentage.id_for_label }}">band2percentage:</label>
+                            {{ form.band2percentage }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.bandstotalpercentage.errors }}
+                            <label for="{{ form.bandstotalpercentage.id_for_label }}">bandstotalpercentage:</label>
+                            {{ form.bandstotalpercentage }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.band2percentage.errors }}
+                            <label for="{{ form.band2percentage.id_for_label }}">band2percentage:</label>
+                            {{ form.band2percentage }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.nummonths.errors }}
+                            <label for="{{ form.nummonths.id_for_label }}">Nummonths:</label>
+                            {{ form.nummonths }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.prodcomponent1_svrHours.errors }}
+                            <label for="{{ form.prodcomponent1_svrHours.id_for_label }}">Prodcomponent1_svrHours:</label>
+                            {{ form.prodcomponent1_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent2_svrHours.errors }}
+                            <label for="{{ form.prodcomponent2_svrHours.id_for_label }}">Prodcomponent2_svrHours:</label>
+                            {{ form.prodcomponent2_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent3_svrHours.errors }}
+                            <label for="{{ form.prodcomponent3_svrHours.id_for_label }}">Prodcomponent3_svrHours:</label>
+                            {{ form.prodcomponent3_svrHours }}
+                        </div>
+
+                                 <div class="form-group ">
+                            {{ form.prodcomponent4_svrHours.errors }}
+                            <label for="{{ form.prodcomponent4_svrHours.id_for_label }}">Prodcomponent1_svrHours:</label>
+                            {{ form.prodcomponent4_svrHours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent5_svrHours.errors }}
+                            <label for="{{ form.prodcomponent5_svrHours.id_for_label }}">Prodcomponent5_svrHours:</label>
+                            {{ form.prodcomponent5_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent6_svrHours.errors }}
+                            <label for="{{ form.prodcomponent6_svrHours.id_for_label }}">Prodcomponent6_svrHours:</label>
+                            {{ form.prodcomponent6_svrHours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent7_svrHours.errors }}
+                            <label for="{{ form.prodcomponent7_svrHours.id_for_label }}">Prodcomponent7_svrHours:</label>
+                            {{ form.prodcomponent7_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent8_svrHours.errors }}
+                            <label for="{{ form.prodcomponent8_svrHours.id_for_label }}">Prodcomponent8_svrHours:</label>
+                            {{ form.prodcomponent8_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent9_svrHours.errors }}
+                            <label for="{{ form.prodcomponent9_svrHours.id_for_label }}">Prodcomponent9_svrHours:</label>
+                            {{ form.prodcomponent9_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent10_svrHours.errors }}
+                            <label for="{{ form.prodcomponent10_svrHours.id_for_label }}">Prodcomponent10_svrHours:</label>
+                            {{ form.prodcomponent10_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent11_svrHours.errors }}
+                            <label for="{{ form.prodcomponent11_svrHours.id_for_label }}">Prodcomponent11_svrHours:</label>
+                            {{ form.prodcomponent11_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent12_svrHours.errors }}
+                            <label for="{{ form.prodcomponent12_svrHours.id_for_label }}">Prodcomponent12_svrHours:</label>
+                            {{ form.prodcomponent12_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent13_svrHours.errors }}
+                            <label for="{{ form.prodcomponent13_svrHours.id_for_label }}">Prodcomponent13_svrHours:</label>
+                            {{ form.prodcomponent13_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent14_svrHours.errors }}
+                            <label for="{{ form.prodcomponent14_svrHours.id_for_label }}">Prodcomponent14_svrHours:</label>
+                            {{ form.prodcomponent14_svrHours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent15_svrHours.errors }}
+                            <label for="{{ form.prodcomponent15_svrHours.id_for_label }}">Prodcomponent15_svrHours:</label>
+                            {{ form.prodcomponent15_svrHours }}
+                        </div>
+                                            <div class="form-group ">
+                            {{ form.prodcomponent1_iphours.errors }}
+                            <label for="{{ form.prodcomponent1_iphours.id_for_label }}">Prodcomponent1_ipHours:</label>
+                            {{ form.prodcomponent1_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent2_iphours.errors }}
+                            <label for="{{ form.prodcomponent2_iphours.id_for_label }}">Prodcomponent2_ipHours:</label>
+                            {{ form.prodcomponent2_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent3_iphours.errors }}
+                            <label for="{{ form.prodcomponent3_iphours.id_for_label }}">Prodcomponent3_ipHours:</label>
+                            {{ form.prodcomponent3_iphours }}
+                        </div>
+
+                                 <div class="form-group ">
+                            {{ form.prodcomponent4_iphours.errors }}
+                            <label for="{{ form.prodcomponent4_iphours.id_for_label }}">Prodcomponent4_ipHours:</label>
+                            {{ form.prodcomponent4_iphours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent5_iphours.errors }}
+                            <label for="{{ form.prodcomponent5_iphours.id_for_label }}">Prodcomponent5_ipHours:</label>
+                            {{ form.prodcomponent5_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent6_iphours.errors }}
+                            <label for="{{ form.prodcomponent6_iphours.id_for_label }}">Prodcomponent6_ipHours:</label>
+                            {{ form.prodcomponent6_iphours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent7_iphours.errors }}
+                            <label for="{{ form.prodcomponent7_iphours.id_for_label }}">Prodcomponent7_ipHours:</label>
+                            {{ form.prodcomponent7_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent8_iphours.errors }}
+                            <label for="{{ form.prodcomponent8_iphours.id_for_label }}">Prodcomponent8_ipHours:</label>
+                            {{ form.prodcomponent8_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent9_iphours.errors }}
+                            <label for="{{ form.prodcomponent9_iphours.id_for_label }}">Prodcomponent9_ipHours:</label>
+                            {{ form.prodcomponent9_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent10_iphours.errors }}
+                            <label for="{{ form.prodcomponent10_iphours.id_for_label }}">Prodcomponent10_ipHours:</label>
+                            {{ form.prodcomponent10_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent11_iphours.errors }}
+                            <label for="{{ form.prodcomponent11_iphours.id_for_label }}">Prodcomponent11_ipHours:</label>
+                            {{ form.prodcomponent11_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent12_iphours.errors }}
+                            <label for="{{ form.prodcomponent12_iphours.id_for_label }}">Prodcomponent12_ipHours:</label>
+                            {{ form.prodcomponent12_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent13_iphours.errors }}
+                            <label for="{{ form.prodcomponent13_iphours.id_for_label }}">Prodcomponent13_ipHours:</label>
+                            {{ form.prodcomponent13_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent14_iphours.errors }}
+                            <label for="{{ form.prodcomponent14_iphours.id_for_label }}">Prodcomponent14_ipHours:</label>
+                            {{ form.prodcomponent14_iphours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent15_iphours.errors }}
+                            <label for="{{ form.prodcomponent15_iphours.id_for_label }}">Prodcomponent15_ipHours:</label>
+                            {{ form.prodcomponent15_iphours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent1_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent1_ttl_hours.id_for_label }}">Prodcomponent1_ttl_hours:</label>
+                            {{ form.prodcomponent1_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent2_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent2_ttl_hours.id_for_label }}">Prodcomponent2_ttl_hours:</label>
+                            {{ form.prodcomponent2_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent3_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent3_ttl_hours.id_for_label }}">Prodcomponent3_ttl_hours:</label>
+                            {{ form.prodcomponent3_ttl_hours }}
+                        </div>
+
+                                 <div class="form-group ">
+                            {{ form.prodcomponent4_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent4_ttl_hours.id_for_label }}">Prodcomponent1_ttl_hours:</label>
+                            {{ form.prodcomponent4_ttl_hours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent5_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent5_ttl_hours.id_for_label }}">Prodcomponent5_ttl_hours:</label>
+                            {{ form.prodcomponent5_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent6_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent6_ttl_hours.id_for_label }}">Prodcomponent6_ttl_hours:</label>
+                            {{ form.prodcomponent6_ttl_hours }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent7_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent7_ttl_hours.id_for_label }}">Prodcomponent7_ttl_hours:</label>
+                            {{ form.prodcomponent7_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent8_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent8_ttl_hours.id_for_label }}">Prodcomponent8_ttl_hours:</label>
+                            {{ form.prodcomponent8_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent9_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent9_ttl_hours.id_for_label }}">Prodcomponent9_ttl_hours:</label>
+                            {{ form.prodcomponent9_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent10_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent10_ttl_hours.id_for_label }}">Prodcomponent10_ttl_hours:</label>
+                            {{ form.prodcomponent10_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent11_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent11_ttl_hours.id_for_label }}">Prodcomponent11_ttl_hours:</label>
+                            {{ form.prodcomponent11_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent12_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent12_ttl_hours.id_for_label }}">Prodcomponent12_ttl_hours:</label>
+                            {{ form.prodcomponent12_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent13_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent13_ttl_hours.id_for_label }}">Prodcomponent13_ttl_hours:</label>
+                            {{ form.prodcomponent13_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent14_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent14_ttl_hours.id_for_label }}">Prodcomponent14_ttl_hours:</label>
+                            {{ form.prodcomponent14_ttl_hours }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent15_ttl_hours.errors }}
+                            <label for="{{ form.prodcomponent15_ttl_hours.id_for_label }}">Prodcomponent15_ttl_hours:</label>
+                            {{ form.prodcomponent15_ttl_hours }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.prodcomponent1_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent1_ttl_fte.id_for_label }}">Prodcomponent1_ttl_fte:</label>
+                            {{ form.prodcomponent1_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent2_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent2_ttl_fte.id_for_label }}">Prodcomponent2_ttl_fte:</label>
+                            {{ form.prodcomponent2_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent3_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent3_ttl_fte.id_for_label }}">Prodcomponent3_ttl_fte:</label>
+                            {{ form.prodcomponent3_ttl_fte }}
+                        </div>
+
+                                 <div class="form-group ">
+                            {{ form.prodcomponent4_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent4_ttl_fte.id_for_label }}">Prodcomponent1_ttl_fte:</label>
+                            {{ form.prodcomponent4_ttl_fte }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent5_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent5_ttl_fte.id_for_label }}">Prodcomponent5_ttl_fte:</label>
+                            {{ form.prodcomponent5_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent6_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent6_ttl_fte.id_for_label }}">Prodcomponent6_ttl_fte:</label>
+                            {{ form.prodcomponent6_ttl_fte }}
+                        </div>
+
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent7_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent7_ttl_fte.id_for_label }}">Prodcomponent7_ttl_fte:</label>
+                            {{ form.prodcomponent7_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent8_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent8_ttl_fte.id_for_label }}">Prodcomponent8_ttl_fte:</label>
+                            {{ form.prodcomponent8_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent9_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent9_ttl_fte.id_for_label }}">Prodcomponent9_ttl_fte:</label>
+                            {{ form.prodcomponent9_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent10_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent10_ttl_fte.id_for_label }}">Prodcomponent10_ttl_fte:</label>
+                            {{ form.prodcomponent10_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent11_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent11_ttl_fte.id_for_label }}">Prodcomponent11_ttl_fte:</label>
+                            {{ form.prodcomponent11_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent12_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent12_ttl_fte.id_for_label }}">Prodcomponent12_ttl_fte:</label>
+                            {{ form.prodcomponent12_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent13_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent13_ttl_fte.id_for_label }}">Prodcomponent13_ttl_fte:</label>
+                            {{ form.prodcomponent13_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent14_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent14_ttl_fte.id_for_label }}">Prodcomponent14_ttl_fte:</label>
+                            {{ form.prodcomponent14_ttl_fte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodcomponent15_ttl_fte.errors }}
+                            <label for="{{ form.prodcomponent15_ttl_fte.id_for_label }}">Prodcomponent15_ttl_fte:</label>
+                            {{ form.prodcomponent15_ttl_fte }}
+                        </div>
+
+
+                                            <div class="form-group ">
+                            {{ form.softlifesvryesno.errors }}
+                            <label for="{{ form.softlifesvryesno.id_for_label }}">Softlifesvryesno:</label>
+                            {{ form.softlifesvryesno }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.softlifesrvhourscalc.errors }}
+                            <label for="{{ form.softlifesrvhourscalc.id_for_label }}">Softlifesrvhourscalc:</label>
+                            {{ form.softlifesrvhourscalc }}
+                        </div>
+
+                                            <div class="form-group ">
+                            {{ form.softlifesvrfte.errors }}
+                            <label for="{{ form.softlifesvrfte.id_for_label }}">Softlifesvrfte:</label>
+                            {{ form.softlifesvrfte }}
+                        </div>
+
+                                                                <div class="form-group ">
+                            {{ form.prodimage.errors }}
+                            <label for="{{ form.prodimage.id_for_label }}">Prodimage:</label>
+                            {{ form.prodimage }}
+                        </div>
+
+
+
+
+
+
+
+                </div>
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+            </div>
+
+</div>
+</div>
+
+
+                <div class="align-middle">
+                    <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+                    {% if title == "Sizing Items" %}
+                        <button type="reset" class="btn ghost-blue" >Reset</button>
+                    {% endif %}
+                    {% if delbtn %}
+                        <a href="{% url 'delete-orderitem' object.pk %}" class="btn ghost-red"> Delete OrderItem </a>
+                    {% endif %}
+                    <a href="{% url 'orderitem' %}" class="btn ghost-button">Cancel</a>
+                </div>
+
+
+<button type="submit" class="btn btn-success">Save</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+{% endblock content %}

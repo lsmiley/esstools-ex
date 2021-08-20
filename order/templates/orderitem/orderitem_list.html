@@ -1,0 +1,22 @@
+<h2 class="form-title">sizingorderitem</h2>
+
+<table class="table table-fluid">
+    <thead>
+        <tr>
+            <th>orderitem</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for orderitem in object_list %}
+        <tr>
+            <td>{{ orderitem }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>

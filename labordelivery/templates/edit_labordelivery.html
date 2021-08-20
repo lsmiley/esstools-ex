@@ -1,0 +1,614 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Labor Delivery</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">LaborDelivery</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+
+
+
+    <form method="post">
+    
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="row">
+            <div class="col-md-2">.</div>
+            <div class="col-md-3">
+<div class="card card-dark">
+  <div class="card-header">
+    <h3 class="card-title">Enter: Type, Reagion/Country, Currency </h3>
+    <div class="card-tools">
+      <!-- Buttons, labels, and many other things can be placed here! -->
+      <!-- Here is a label for example -->
+      <span class="badge badge-primary" data-toggle="collapse" href="#region_country" role="button" aria-expanded="false" aria-controls="collapseExample">Help</span>
+    </div>
+    <!-- /.card-tools -->
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+<p>
+<!--  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">-->
+<!--    Link with href-->
+<!--  </a>-->
+<!--  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+<!--    Button with data-target-->
+<!--  </button>-->
+</p>
+<div class="collapse" id="region_country">
+  <div class="card card-body">
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Labor Type: #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Select from the Drop-Down-List the Type of Delivery Geo or Project Labor you what to Create.
+          <div class="row">StdDeliveryGeo</div>
+          <div class="row">DedicatedOn</div>
+          <div class="row">CloudHybridGeo</div>
+          <div class="row">Prod-RFS-NBD</div>
+          <div class="row">CustomGeo</div>
+          <div class="row">SharedHostGeo</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Region / Country: #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+     Refers to - The Country/Delivery Geo that all or most of the Support will be Delivered from.....,
+          This Option will dictate entries for the Currency and Default/Year.
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapsefour">
+          Delivery Options: #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+     Enter Generic/Common Name for the Delivery Geo currently in use.
+          - If this is for a new Delivery Geo...., use the name provided
+          - If this is for a Project/RFS/NBD etc you can make up a Name of you Choosing.
+          - If this is for a Hybrid Mixed-Support Delivery Geo for multiple Geographies or Shared Support,
+          create a name using the first two or three Characters from existing Delivery Geo
+          i.e. India, United States, Australia would be "INUSAU-Geo" or "INUSAU-Project...., etc.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+          Currency: #4
+        </button>
+      </h5>
+    </div>
+    <div id="collapsefour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+      Enter - The primary Currency Value/Denomination in use for the Country Selected in the "Region / Country" field..!</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapseFive">
+          Default/Yr: #5
+        </button>
+      </h5>
+    </div>
+    <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
+      <div class="card-body">
+      Enter - The amount in Hours for the normal Work Week for the country entered in the "Region / Country" Field ..!</div>
+    </div>
+  </div>
+
+
+</div>
+  </div>
+</div>
+        <div class="form-group">
+            {{ form.labordeliverytype.errors }}
+            <label for="{{ form.labordeliverytype.id_for_label }}">labor Type:</label>
+            {{ form.labordeliverytype }}
+        </div>
+        <div class="form-group ">
+            {{ form.regionnumber.errors }}
+            <label for="{{ form.regionnumber.id_for_label }}">Region ID #:</label>
+            {{ form.regionnumber }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.regions.errors }}
+            <label for="{{ form.regions.id_for_label }}">Region / Country:</label>
+            {{ form.regions }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.deliveryoption.errors }}
+            <label for="{{ form.deliveryoption.id_for_label }}">Delivery Options:</label>
+            {{ form.deliveryoption }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.currencytype.errors }}
+            <label for="{{ form.currencytype.id_for_label }}">Currency:</label>
+            {{ form.currencytype }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.defaultfte_year.errors }}
+            <label for="{{ form.defaultfte_year.id_for_label }}">Default/Yr:</label>
+            {{ form.defaultfte_year }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.workweek.errors }}
+            <label for="{{ form.workweek.id_for_label }}">Work/Week:</label>
+            {{ form.workweek }}
+        </div>
+
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer">
+    The footer of the card
+  </div>
+  <!-- /.card-footer -->
+</div>
+<!-- /.card -->
+
+            </div>
+            <div class="col-md-4">
+<div class="card card-dark">
+  <div class="card-header">
+    <h3 class="card-title">Enter: Cost and Count across Bands. </h3>
+    <div class="card-tools">
+      <!-- Buttons, labels, and many other things can be placed here! -->
+      <!-- Here is a label for example -->
+      <span class="badge badge-primary">Label</span>
+    </div>
+    <!-- /.card-tools -->
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                Band Name
+            </div>
+            <div class="col-3">
+                Cost
+            </div>
+            <div class="col-3">
+                Count
+            </div>
+            <div class="col-3">
+                Percent %
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band2name.errors }}
+                    {{ form.band2name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band2.errors }}
+                    {{ form.band2 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band2count.errors }}
+                    {{ form.band2count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band2percentage.errors }}
+                    {{ form.band2percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band3name.errors }}
+                    {{ form.band3name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band3.errors }}
+                    {{ form.band3 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band3count.errors }}
+                    {{ form.band3count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band3percentage.errors }}
+                    {{ form.band3percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band4name.errors }}
+                    {{ form.band4name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band4.errors }}
+                    {{ form.band4 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band4count.errors }}
+                    {{ form.band4count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band4percentage.errors }}
+                    {{ form.band4percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band5name.errors }}
+                    {{ form.band5name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band25.errors }}
+                    {{ form.band5 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band5count.errors }}
+                    {{ form.band5count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band5percentage.errors }}
+                    {{ form.band5percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band6name.errors }}
+                    {{ form.band6name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band6.errors }}
+                    {{ form.band6 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band6count.errors }}
+                    {{ form.band6count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band6percentage.errors }}
+                    {{ form.band6percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band7name.errors }}
+                    {{ form.band7name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band7.errors }}
+                    {{ form.band7 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band7count.errors }}
+                    {{ form.band7count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band7percentage.errors }}
+                    {{ form.band7percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band8name.errors }}
+                    {{ form.band8name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band8.errors }}
+                    {{ form.band8 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band8count.errors }}
+                    {{ form.band8count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band8percentage.errors }}
+                    {{ form.band8percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band9name.errors }}
+                    {{ form.band9name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band9.errors }}
+                    {{ form.band9 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band9count.errors }}
+                    {{ form.band9count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band9percentage.errors }}
+                    {{ form.band9percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band10name.errors }}
+                    {{ form.band10name }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band10.errors }}
+                    {{ form.band10 }}
+                 </div>
+            </div>
+            <div class="col-3">
+                 <div class="form-group ">
+                    {{ form.band10count.errors }}
+                    {{ form.band10count }}
+                 </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group ">
+                    {{ form.band10percentage.errors }}
+                    {{ form.band10percentage }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="row">
+            <div class="col-6">
+
+            {{ form.bandstotalcount.errors }}
+            <label for="{{ form.bandstotalcount.id_for_label }}">Total Band:</label>
+            {{ form.bandstotalcount }}
+            </div>
+            <div class="col-6">
+
+            {{ form.deliveryctrcostfactor.errors }}
+            <label for="{{ form.deliveryctrcostfactor.id_for_label }}">Factor:</label>
+            {{ form.deliveryctrcostfactor }}
+
+
+            </div>
+            </div>
+
+
+        </div>
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer">
+    The footer of the card
+  </div>
+  <!-- /.card-footer -->
+</div>
+<!-- /.card -->
+
+            </div>
+            <div class="col-md-2">
+<div class="card card-dark">
+  <div class="card-header">
+    <h3 class="card-title">Default Card Example</h3>
+    <div class="card-tools">
+      <!-- Buttons, labels, and many other things can be placed here! -->
+      <!-- Here is a label for example -->
+      <span class="badge badge-primary">Label</span>
+    </div>
+    <!-- /.card-tools -->
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+
+        <div class="form-group ">
+            {{ form.deliverytype.errors }}
+            <label for="{{ form.deliverytype.id_for_label }}">Delivery Type:</label>
+            {{ form.deliverytype }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.deliveryusedescription.errors }}
+            <label for="{{ form.deliveryusedescription.id_for_label }}">Descriptiom:</label>
+            {{ form.deliveryusedescription }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.memodeliverynote1.errors }}
+            <label for="{{ form.memodeliverynote1.id_for_label }}">Note:</label>
+            {{ form.memodeliverynote1 }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.deliveryownerfirstname.errors }}
+            <label for="{{ form.deliveryownerfirstname.id_for_label }}">1st. Name:</label>
+            {{ form.deliveryownerfirstname }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.deliveryownerlastname.errors }}
+            <label for="{{ form.deliveryownerlastname.id_for_label }}">2nd. Name:</label>
+            {{ form.deliveryownerlastname }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.deliveryownerfullname.errors }}
+            <label for="{{ form.deliveryownerfullname.id_for_label }}">Full Name:</label>
+            {{ form.deliveryownerfullname }}
+        </div>
+
+        <div class="form-group ">
+            {{ form.deliveryowneremail.errors }}
+            <label for="{{ form.deliveryowneremail.id_for_label }}">Email:</label>
+            {{ form.deliveryowneremail }}
+        </div>
+
+                <div class="form-group ">
+            {{ form.createby.errors }}
+            <label for="{{ form.createby.id_for_label }}">Created By:</label>
+            {{ form.createby }}
+        </div>
+
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer">
+    The footer of the card
+  </div>
+  <!-- /.card-footer -->
+</div>
+<!-- /.card -->
+
+            </div>
+            <div class="col-md-1">.</div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Labor Delivery" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-labordelivery' object.pk %}" class="btn ghost-red"> Delete Labor Delivery </a>
+            {% endif %}
+            <a href="{% url 'labordelivery' %}" class="btn ghost-button">Cancel</a>
+        </div>
+        
+    </form>
+</div>
+
+{% endblock content %}

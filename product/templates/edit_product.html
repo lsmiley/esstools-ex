@@ -1,0 +1,816 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+{% block content %}
+
+<div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Product</h4>
+                        </div>
+                        <div class="comment-widgets scrollable">
+                               <div class="row" style="color: #ea2088; font-style: bold; font-size: 3rem; ">
+
+
+        </div>
+    </div>
+
+    <div style="border-bottom: 1px solid white;"></div>
+
+    <br>
+<div class="row">
+
+
+</div>
+
+                                               <div class="row">
+                         <div class="col-md-1">.</div>
+
+                        <div class="col-md-10">
+                                <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">{{title}}</div>
+                            <form method="post">
+
+                                {% csrf_token %}
+                                {{ form.non_field_errors }}
+<div class="container" align="center">
+    <div class="form-group">
+                                    {{ form.active.errors }}
+                                    <label for="{{ form.active.id_for_label }}"> Is Active:</label>
+                                    {{ form.active }}
+                                </div>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="productdetails-tab" data-bs-toggle="tab" data-bs-target="#productdetails" type="button" role="tab" aria-controls="home" aria-selected="true">Product Details</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="components-tab" data-bs-toggle="tab" data-bs-target="#components" type="button" role="tab" aria-controls="components" aria-selected="false">Components</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="technical-tab" data-bs-toggle="tab" data-bs-target="#technical" type="button" role="tab" aria-controls="technical" aria-selected="false">Technical Data</button>
+                              </li>
+                                  <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="memo-tab" data-bs-toggle="tab" data-bs-target="#memo" type="button" role="tab" aria-controls="memo" aria-selected="false">Memo/Notes</button>
+                              </li>
+                                  <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" type="button" role="tab" aria-controls="tools" aria-selected="false">Tools</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="productdetails" role="tabpanel" aria-labelledby="productdetails-tab">
+                                    <hr/>
+
+
+                                    <div class="container-fluid">
+	<div class="row">
+
+			<div class="row">
+				<div class="col-md-3">
+					<div class="card">
+						<h5 class="card-header">
+							Status/Vendor/Category
+						</h5>
+						<div class="card-body">
+							<p class="card-text">
+
+
+                                <div class="form-group">
+                                    {{ form.title.errors }}
+                                    <label for="{{ form.title.id_for_label }}">Enter a Description:</label>
+                                    {{ form.title }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.prodvendor.errors }}
+                                    <label for="{{ form.prodvendor.id_for_label }}">Select  Security Vendor:</label>
+                                    {{ form.prodvendor }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.category.errors }}
+                                    <label for="{{ form.category.id_for_label }}">Select Product Category:</label>
+                                    {{ form.category }}
+                                </div>
+							</p>
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<h5 class="card-header">
+							Description
+						</h5>
+						<div class="card-body">
+							<p class="card-text">
+								<div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                                                    <div class="form-group">
+                                    {{ form.productdesc.errors }}
+                                    <label for="{{ form.productdesc.id_for_label }}">Enter/Edit Product Desc:</label>
+                                    {{ form.productdesc }}
+                                </div>
+
+                                                                                    <div class="form-group">
+                                    {{ form.primarycomp.errors }}
+                                    <label for="{{ form.primarycomp.id_for_label }}">Name: Primary Component:</label>
+                                    {{ form.primarycomp }}
+                                </div>
+
+                                                                                    <div class="form-group">
+                                    {{ form.primarycompdesc.errors }}
+                                    <label for="{{ form.primarycompdesc.id_for_label }}">Desc: Primary Component:</label>
+                                    {{ form.primarycompdesc }}
+                                </div>
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                                                    <div class="form-group">
+                                    {{ form.numcomponent.errors }}
+                                    <label for="{{ form.numcomponent.id_for_label }}"># Number of Components</label>
+                                    {{ form.numcomponent }}
+                                </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card">
+						<h5 class="card-header">
+							Base Hrs / Complexity
+						</h5>
+						<div class="card-body">
+							<p class="card-text">
+								                                <div class="form-group">
+                                    {{ form.productcomplexitybase.errors }}
+                                    <label for="{{ form.productcomplexitybase.id_for_label }}">Base Hours:</label>
+                                    {{ form.productcomplexitybase }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.productcomplexityfac.errors }}
+                                    <label for="{{ form.productcomplexityfac.id_for_label }}">Complexity Factor:</label>
+                                    {{ form.productcomplexityfac }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.totalcomplexity.errors }}
+                                    <label for="{{ form.totalcomplexity.id_for_label }}">Total Complexity:</label>
+                                    {{ form.totalcomplexity }}
+                                </div>
+							</p>
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+
+                                    </div>
+                                <div class="tab-pane fade" id="components" role="tabpanel" aria-labelledby="components-tab">
+
+
+                                   <div class="row">
+
+
+	<div class="row">
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card">
+						<h5 class="card-header">
+							Standard / Default Components
+						</h5>
+						<div class="card-body">
+
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                            Default
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                            Name
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                            Fac
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                            Hrs
+                        </div>
+
+                </div>
+
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component1.errors }}
+
+                                    {{ form.component1 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component1desc.errors }}
+                                    {{ form.component1desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac1.errors }}
+
+                                    {{ form.componentcomplexityfac1 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs1.errors }}
+
+                                    {{ form.componentcomplexityhrs1 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component2.errors }}
+
+                                    {{ form.component2 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component2desc.errors }}
+                                    {{ form.component2desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac2.errors }}
+
+                                    {{ form.componentcomplexityfac2 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs2.errors }}
+
+                                    {{ form.componentcomplexityhrs2 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component3.errors }}
+
+                                    {{ form.component3 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component3desc.errors }}
+                                    {{ form.component3desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac3.errors }}
+
+                                    {{ form.componentcomplexityfac3 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs3.errors }}
+
+                                    {{ form.componentcomplexityhrs3 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component4.errors }}
+
+                                    {{ form.component4 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component4desc.errors }}
+                                    {{ form.component4desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac4.errors }}
+
+                                    {{ form.componentcomplexityfac4 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs4.errors }}
+
+                                    {{ form.componentcomplexityhrs4 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component5.errors }}
+
+                                    {{ form.component5 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component5desc.errors }}
+                                    {{ form.component5desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac5.errors }}
+
+                                    {{ form.componentcomplexityfac5 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs5.errors }}
+
+                                    {{ form.componentcomplexityhrs5 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component6.errors }}
+
+                                    {{ form.component6 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component6desc.errors }}
+                                    {{ form.component6desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac6.errors }}
+
+                                    {{ form.componentcomplexityfac6 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs6.errors }}
+
+                                    {{ form.componentcomplexityhrs6 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component7.errors }}
+
+                                    {{ form.component7 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component7desc.errors }}
+                                    {{ form.component7desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac7.errors }}
+
+                                    {{ form.componentcomplexityfac7 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs7.errors }}
+
+                                    {{ form.componentcomplexityhrs7 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component8.errors }}
+
+                                    {{ form.component8 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component8desc.errors }}
+                                    {{ form.component8desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac8.errors }}
+
+                                    {{ form.componentcomplexityfac8 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs8.errors }}
+
+                                    {{ form.componentcomplexityhrs8 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component9.errors }}
+
+                                    {{ form.component9 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component9desc.errors }}
+                                    {{ form.component9desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac9.errors }}
+
+                                    {{ form.componentcomplexityfac9 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs9.errors }}
+
+                                    {{ form.componentcomplexityhrs9 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component10.errors }}
+
+                                    {{ form.component10 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component10desc.errors }}
+                                    {{ form.component10desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac10.errors }}
+
+                                    {{ form.componentcomplexityfac10 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs10.errors }}
+
+                                    {{ form.componentcomplexityhrs10 }}
+                                </div>
+                        </div>
+
+
+                </div>
+
+
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<h5 class="card-header">
+							Complex Features / Add-Ons / Custom
+						</h5>
+						<div class="card-body">
+							<p class="card-text">
+								                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component11.errors }}
+
+                                    {{ form.component11 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component11desc.errors }}
+                                    {{ form.component11desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac11.errors }}
+
+                                    {{ form.componentcomplexityfac11 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs11.errors }}
+
+                                    {{ form.componentcomplexityhrs11 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component12.errors }}
+
+                                    {{ form.component12 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component12desc.errors }}
+                                    {{ form.component12desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac12.errors }}
+
+                                    {{ form.componentcomplexityfac12 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs12.errors }}
+
+                                    {{ form.componentcomplexityhrs12 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component13.errors }}
+
+                                    {{ form.component13 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component13desc.errors }}
+                                    {{ form.component13desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac13.errors }}
+
+                                    {{ form.componentcomplexityfac13 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs13.errors }}
+
+                                    {{ form.componentcomplexityhrs13 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component14.errors }}
+
+                                    {{ form.component14 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component14desc.errors }}
+                                    {{ form.component14desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac14.errors }}
+
+                                    {{ form.componentcomplexityfac14 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs14.errors }}
+
+                                    {{ form.componentcomplexityhrs14 }}
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="row">
+                        <div class="col-md-2" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component15.errors }}
+
+                                    {{ form.component15 }}
+                                </div>
+                        </div>
+                        <div class="col-md-4" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.component15desc.errors }}
+                                    {{ form.component15desc }}
+                                </div>
+                        </div>
+
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityfac15.errors }}
+
+                                    {{ form.componentcomplexityfac15 }}
+                                </div>
+                        </div>
+                        <div class="col-md-3" style="font-size:12px">
+                                <div class="form-group">
+                                    {{ form.componentcomplexityhrs15.errors }}
+
+                                    {{ form.componentcomplexityhrs15 }}
+                                </div>
+                        </div>
+
+
+                </div>
+							</p>
+						</div>
+						<div class="card-footer">
+							Card footer
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+	</div>
+
+
+                                   </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="technical" role="tabpanel" aria-labelledby="technical-tab">Tech Data and White Sheets</div>
+                                <div class="tab-pane fade" id="memo" role="tabpanel" aria-labelledby="memo-tab">Memo / Note</div>
+                                <div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">Tools</div>
+                            </div>
+
+                        </div>
+
+
+
+
+        <br>
+
+
+
+
+
+
+
+        <hr/>
+
+<p>Enter here the # Number of Hours for Labor/Effort each Component adds to the overall Product's Service Delivery...!</p>
+                                    <p>If you do not know the number of Hours of Labor/Effort use the "Complexity Calculator"</p>
+
+        <hr/>
+
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Product" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-product' object.pk %}" class="btn ghost-red"> Delete Product </a>
+            {% endif %}
+            <a href="{% url 'product' %}" class="btn ghost-button">Cancel</a>
+        </div>
+
+    </form>
+
+                            </div>
+
+                            <div class="col-md-1">.</div>
+
+                            </div>
+                                <hr/>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+{% endblock content %}
+{%  block extra_js %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+{% endblock %}

@@ -1,0 +1,523 @@
+{% load render_table from django_tables2 %}
+<h5 class="card-title">Sizing Detail</h5>
+<div class="table-responsive">
+      <!--                          *** Endpoint / Count / Hours/ Band /  Information ****-->
+                                            <div class="row">
+<!--                                    <div class="col-md-1"></div>-->
+                                    <div class="col-md-12">
+                                    <div class="form-group-sm" style="font:500">
+
+
+
+											<div class="row" style="font-weight:bold; font-family:Arial; font-size:12px">
+												<div class="col-md-2" style="background-color:#3c3737; color:#ffd800">EndPoint Info:</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">Count</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#ffd800">Hours</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band3</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band4</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band5</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band6</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band7</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band8</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#FFFFFF">FTE Band9</div>
+												<div class="col-md-1" style="background-color:#3c3737; color:#ffd800">Total FTE</div>
+
+											</div>
+											<div class="row" style="font-weight:bold; font-family:Arial; font-size:12px">
+												<div class="col-md-2">:</div>
+												<div class="col-md-3" style="background-color:#ffcc99;font-weight:bold">.</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+												<div class="col-md-1" style="background-color:#ffcc99;">. </div>
+
+											</div>
+
+											<div class="row" style="font-weight:normal; font-family:Arial; font-size:12px">
+												<div class="col-md-2">Workstations:</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_num_workstation }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_sum_wkstnshourscalc }}</div>
+												</div>
+
+												<div class="col-md-1" style="background-color:#ffcc99">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99; align-content:center">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+
+												<div class="col-md-1" style="background-color:#ffcc99; font-weight:bold; font-family:Arial">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+												</div>
+											</div>
+
+											<div class="row" style="font-weight:normal; font-family:Arial; font-size:12px">
+												<div class="col-md-2">Servers:</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_num_server }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_sum_srvshourscalc }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+
+												<div class="col-md-1" style="background-color:#ffcc99; font-weight:bold; font-family:Arial;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+												</div>
+											</div>
+
+											<div class="row" style="font-weight:normal; font-family:Arial; font-size:12px">
+												<div class="col-md-2">IP / EndPoints:</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_num_ipaddress }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_sum_ipshourscalc }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.125</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.125</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+
+												<div class="col-md-1" style="background-color:#ffcc99; font-weight:bold; font-family:Arial;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+												</div>
+											</div>
+
+											<div class="row" style="font-weight:normal; font-family:Arial; font-size:12px">
+												<div class="col-md-2">Additional Consoles:</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_num_console }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">{{ instance.tag_sum_consolehourscalc }}</div>
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.00</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+												<div class="col-md-1" style="background-color:#ffcc99;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+
+												</div>
+
+
+												<div class="col-md-1" style="background-color:#ffcc99; font-weight:bold; font-family:Arial;">
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px;">0.000</div>
+												</div>
+											</div>
+											<div class="row" style="font-weight:bold; font-family:Arial; font-size:12px">
+												<div class="col-md-4" style="background-color:#C6E2EE;font-weight:normal">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+												<div class="col-md-1" style="background-color:#C6E2EE;">.</div>
+											</div>
+
+											<div class="row" style="font-family:Arial; font-size:12px">
+												<div class="col-md-3"></div>
+												<div class="col-md-1">
+
+													<div style="background-color:#eaeae9; font-weight:bold; height:23px; text-align:center; padding: 5px 3px 3px 3px;">265.000</div>
+												</div>
+												<div class="col-md-7"></div>
+												<div class="col-md-1">
+
+													<div style="background-color:#eaeae9; height:23px; text-align:center; padding: 5px 3px 3px 3px; font-weight:bold">0.250</div>
+												</div>
+
+											</div>
+										</div>
+
+                                    </div>
+<!--                                    <div class="col-md-1"></div>-->
+
+
+
+                                            </div>
+
+
+    {% render_table order_items %}
+</div>
+<div class="col-md-12">
+    <div class="pull-right m-t-30 text-right">
+        <p>Value: {{ instance.tag_value }}</p>
+        <p>Discount  : {{ instance.tag_discount }} </p>
+
+        <p># Servers  : {{ instance.tag_num_server }} </p>
+        <p># Workstations  : {{ instance.tag_num_workstation }} </p>
+        <p># IP/EndPoints  : {{ instance.tag_num_ipaddress }} </p>
+        <p># Sum of Endpoints  : {{ instance.tag_sum_endpoint }} </p>
+        <p># Sum of Consoles  : {{ instance.tag_num_console }} </p>
+        <hr>
+        <p>Total Hours  : {{ instance.consolehourscalc }} </p>
+        <hr>
+        <h3><b>Total :</b> {{ instance.tag_final_value }}</h3>
+    </div>
+    <div class="clearfix"></div>
+    <hr>
+    <div class="text-right">
+        <a href="{% url 'done_order' instance.id %}" class="btn btn-success" type="submit"> Done </a>
+        <a onclick="return confirm('Are you sure?')" href="{% url 'delete_order' instance.id %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-Edit">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title">Edit Sizing Item</h4>
+                            </div>
+
+                                <div class="modal-body">
+									<form method="post" class="form">{% csrf_token %}
+										<div class="form-horizontal">
+
+                                        <div class="form-group" style="display:none;">
+                                            <label id="lblOrderitemIdEdit" class="control-label col-md-2">{{orderitem.id}:</label>
+                                            <div class="col-md-10">
+                                                <input type="text" value="" id="OrderItemIdEdit" name="OrderItemIdEdit" class="form-control orderitemIdEdit" />
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+<div class="row">
+		<div class="col-md-4">
+			<div class="card bg-default">
+				<h5 class="card-header">
+					Workstation
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						                                    <div class="form-group">
+<!--                                            <label id="lblNumWorkstationEdit" class="control-label col-md-2"> Wkstns:</label>-->
+                                            <div class="col-md-10">
+                                                <input type="text" value="" id="numworkstationEdit" name="numworkstationEdit" class="form-control numworkstationEdit" />
+
+                                            </div>
+                                        </div>
+					</p>
+				</div>
+				<div class="card-footer">
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card bg-default">
+				<h5 class="card-header">
+					Servers
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+                                      <div class="form-group">
+<!--                                            <label id="lblNumServerEdit" class="control-label col-md-2"> Servers:</label>-->
+                                            <div class="col-md-10">
+                                                <input type="text" value="" id="numserverEdit" name="numserverEdit" class="form-control numserverEdit" />
+
+                                            </div>
+                                        </div>
+					</p>
+				</div>
+				<div class="card-footer">
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					IP/Endpoints
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+                                        <div class="form-group">
+<!--                                            <label id="lblNumIpaAddressEdit" class="control-label col-md-2"> IP/Endpoints:</label>-->
+                                            <div class="col-md-10">
+                                                <input type="text" value="" id="numipaddressEdit" name="numipaddressEdit" class="form-control numipaddressEdit" />
+
+                                            </div>
+                                        </div>
+					</p>
+				</div>
+				<div class="card-footer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+<hr>
+<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<h5 class="card-header">
+					Contract # Months
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+										<div class="form-group">
+<!--                                            <label id="lblNumMonthsEdit" class="control-label col-md-2">Contract Months:</label>-->
+                                            <div class="col-md-10">
+                                                <input type="text" value="" id="nummonthsEdit" name="nummonthsEdit" class="form-control nummonthsEdit" />
+
+                                        </div>
+                                        </div>
+					</p>
+				</div>
+				<div class="card-footer">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<h5 class="card-header">
+					Labor/Delivery Geo
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+											<div class="col-md-10">
+                                                <div class='input-group date' id='datetimepickerEdit'>
+                                                    <input type='text' class="form-control datetimepickerEdit" id="appointmentDateEdit" name="appointmentDateEdit" value="" />
+                                                    <span class="input-group-addon datetimepicker-addonEdit">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+					</p>
+				</div>
+				<div class="card-footer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+											<div class="row">
+		<div class="col-md-12">
+			<div id="card-871318">
+				<div class="card">
+					<div class="card-header">
+						 <a class="card-link" data-toggle="collapse" data-parent="#card-871318" href="#card-element-457097">Help with Endpoints</a>
+					</div>
+					<div id="card-element-457097" class="collapse">
+						<div class="card-body">
+							What is an Endpoint...? An "Endpoint" is used when and where the lines are Blurred as to what
+							type of Device  or Asset require Protection from the selected Security Product .
+							<hr>
+							For example..., URL Content Filtering, or Vulnerability Scanning can be applied to Assets that are not Workstations or Servers.
+							i.e.  A Customer requests a Symantec Protection Engine (Scan Engine) that is Scanning a NAS Storage Cluster consisting of four (4) NetApp Filers.
+							In theory you might say that there are only four (4) Endpoints..., But Consideration has to be made for number of Shares and, or Files that
+							Users have Access to on the Storage Cluster....,
+							<hr>
+							Also consideration has to be made for the Number of Users that access the Storage ...., i.e. 200 Users versus 2000, or 5000 etc. may prompt you to define a Number
+							for Endpoints to account for Scale of the Support IBM will be Delivering.
+
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						 <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-871318" href="#card-element-381490">Help with Contract Months</a>
+					</div>
+					<div id="card-element-381490" class="collapse">
+						<div class="card-body">
+							Contract Months refers to the term in Months that the Customer intends to sign a Support Contract with IBM.
+							<hr>
+							It is possible for each Security Product to have its own Contract Term/Length.
+							<hr>
+							It is also possible for each Security Product to have its own Transition and Transformation Cost.
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						 <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-871318" href="#card-element-381497">Help with selecting Labor/Delivery</a>
+					</div>
+					<div id="card-element-381497" class="collapse">
+						<div class="card-body">
+							Labor Delivery refers to where and how the Support is going to be Delivered.
+							<hr>
+							Examples are single Geo i.e India or ANZ for India or Australia.
+							<hr>
+							There also exist Blended Labor Delivery Geos  that consist of 2 or more Delivery Geos combined
+							that allow for "Follow the Sun Support where the cost of Support can be Shared to provide the
+							Customer a lower Cost.
+							<hr>
+							If you do not see a Labordelivery Geo to suit your requirements you can request a Custom Labor Delivery Geo be created for your use at :
+							"essizer@us.ibm.com"
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+								</form>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <button type="submit" id="UpdateButton" name="UpdateButton" class="btn btn-primary update">Update</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+<script>
+    $('.edit_button').click(function (evt) {
+        evt.preventDefault();
+        const btn = $(this);
+        const url = btn.attr('data-href');
+        $.ajax({
+            method: 'GET',
+            url: url,
+            dataType: 'json',
+
+            success: function (data) {
+                $('#order_item_container').html(data.result)
+            }
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    $(".edit[data-target='#modal-Edit']").click(function () {
+        var columnHeadings = $("thead th").map(function () {
+            return $(this).text();
+        }).get();
+        columnHeadings.pop();
+        var columnValues = $(this).parent().siblings().map(function () {
+            return $(this).text();
+        }).get();
+        var myModal = $('#modal-Edit');
+        $('#OrderItemIdEdit', myModal).val(columnValues[0].trim());
+        $('#numworkstationEdit', myModal).val(columnValues[1].trim());
+		$('#numserverEdit', myModal).val(columnValues[3].trim());
+		$('#numipaddressEdit', myModal).val(columnValues[5].trim())
+
+        myModal.modal({ show: true });
+        return false;
+    });
+    $('.modal-footer .update').click(function () {
+        $('form[name="modalForm"]').submit();
+    });
+    });
+</script>
+
+	</div>

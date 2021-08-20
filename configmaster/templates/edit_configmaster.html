@@ -1,0 +1,82 @@
+{% extends 'index.html' %} {% load render_table from django_tables2 %}
+
+
+{% block content %}
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Configtable</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Configtable</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+
+
+
+    <form method="post">
+    
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="form-group">
+            {{ form.configmastername.errors }}
+            <label for="{{ form.configmastername.id_for_label }}">Name:</label>
+            {{ form.configmastername }}
+        </div>
+        <div class="form-group ">
+            {{ form.configmasterdesc.errors }}
+            <label for="{{ form.configmasterdesc.id_for_label }}">Description:</label>
+            {{ form.configmasterdesc }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.created.errors }}
+            <label for="{{ form.created.id_for_label }}">Created:</label>
+            {{ form.created }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.configmastermodifydate.errors }}
+            <label for="{{ form.configmastermodifydate.id_for_label }}">Modified:</label>
+            {{ form.configmastermodifydate }}
+        </div>
+        
+        <div class="form-group ">
+            {{ form.configmasternotes.errors }}
+            <label for="{{ form.configmasternotes.id_for_label }}">Notes:</label>
+            {{ form.configmasternotes }}
+        </div>
+        <br>
+
+        <div class="align-middle">
+            <button type="submit" class="btn ghost-green">{{ savebtn }}</button>
+            {% if title == "New Configtable" %}
+                <button type="reset" class="btn ghost-blue" >Reset</button>
+            {% endif %}
+            {% if delbtn %}
+                <a href="{% url 'delete-configmaster' object.pk %}" class="btn ghost-red"> Delete Configtable </a>
+            {% endif %}
+            <a href="{% url 'configmaster' %}" class="btn ghost-button">Cancel</a>
+        </div>
+        
+    </form>
+</div>
+
+{% endblock content %}
