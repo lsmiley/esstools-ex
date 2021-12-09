@@ -3,9 +3,7 @@ asgiref
 autopep8
 django==3.2.5
 django-admin-sso==3.1.0
-adminlte-base==0.2.0
 arrow==1.2.1
-django-adminlte-full==0.2.0
 django-crispy-forms==1.13.0
 Jinja2==3.0.3
 MarkupSafe==2.0.1

@@ -37,7 +37,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'crispy_forms',
-    'adminlte_full',
     'admin_sso',
     'rest_framework',
     'django_ajax',
@@ -106,7 +105,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'adminlte_full.context_processors.adminlte',
             ],
         },
     },
@@ -138,7 +136,7 @@ DATABASES = {
 #     }
 # }
 
-# **** Local Port-Forward from Cloud Database Settings ****
+# **** Local Port-Forward from OpenShift Sandbox Database Settings ****
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -146,20 +144,20 @@ DATABASES = {
 #         'USER': 'sizingadmin',
 #         'PASSWORD': 'Malware12345',
 #         'HOST': 'localhost',
-#         'PORT': '1066',
+#         'PORT': '2105',
 #     }
 # }
 
 
-# **** Cloud Database Settings ****
-#
+# **** OpenShift Sandbox Database Settings ****
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'esstools-04-db',
         'USER': 'sizingadmin',
         'PASSWORD': 'Malware12345',
-        'HOST': '10.129.3.167',
+        'HOST': '10.129.4.86',
         'PORT': '3306',
     }
 
