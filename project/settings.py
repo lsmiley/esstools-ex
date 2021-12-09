@@ -139,30 +139,31 @@ DATABASES = {
 # }
 
 # **** Local Port-Forward from Cloud Database Settings ****
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'esstools-04-db',
-        'USER': 'sizingadmin',
-        'PASSWORD': 'Malware12345',
-        'HOST': 'localhost',
-        'PORT': '1066',
-    }
-}
-
-
-# **** Cloud Database Settings ****
-#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'esstools-04-db',
 #         'USER': 'sizingadmin',
 #         'PASSWORD': 'Malware12345',
-#         'HOST': '10.128.4.173',
-#         'PORT': '3306',
+#         'HOST': 'localhost',
+#         'PORT': '1066',
 #     }
 # }
+
+
+# **** Cloud Database Settings ****
+#
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'esstools-04-db',
+        'USER': 'sizingadmin',
+        'PASSWORD': 'Malware12345',
+        'HOST': '10.129.3.167',
+        'PORT': '3306',
+    }
+
+}
 
 
 AUTHENTICATION_BACKENDS = (
