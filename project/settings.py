@@ -157,7 +157,7 @@ DATABASES = {
         'NAME': 'esstools-04-db',
         'USER': 'sizingadmin',
         'PASSWORD': 'Malware12345',
-        'HOST': '10.129.4.86',
+        'HOST': '172.30.16.68',
         'PORT': '3306',
     }
 
